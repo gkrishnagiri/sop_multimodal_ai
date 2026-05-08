@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+
+# Environment
+.env
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data
+data/videos/*
+data/audio/*
+data/frames/*
+data/transcripts/*
+data/ocr/*
+data/outputs/*
+data/temp/*
+
+# Keep folders
+!data/videos/.gitkeep
+!data/audio/.gitkeep
+!data/frames/.gitkeep
+!data/transcripts/.gitkeep
+!data/ocr/.gitkeep
+!data/outputs/.gitkeep
+!data/temp/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# Docker
+postgres_data/
+redis_data/
