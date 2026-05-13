@@ -43,3 +43,12 @@ data/temp/*
 # Docker
 postgres_data/
 redis_data/
+# Media files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.mp3
+*.wav
+*.m4a
