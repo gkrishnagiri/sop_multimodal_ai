@@ -7,7 +7,16 @@ from backend.config.settings import settings
 from backend.services.job_service import JOBS, update_job
 
 
-ocr_engine = PaddleOCR(lang="en")
+_ocr_engine = None
+
+
+def get_ocr_engine():
+    global _ocr_engine
+
+    if _ocr_engine is None:
+        _ocr_engine = PaddleOCR(lang="en")
+
+    return _ocr_engine
 
 
 def normalize_ocr_result(result):
@@ -68,6 +77,8 @@ def run_ocr_on_frames(job_id: str):
         raise ValueError("Frames not found. Run extract-frames first.")
 
     ocr_results = []
+
+    ocr_engine = get_ocr_engine()
 
     for frame in frames:
         frame_path = frame["path"]
