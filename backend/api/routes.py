@@ -7,11 +7,12 @@ from backend.services.frame_service import extract_frames_from_video
 from backend.services.ocr_service import run_ocr_on_frames
 from backend.services.timeline_service import build_timeline
 from backend.services.activity_detection_service import ActivityDetectionService
+from backend.services.sop_generation_service import SopGenerationService
 
 router = APIRouter(prefix="/api")
 
 activity_detection_service = ActivityDetectionService()
-
+sop_generation_service = SopGenerationService()
 
 @router.post("/jobs/upload")
 def upload_video(
@@ -141,4 +142,46 @@ def get_job_activities(job_id: str):
         raise HTTPException(
             status_code=500,
             detail=f"Failed to load activities: {str(e)}",
+        )
+
+@router.post("/jobs/{job_id}/generate-sop")
+def generate_job_sop(job_id: str):
+    """
+    MVP 8: Generate a generic SOP from activities JSON.
+
+    Input:
+        data/activities/{job_id}.json
+
+    Output:
+        data/outputs/{job_id}_sop.json
+        data/outputs/{job_id}_sop.md
+    """
+    try:
+        return sop_generation_service.generate_sop_for_job(job_id)
+
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"SOP generation failed: {str(e)}",
+        )
+
+
+@router.get("/jobs/{job_id}/sop")
+def get_job_sop(job_id: str):
+    """
+    Return previously generated SOP output.
+    """
+    try:
+        return sop_generation_service.get_sop_for_job(job_id)
+
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to load SOP: {str(e)}",
         )

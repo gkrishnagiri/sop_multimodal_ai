@@ -1,7 +1,7 @@
 {
   "aaf60079-e79f-482d-b9cf-d63ce4da674b": {
     "job_id": "aaf60079-e79f-482d-b9cf-d63ce4da674b",
-    "status": "timeline_built",
+    "status": "sop_generated",
     "output_filename": "SOP_multimodal",
     "enable_diarization": true,
     "extract_screenshots": true,
@@ -35896,6 +35896,8 @@
       }
     ],
     "timeline_path": "data/timeline/aaf60079-e79f-482d-b9cf-d63ce4da674b.json",
-    "timeline_segments": 92
+    "timeline_segments": 92,
+    "sop_json_path": "data/outputs/aaf60079-e79f-482d-b9cf-d63ce4da674b_sop.json",
+    "sop_markdown_path": "data/outputs/aaf60079-e79f-482d-b9cf-d63ce4da674b_sop.md"
   }
 }

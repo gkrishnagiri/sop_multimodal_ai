@@ -8,6 +8,7 @@ dependencies = [
     "fastapi>=0.136.1",
     "faster-whisper>=1.2.1",
     "ffmpeg-python>=0.2.0",
+    "openai>=2.36.0",
     "opencv-python>=4.13.0.92",
     "paddleocr==3.2.0",
     "paddlepaddle==3.2.0",
