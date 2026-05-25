@@ -7,12 +7,15 @@ from backend.services.frame_service import extract_frames_from_video
 from backend.services.ocr_service import run_ocr_on_frames
 from backend.services.timeline_service import build_timeline
 from backend.services.activity_detection_service import ActivityDetectionService
+from backend.services.activity_refinement_service import ActivityRefinementService
 from backend.services.sop_generation_service import SopGenerationService
 
 router = APIRouter(prefix="/api")
 
 activity_detection_service = ActivityDetectionService()
+activity_refinement_service = ActivityRefinementService()
 sop_generation_service = SopGenerationService()
+
 
 @router.post("/jobs/upload")
 def upload_video(
@@ -131,7 +134,7 @@ def detect_job_activities(job_id: str):
 @router.get("/jobs/{job_id}/activities")
 def get_job_activities(job_id: str):
     """
-    Return previously generated activity detection output.
+    Return MVP 7 generated activities JSON.
     """
     try:
         return activity_detection_service.get_activities_for_job(job_id)
@@ -144,13 +147,57 @@ def get_job_activities(job_id: str):
             detail=f"Failed to load activities: {str(e)}",
         )
 
-@router.post("/jobs/{job_id}/generate-sop")
-def generate_job_sop(job_id: str):
+
+@router.post("/jobs/{job_id}/refine-activities")
+def refine_job_activities(job_id: str):
     """
-    MVP 8: Generate a generic SOP from activities JSON.
+    MVP 8A: Refine generic workflow activities using LLM.
 
     Input:
         data/activities/{job_id}.json
+
+    Output:
+        data/refined_activities/{job_id}.json
+    """
+    try:
+        return activity_refinement_service.refine_activities_for_job(job_id)
+
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Activity refinement failed: {str(e)}",
+        )
+
+
+@router.get("/jobs/{job_id}/refined-activities")
+def get_job_refined_activities(job_id: str):
+    """
+    Return MVP 8A generated refined activities JSON.
+    """
+    try:
+        return activity_refinement_service.get_refined_activities_for_job(job_id)
+
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to load refined activities: {str(e)}",
+        )
+
+
+@router.post("/jobs/{job_id}/generate-sop")
+def generate_job_sop(job_id: str):
+    """
+    MVP 8: Generate a generic SOP.
+
+    Input priority:
+        1. data/refined_activities/{job_id}.json
+        2. data/activities/{job_id}.json
 
     Output:
         data/outputs/{job_id}_sop.json

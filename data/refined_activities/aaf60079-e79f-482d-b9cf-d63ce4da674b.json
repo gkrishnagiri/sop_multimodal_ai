@@ -1,0 +1,1734 @@
+{
+  "job_id": "aaf60079-e79f-482d-b9cf-d63ce4da674b",
+  "activity_count": 7,
+  "activities": [
+    {
+      "activity_id": "activity_001",
+      "name": "Navigate and Filter Train Search Options",
+      "description": "The user navigates to the train search page and applies filters to refine search results.",
+      "start_seconds": 0.0,
+      "end_seconds": 166.44,
+      "duration_seconds": 166.44,
+      "source_activity_ids": [
+        "activity_001"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User navigates the IRCTC homepage and explores various options for train searches.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Open the relevant page or navigate to the required section.",
+          "ui_action": "Navigate to the IRCTC homepage.",
+          "expected_result": "User is on the IRCTC homepage.",
+          "start_seconds": 0.0,
+          "end_seconds": 12.24,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User describes accessing the IRCTC website.",
+            "screen_text": [
+              "Install",
+              "irctc.co.in/nget/train-search",
+              "LOGIN / REGISTER",
+              "TRAINS"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_300_ts_5.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select filters for train search.",
+          "expected_result": "Filtered train options are displayed.",
+          "start_seconds": 12.24,
+          "end_seconds": 18.2,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User logs into the application.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "LOGIN / REGISTER",
+              "TRAINS"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_900_ts_15.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Open the relevant page or navigate to the required section.",
+          "ui_action": "Navigate to the account section.",
+          "expected_result": "User can view account options.",
+          "start_seconds": 30.0,
+          "end_seconds": 44.68,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User explores account options on the homepage.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_2100_ts_35.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select additional filters for train options.",
+          "expected_result": "More refined train options are displayed.",
+          "start_seconds": 44.68,
+          "end_seconds": 52.84,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses available options for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_3000_ts_50.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train availability.",
+          "expected_result": "User can see available trains.",
+          "start_seconds": 52.84,
+          "end_seconds": 61.28,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for train availability.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_3300_ts_55.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Search for specific train availability.",
+          "expected_result": "Filtered results for train availability are displayed.",
+          "start_seconds": 61.28,
+          "end_seconds": 69.52,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for train availability from Bangalore to New Delhi.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_3900_ts_65.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select travel date and class.",
+          "expected_result": "User can see available trains for the selected date.",
+          "start_seconds": 82.84,
+          "end_seconds": 95.32,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User selects travel date and class options.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_5400_ts_90.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for specific train classes.",
+          "expected_result": "User can see available classes for the selected train.",
+          "start_seconds": 95.32,
+          "end_seconds": 103.32,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for available classes on the selected date.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_6000_ts_100.00.jpg"
+          }
+        },
+        {
+          "step_number": 9,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select class options for booking.",
+          "expected_result": "User can see available options for booking.",
+          "start_seconds": 103.32,
+          "end_seconds": 110.52,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses available options for booking tickets.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_6900_ts_115.00.jpg"
+          }
+        },
+        {
+          "step_number": 10,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select additional filters for booking options.",
+          "expected_result": "User can see refined booking options.",
+          "start_seconds": 110.52,
+          "end_seconds": 118.76,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses eligibility for different categories.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_7200_ts_120.00.jpg"
+          }
+        },
+        {
+          "step_number": 11,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for options based on passenger categories.",
+          "expected_result": "User can see options based on passenger categories.",
+          "start_seconds": 118.76,
+          "end_seconds": 122.48,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for different passenger categories.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_7500_ts_125.00.jpg"
+          }
+        },
+        {
+          "step_number": 12,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for options based on senior citizen categories.",
+          "expected_result": "User can see options based on senior citizen categories.",
+          "start_seconds": 122.48,
+          "end_seconds": 128.68,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for senior citizens.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_7800_ts_130.00.jpg"
+          }
+        },
+        {
+          "step_number": 13,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for options based on disability categories.",
+          "expected_result": "User can see options based on disability categories.",
+          "start_seconds": 128.68,
+          "end_seconds": 135.64,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for passengers with disabilities.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_7800_ts_130.00.jpg"
+          }
+        },
+        {
+          "step_number": 14,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for options based on working categories.",
+          "expected_result": "User can see options based on working categories.",
+          "start_seconds": 135.64,
+          "end_seconds": 142.12,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for working passengers.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_8400_ts_140.00.jpg"
+          }
+        },
+        {
+          "step_number": 15,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select general options for booking.",
+          "expected_result": "User can see general options for booking.",
+          "start_seconds": 142.12,
+          "end_seconds": 147.24,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses general booking options.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_8400_ts_140.00.jpg"
+          }
+        },
+        {
+          "step_number": 16,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for flexible date options.",
+          "expected_result": "User can see flexible date options for booking.",
+          "start_seconds": 147.24,
+          "end_seconds": 153.08,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking for flexible date options.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_9000_ts_150.00.jpg"
+          }
+        },
+        {
+          "step_number": 17,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for options based on availability.",
+          "expected_result": "User can see options based on train availability.",
+          "start_seconds": 153.08,
+          "end_seconds": 155.96,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train availability.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_9600_ts_160.00.jpg"
+          }
+        },
+        {
+          "step_number": 18,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for available trains after search.",
+          "expected_result": "User can see available trains after search.",
+          "start_seconds": 155.96,
+          "end_seconds": 166.44,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses available trains after search.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_9600_ts_160.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_002",
+      "name": "Review Train Availability and Options",
+      "description": "The user reviews train availability and options for booking.",
+      "start_seconds": 166.44,
+      "end_seconds": 256.2,
+      "duration_seconds": 89.76,
+      "source_activity_ids": [
+        "activity_002"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User reviews available train options for a specific date.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train options.",
+          "expected_result": "User can see available trains for the selected date.",
+          "start_seconds": 166.44,
+          "end_seconds": 170.76,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews train results for New Delhi.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_10200_ts_170.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Scroll through available train options.",
+          "expected_result": "User can see various class options.",
+          "start_seconds": 173.16,
+          "end_seconds": 179.96,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User scrolls through class options for the journey.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_10500_ts_175.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review class options for the journey.",
+          "expected_result": "User can see available classes for the journey.",
+          "start_seconds": 180.44,
+          "end_seconds": 186.76,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews class options for the journey.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_11100_ts_185.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for train type options.",
+          "expected_result": "User can see options for different train types.",
+          "start_seconds": 186.76,
+          "end_seconds": 195.16,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses available train types.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_11400_ts_190.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for ticket availability.",
+          "expected_result": "User can see ticket availability for selected classes.",
+          "start_seconds": 195.16,
+          "end_seconds": 200.68,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User checks ticket availability for selected classes.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_12000_ts_200.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select specific train categories.",
+          "expected_result": "User can see options for specific train categories.",
+          "start_seconds": 201.64,
+          "end_seconds": 208.44,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific train categories for availability.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_12300_ts_205.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Review the displayed results, status, or available records.",
+          "ui_action": "Review the displayed train results.",
+          "expected_result": "User can see the results of the train search.",
+          "start_seconds": 208.44,
+          "end_seconds": 213.32,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews the results of the train search.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_12600_ts_210.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for specific train times.",
+          "expected_result": "User can see options for specific train times.",
+          "start_seconds": 213.32,
+          "end_seconds": 218.76,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for specific train times.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_12900_ts_215.00.jpg"
+          }
+        },
+        {
+          "step_number": 9,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select specific train slots.",
+          "expected_result": "User can see options for specific train slots.",
+          "start_seconds": 218.76,
+          "end_seconds": 225.08,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific train slots for availability.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_13200_ts_220.00.jpg"
+          }
+        },
+        {
+          "step_number": 10,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for available train slots.",
+          "expected_result": "User can see available train slots for booking.",
+          "start_seconds": 225.08,
+          "end_seconds": 230.68,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for available train slots.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_13800_ts_230.00.jpg"
+          }
+        },
+        {
+          "step_number": 11,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select specific train categories for booking.",
+          "expected_result": "User can see options for specific train categories.",
+          "start_seconds": 230.68,
+          "end_seconds": 238.36,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific train categories for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_14100_ts_235.00.jpg"
+          }
+        },
+        {
+          "step_number": 12,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for available trains based on selected criteria.",
+          "expected_result": "User can see available trains based on selected criteria.",
+          "start_seconds": 238.36,
+          "end_seconds": 245.16,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for available trains based on selected criteria.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_15000_ts_250.00.jpg"
+          }
+        },
+        {
+          "step_number": 13,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for specific train options.",
+          "expected_result": "User can see specific train options for booking.",
+          "start_seconds": 245.16,
+          "end_seconds": 256.2,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for specific train options for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_15300_ts_255.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_003",
+      "name": "Check Train Availability and Options",
+      "description": "The user checks availability for specific train options and classes.",
+      "start_seconds": 256.2,
+      "end_seconds": 404.44,
+      "duration_seconds": 148.24,
+      "source_activity_ids": [
+        "activity_003"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User checks availability for specific train options and classes.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific train options.",
+          "expected_result": "User can see availability for selected train options.",
+          "start_seconds": 256.2,
+          "end_seconds": 262.12,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for Raj Dhani Express.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_15600_ts_260.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select refresh options for train availability.",
+          "expected_result": "User can refresh the availability options.",
+          "start_seconds": 262.68,
+          "end_seconds": 264.84,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses refreshing options for availability.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_15900_ts_265.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select journey class for availability check.",
+          "expected_result": "User can see availability for selected journey class.",
+          "start_seconds": 266.52,
+          "end_seconds": 270.52,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User selects journey class for availability check.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_16200_ts_270.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for selected train classes.",
+          "expected_result": "User can see availability for selected train classes.",
+          "start_seconds": 270.52,
+          "end_seconds": 276.12,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for selected train classes.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_16500_ts_275.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for sleeper class.",
+          "expected_result": "User can see availability for sleeper class.",
+          "start_seconds": 276.12,
+          "end_seconds": 285.16,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for sleeper class.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_16800_ts_280.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select available options for booking.",
+          "expected_result": "User can see available options for booking.",
+          "start_seconds": 289.8,
+          "end_seconds": 296.92,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User selects available options for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_17700_ts_295.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select specific train categories for booking.",
+          "expected_result": "User can see specific train categories for booking.",
+          "start_seconds": 298.28,
+          "end_seconds": 306.44,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific train categories for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_18000_ts_300.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Select specific train options for booking.",
+          "expected_result": "User can see specific train options for booking.",
+          "start_seconds": 306.44,
+          "end_seconds": 317.0,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific train options for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_18600_ts_310.00.jpg"
+          }
+        },
+        {
+          "step_number": 9,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for available trains based on selected criteria.",
+          "expected_result": "User can see available trains based on selected criteria.",
+          "start_seconds": 317.0,
+          "end_seconds": 326.12,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for available trains based on selected criteria.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_19200_ts_320.00.jpg"
+          }
+        },
+        {
+          "step_number": 10,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for specific train options for booking.",
+          "expected_result": "User can see specific train options for booking.",
+          "start_seconds": 326.12,
+          "end_seconds": 333.24,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for specific train options for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_19800_ts_330.00.jpg"
+          }
+        },
+        {
+          "step_number": 11,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for available trains based on selected criteria.",
+          "expected_result": "User can see available trains based on selected criteria.",
+          "start_seconds": 333.24,
+          "end_seconds": 338.2,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for available trains based on selected criteria.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_20100_ts_335.00.jpg"
+          }
+        },
+        {
+          "step_number": 12,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for specific train options for booking.",
+          "expected_result": "User can see specific train options for booking.",
+          "start_seconds": 339.56,
+          "end_seconds": 345.88,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for specific train options for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_20700_ts_345.00.jpg"
+          }
+        },
+        {
+          "step_number": 13,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for available trains based on selected criteria.",
+          "expected_result": "User can see available trains based on selected criteria.",
+          "start_seconds": 347.4,
+          "end_seconds": 353.4,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for available trains based on selected criteria.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_21000_ts_350.00.jpg"
+          }
+        },
+        {
+          "step_number": 14,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for specific train options for booking.",
+          "expected_result": "User can see specific train options for booking.",
+          "start_seconds": 354.12,
+          "end_seconds": 360.68,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for specific train options for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_21300_ts_355.00.jpg"
+          }
+        },
+        {
+          "step_number": 15,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for available trains based on selected criteria.",
+          "expected_result": "User can see available trains based on selected criteria.",
+          "start_seconds": 360.68,
+          "end_seconds": 367.32,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for available trains based on selected criteria.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_21900_ts_365.00.jpg"
+          }
+        },
+        {
+          "step_number": 16,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for specific train options for booking.",
+          "expected_result": "User can see specific train options for booking.",
+          "start_seconds": 367.32,
+          "end_seconds": 375.24,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for specific train options for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_22200_ts_370.00.jpg"
+          }
+        },
+        {
+          "step_number": 17,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for available trains based on selected criteria.",
+          "expected_result": "User can see available trains based on selected criteria.",
+          "start_seconds": 377.24,
+          "end_seconds": 385.4,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for available trains based on selected criteria.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_22800_ts_380.00.jpg"
+          }
+        },
+        {
+          "step_number": 18,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for specific train options for booking.",
+          "expected_result": "User can see specific train options for booking.",
+          "start_seconds": 385.4,
+          "end_seconds": 391.32,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for specific train options for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_23400_ts_390.00.jpg"
+          }
+        },
+        {
+          "step_number": 19,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check for available trains based on selected criteria.",
+          "expected_result": "User can see available trains based on selected criteria.",
+          "start_seconds": 391.96,
+          "end_seconds": 404.44,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks for available trains based on selected criteria.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_24000_ts_400.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_004",
+      "name": "Enter Passenger Information for Booking",
+      "description": "The user enters required passenger information for booking.",
+      "start_seconds": 404.44,
+      "end_seconds": 469.64,
+      "duration_seconds": 65.2,
+      "source_activity_ids": [
+        "activity_004"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User enters passenger details for booking tickets.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input ticket fare and options.",
+          "expected_result": "User can see ticket fare and options for booking.",
+          "start_seconds": 404.44,
+          "end_seconds": 412.52,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses ticket fare and options.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_24600_ts_410.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Select the appropriate visible option.",
+          "ui_action": "Choose IRCTC card benefits if applicable.",
+          "expected_result": "User can see options for IRCTC card benefits.",
+          "start_seconds": 414.28,
+          "end_seconds": 421.72,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses selecting IRCTC card benefits.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_25200_ts_420.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Skip IRCTC card benefits if not applicable.",
+          "expected_result": "User can proceed without selecting IRCTC card benefits.",
+          "start_seconds": 422.36,
+          "end_seconds": 426.76,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User decides to skip IRCTC card benefits.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_25500_ts_425.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input passenger details.",
+          "expected_result": "User can see passenger details for booking.",
+          "start_seconds": 427.08,
+          "end_seconds": 431.32,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User enters passenger details for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_25800_ts_430.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input additional passenger details.",
+          "expected_result": "User can see additional passenger details for booking.",
+          "start_seconds": 433.56,
+          "end_seconds": 438.76,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User enters additional passenger details.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_26100_ts_435.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Select passenger name from existing details.",
+          "expected_result": "User can see existing passenger names for selection.",
+          "start_seconds": 438.76,
+          "end_seconds": 444.68,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User selects a passenger name from existing details.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_26400_ts_440.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Select birth preference for the passenger.",
+          "expected_result": "User can see options for birth preferences.",
+          "start_seconds": 445.96,
+          "end_seconds": 451.24,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User selects a birth preference for the passenger.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_27000_ts_450.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Select catering options for the passenger.",
+          "expected_result": "User can see options for catering preferences.",
+          "start_seconds": 451.24,
+          "end_seconds": 455.32,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User selects catering options for the passenger.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_27600_ts_460.00.jpg"
+          }
+        },
+        {
+          "step_number": 9,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Select specific catering preferences.",
+          "expected_result": "User can see selected catering preferences.",
+          "start_seconds": 464.76,
+          "end_seconds": 469.64,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific catering preferences.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_27900_ts_465.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_005",
+      "name": "Enter Additional Passenger Information",
+      "description": "The user enters additional passenger information for booking.",
+      "start_seconds": 469.64,
+      "end_seconds": 529.72,
+      "duration_seconds": 60.08,
+      "source_activity_ids": [
+        "activity_005"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User enters additional passenger details for booking tickets.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select meal preferences for additional passengers.",
+          "expected_result": "User can see meal options for additional passengers.",
+          "start_seconds": 469.64,
+          "end_seconds": 478.6,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User selects meal preferences for additional passengers.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_28500_ts_475.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input details for additional passengers.",
+          "expected_result": "User can see fields for entering additional passenger details.",
+          "start_seconds": 478.6,
+          "end_seconds": 484.2,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User enters details for additional passengers.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_28800_ts_480.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input gender and age details for additional passengers.",
+          "expected_result": "User can see fields for gender and age details.",
+          "start_seconds": 487.24,
+          "end_seconds": 497.96,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User enters gender and age details for additional passengers.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_29700_ts_495.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input nationality and birth preferences for additional passengers.",
+          "expected_result": "User can see fields for nationality and birth preferences.",
+          "start_seconds": 497.96,
+          "end_seconds": 502.92,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User enters nationality and birth preferences for additional passengers.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_30000_ts_500.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input mobile number for booking.",
+          "expected_result": "User can see mobile number field for booking.",
+          "start_seconds": 503.88,
+          "end_seconds": 511.64,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User enters mobile number for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_30600_ts_510.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input email address for booking confirmation.",
+          "expected_result": "User can see email address field for booking confirmation.",
+          "start_seconds": 512.84,
+          "end_seconds": 518.68,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User enters email address for booking confirmation.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_30900_ts_515.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input additional details for passengers.",
+          "expected_result": "User can see fields for additional passenger details.",
+          "start_seconds": 518.68,
+          "end_seconds": 523.72,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User enters additional details for passengers.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_31200_ts_520.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input catering preferences for additional passengers.",
+          "expected_result": "User can see catering preferences for additional passengers.",
+          "start_seconds": 523.72,
+          "end_seconds": 529.72,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User enters catering preferences for additional passengers.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_31500_ts_525.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_006",
+      "name": "Configure Booking Preferences",
+      "description": "The user configures preferences for the booking process.",
+      "start_seconds": 529.8,
+      "end_seconds": 611.24,
+      "duration_seconds": 81.44,
+      "source_activity_ids": [
+        "activity_006"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User configures preferences for the booking process.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select food preferences for booking.",
+          "expected_result": "User can see food preferences options.",
+          "start_seconds": 529.8,
+          "end_seconds": 536.76,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects food preferences for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_32100_ts_535.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options to skip food preferences.",
+          "expected_result": "User can see options to skip food preferences.",
+          "start_seconds": 536.76,
+          "end_seconds": 542.52,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User decides to skip food preferences.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_32400_ts_540.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options for upgrading train class.",
+          "expected_result": "User can see options for upgrading train class.",
+          "start_seconds": 542.52,
+          "end_seconds": 546.04,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for upgrading train class.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_32700_ts_545.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options for auto-upgradation.",
+          "expected_result": "User can see options for auto-upgradation.",
+          "start_seconds": 547.8,
+          "end_seconds": 552.92,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for auto-upgradation.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_33000_ts_550.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options for confirming berth availability.",
+          "expected_result": "User can see options for confirming berth availability.",
+          "start_seconds": 554.2,
+          "end_seconds": 558.28,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for confirming berth availability.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_33300_ts_555.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options for specific coach numbers.",
+          "expected_result": "User can see options for selecting coach numbers.",
+          "start_seconds": 559.72,
+          "end_seconds": 571.0,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for selecting coach numbers.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_33900_ts_565.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options for specific birth preferences.",
+          "expected_result": "User can see options for selecting birth preferences.",
+          "start_seconds": 571.0,
+          "end_seconds": 577.24,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for selecting birth preferences.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_34500_ts_575.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options for confirming food preferences.",
+          "expected_result": "User can see options for confirming food preferences.",
+          "start_seconds": 578.28,
+          "end_seconds": 583.56,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for confirming food preferences.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_34800_ts_580.00.jpg"
+          }
+        },
+        {
+          "step_number": 9,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options for confirming lower berth preferences.",
+          "expected_result": "User can see options for confirming lower berth preferences.",
+          "start_seconds": 584.52,
+          "end_seconds": 589.88,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for confirming lower berth preferences.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_35100_ts_585.00.jpg"
+          }
+        },
+        {
+          "step_number": 10,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options for confirming upper berth preferences.",
+          "expected_result": "User can see options for confirming upper berth preferences.",
+          "start_seconds": 589.88,
+          "end_seconds": 596.52,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for confirming upper berth preferences.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_35700_ts_595.00.jpg"
+          }
+        },
+        {
+          "step_number": 11,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options for confirming specific coach preferences.",
+          "expected_result": "User can see options for confirming specific coach preferences.",
+          "start_seconds": 596.52,
+          "end_seconds": 601.4,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for confirming specific coach preferences.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_36000_ts_600.00.jpg"
+          }
+        },
+        {
+          "step_number": 12,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select options for confirming additional preferences.",
+          "expected_result": "User can see options for confirming additional preferences.",
+          "start_seconds": 601.4,
+          "end_seconds": 606.92,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses options for confirming additional preferences.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_36300_ts_605.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_007",
+      "name": "Review Payment Options",
+      "description": "The user reviews payment options before completing the booking.",
+      "start_seconds": 611.48,
+      "end_seconds": 651.32,
+      "duration_seconds": 39.84,
+      "source_activity_ids": [
+        "activity_007"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User reviews payment options for completing the booking.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Check payment options available.",
+          "expected_result": "User can see available payment options.",
+          "start_seconds": 611.48,
+          "end_seconds": 618.36,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews payment options available.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_36900_ts_615.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Select preferred payment method.",
+          "expected_result": "User can see selected payment method options.",
+          "start_seconds": 618.36,
+          "end_seconds": 624.76,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User selects preferred payment method.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_37200_ts_620.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Check convenience fees for selected payment options.",
+          "expected_result": "User can see convenience fees for selected payment options.",
+          "start_seconds": 624.76,
+          "end_seconds": 630.6,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User checks convenience fees for payment options.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_37800_ts_630.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Proceed with entering payment details.",
+          "expected_result": "User can see fields for entering payment details.",
+          "start_seconds": 630.6,
+          "end_seconds": 636.92,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User prepares to enter payment details.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_38100_ts_635.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Confirm payment options before finalizing booking.",
+          "expected_result": "User can see confirmation for payment options.",
+          "start_seconds": 636.92,
+          "end_seconds": 642.36,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User confirms payment options before finalizing booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_38400_ts_640.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input additional details for payment confirmation.",
+          "expected_result": "User can see fields for additional payment details.",
+          "start_seconds": 642.36,
+          "end_seconds": 651.32,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User enters additional details for payment confirmation.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_39000_ts_650.00.jpg"
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "llm_model": "gpt-4o-mini",
+    "generator": "generic_llm_activity_refiner_v1",
+    "source": "activities_json"
+  }
+}

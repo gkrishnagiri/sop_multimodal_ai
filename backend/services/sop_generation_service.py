@@ -14,8 +14,9 @@ class SopGenerationService:
     """
     MVP 8: Generic SOP generation from activities JSON.
 
-    Input:
-        data/activities/{job_id}.json
+    Input priority:
+        1. data/refined_activities/{job_id}.json
+        2. data/activities/{job_id}.json
 
     Output:
         data/outputs/{job_id}_sop.json
@@ -32,6 +33,7 @@ class SopGenerationService:
     def __init__(self) -> None:
         self.data_dir = Path(settings.data_dir)
         self.activities_dir = self.data_dir / "activities"
+        self.refined_activities_dir = self.data_dir / "refined_activities"
         self.outputs_dir = self.data_dir / "outputs"
         self.outputs_dir.mkdir(parents=True, exist_ok=True)
 
@@ -41,19 +43,14 @@ class SopGenerationService:
         if not job:
             raise ValueError("Job not found")
 
-        activities_path = self.activities_dir / f"{job_id}.json"
-
-        if not activities_path.exists():
-            raise FileNotFoundError(
-                f"Activities file not found: {activities_path}. Run detect-activities first."
-            )
-
+        activities_path, activity_source = self._resolve_activity_input_path(job_id)
         activities_data = self._load_json(activities_path)
         compact_input = self._build_compact_llm_input(activities_data)
 
         sop_json = self._generate_sop_with_llm(
             job_id=job_id,
             activities_data=compact_input,
+            activity_source=activity_source,
         )
 
         sop_json_path = self.outputs_dir / f"{job_id}_sop.json"
@@ -69,6 +66,7 @@ class SopGenerationService:
             {
                 "sop_json_path": str(sop_json_path),
                 "sop_markdown_path": str(sop_md_path),
+                "sop_activity_source": activity_source,
                 "status": "sop_generated",
             },
         )
@@ -76,6 +74,8 @@ class SopGenerationService:
         return {
             "job_id": job_id,
             "status": "sop_generated",
+            "activity_source": activity_source,
+            "activity_input_path": str(activities_path),
             "sop_json_path": str(sop_json_path),
             "sop_markdown_path": str(sop_md_path),
             "sop": sop_json,
@@ -101,10 +101,25 @@ class SopGenerationService:
             "markdown": markdown,
         }
 
+    def _resolve_activity_input_path(self, job_id: str) -> tuple[Path, str]:
+        refined_path = self.refined_activities_dir / f"{job_id}.json"
+        if refined_path.exists():
+            return refined_path, "refined_activities_json"
+
+        activities_path = self.activities_dir / f"{job_id}.json"
+        if activities_path.exists():
+            return activities_path, "activities_json"
+
+        raise FileNotFoundError(
+            f"No activity input found for job_id={job_id}. "
+            "Run detect-activities first. For better SOP quality, run refine-activities after that."
+        )
+
     def _generate_sop_with_llm(
         self,
         job_id: str,
         activities_data: dict[str, Any],
+        activity_source: str,
     ) -> dict[str, Any]:
         if not settings.openai_api_key:
             raise ValueError("OPENAI_API_KEY is missing. Add it to your .env file.")
@@ -112,7 +127,11 @@ class SopGenerationService:
         client = OpenAI(api_key=settings.openai_api_key)
 
         system_prompt = self._system_prompt()
-        user_prompt = self._user_prompt(job_id=job_id, activities_data=activities_data)
+        user_prompt = self._user_prompt(
+            job_id=job_id,
+            activities_data=activities_data,
+            activity_source=activity_source,
+        )
 
         response = client.chat.completions.create(
             model=settings.llm_model,
@@ -151,7 +170,7 @@ class SopGenerationService:
         sop["metadata"] = {
             "llm_model": settings.llm_model,
             "generator": "generic_llm_sop_generator_v1",
-            "source": "activities_json",
+            "source": activity_source,
         }
 
         return sop
@@ -188,12 +207,16 @@ Important rules:
         self,
         job_id: str,
         activities_data: dict[str, Any],
+        activity_source: str,
     ) -> str:
         return f"""
-Generate a structured SOP from the following generic activity detection output.
+Generate a structured SOP from the following generic activity data.
 
 Job ID:
 {job_id}
+
+Activity source:
+{activity_source}
 
 Activity data:
 {json.dumps(activities_data, ensure_ascii=False, indent=2)}
@@ -233,16 +256,9 @@ Return JSON only.
 
     def _build_compact_llm_input(self, activities_data: dict[str, Any]) -> dict[str, Any]:
         """
-        Reduce raw activities JSON into a compact input for the LLM.
-
-        This keeps the LLM focused on:
-        - activity name
-        - timing
-        - speech
-        - representative OCR
-        - frame evidence
-
-        It avoids passing excessive repeated OCR text.
+        Supports both:
+        - MVP 7 activities JSON
+        - MVP 8A refined activities JSON
         """
         compact_activities = []
 
@@ -250,38 +266,62 @@ Return JSON only.
             compact_steps = []
 
             for step in activity.get("steps", []):
+                evidence = step.get("evidence", {})
+                if not isinstance(evidence, dict):
+                    evidence = {}
+
+                screen_text = (
+                    step.get("screen_text_sample")
+                    or evidence.get("screen_text")
+                    or []
+                )
+
+                speech = (
+                    step.get("speech")
+                    or evidence.get("speech_summary")
+                    or ""
+                )
+
                 compact_steps.append(
                     {
                         "step_number": step.get("step_number"),
                         "start_seconds": step.get("start_seconds"),
                         "end_seconds": step.get("end_seconds"),
-                        "intent": step.get("intent"),
-                        "speech": self._clean_text(step.get("speech", "")),
-                        "screen_text_sample": self._dedupe_keep_order(
-                            step.get("screen_text_sample", [])
-                        )[:10],
-                        "frame_path": step.get("frame_path"),
+                        "intent": step.get("intent", ""),
+                        "instruction": self._clean_text(step.get("instruction", "")),
+                        "ui_action": self._clean_text(step.get("ui_action", "")),
+                        "expected_result": self._clean_text(step.get("expected_result", "")),
+                        "speech": self._clean_text(speech),
+                        "screen_text_sample": self._dedupe_keep_order(screen_text)[:10],
+                        "frame_path": step.get("frame_path") or evidence.get("frame_path", ""),
+                        "source_step_refs": step.get("source_step_refs", []),
                     }
                 )
+
+            evidence_block = activity.get("evidence", {})
+            if not isinstance(evidence_block, dict):
+                evidence_block = {}
 
             compact_activities.append(
                 {
                     "activity_id": activity.get("activity_id"),
-                    "name": activity.get("name"),
+                    "name": self._clean_text(activity.get("name", "")),
                     "description": self._clean_text(activity.get("description", "")),
                     "start_seconds": activity.get("start_seconds"),
                     "end_seconds": activity.get("end_seconds"),
                     "duration_seconds": activity.get("duration_seconds"),
-                    "dominant_intent": activity.get("dominant_intent"),
+                    "dominant_intent": activity.get("dominant_intent", ""),
+                    "source_activity_ids": activity.get("source_activity_ids", []),
+                    "evidence_summary": self._clean_text(activity.get("evidence_summary", "")),
                     "evidence": {
                         "speech_samples": [
                             self._clean_text(item)
-                            for item in activity.get("evidence", {}).get("speech_samples", [])[:5]
+                            for item in evidence_block.get("speech_samples", [])[:5]
                         ],
                         "screen_text_samples": self._dedupe_keep_order(
-                            activity.get("evidence", {}).get("screen_text_samples", [])
+                            evidence_block.get("screen_text_samples", [])
                         )[:10],
-                        "frame_paths": activity.get("evidence", {}).get("frame_paths", [])[:3],
+                        "frame_paths": evidence_block.get("frame_paths", [])[:3],
                     },
                     "steps": compact_steps,
                 }
