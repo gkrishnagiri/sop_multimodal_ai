@@ -9,6 +9,11 @@ from backend.services.timeline_service import build_timeline
 from backend.services.activity_detection_service import ActivityDetectionService
 from backend.services.activity_refinement_service import ActivityRefinementService
 from backend.services.sop_generation_service import SopGenerationService
+from backend.services.diarization_service import (
+    DiarizationServiceError,
+    get_diarization,
+    run_diarization,
+)
 
 router = APIRouter(prefix="/api")
 
@@ -86,6 +91,44 @@ def run_ocr(job_id: str):
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/jobs/{job_id}/run-diarization")
+def run_job_diarization(job_id: str):
+    """
+    MVP 9: Run speaker diarization for a job.
+
+    Input:
+        data/audio/{job_id}.wav
+
+    Output:
+        data/diarization/{job_id}.json
+    """
+    try:
+        return run_diarization(job_id)
+    except DiarizationServiceError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Diarization failed: {str(e)}",
+        )
+
+
+@router.get("/jobs/{job_id}/diarization")
+def get_job_diarization(job_id: str):
+    """
+    Return MVP 9 generated diarization JSON.
+    """
+    try:
+        return get_diarization(job_id)
+    except DiarizationServiceError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to load diarization: {str(e)}",
+        )
 
 
 @router.post("/jobs/{job_id}/build-timeline")

@@ -1,22 +1,25 @@
 [project]
 name = "backend"
 version = "0.1.0"
-description = "Add your description here"
+description = "SOP multimodal AI backend"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.13"
 dependencies = [
     "fastapi>=0.136.1",
     "faster-whisper>=1.2.1",
     "ffmpeg-python>=0.2.0",
-    "openai>=2.36.0",
     "opencv-python>=4.13.0.92",
+    "openai>=2.0.0",
     "paddleocr==3.2.0",
     "paddlepaddle==3.2.0",
     "pydantic>=2.13.4",
     "pydantic-settings>=2.14.1",
     "python-dotenv>=1.2.2",
     "python-multipart>=0.0.27",
+    "torch",
+    "torchaudio",
     "uvicorn>=0.46.0",
+    "pyannote-audio>=4.0.4",
 ]
 
 [dependency-groups]
@@ -25,3 +28,12 @@ dev = [
     "pytest>=9.0.3",
     "ruff>=0.15.12",
 ]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchaudio = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

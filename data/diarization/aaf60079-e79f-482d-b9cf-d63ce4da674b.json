@@ -1,0 +1,69 @@
+{
+  "job_id": "aaf60079-e79f-482d-b9cf-d63ce4da674b",
+  "source_audio_path": "/mnt/e/giri/AIProjects/sop_multimodal_ai/data/audio/aaf60079-e79f-482d-b9cf-d63ce4da674b.wav",
+  "diarization_audio_path": "/mnt/e/giri/AIProjects/sop_multimodal_ai/data/tmp/aaf60079-e79f-482d-b9cf-d63ce4da674b_first_60s.wav",
+  "model": "pyannote/speaker-diarization-community-1",
+  "max_duration_seconds": 60,
+  "elapsed_seconds": 206.439,
+  "speaker_count": 1,
+  "speakers": [
+    "SPEAKER_00"
+  ],
+  "segment_count": 9,
+  "segments": [
+    {
+      "start_seconds": 3.018,
+      "end_seconds": 4.267,
+      "duration_seconds": 1.249,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start_seconds": 5.414,
+      "end_seconds": 9.532,
+      "duration_seconds": 4.118,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start_seconds": 10.173,
+      "end_seconds": 13.514,
+      "duration_seconds": 3.341,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start_seconds": 13.97,
+      "end_seconds": 15.202,
+      "duration_seconds": 1.232,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start_seconds": 16.653,
+      "end_seconds": 18.155,
+      "duration_seconds": 1.502,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start_seconds": 37.628,
+      "end_seconds": 43.197,
+      "duration_seconds": 5.569,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start_seconds": 44.125,
+      "end_seconds": 50.032,
+      "duration_seconds": 5.907,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start_seconds": 51.736,
+      "end_seconds": 54.436,
+      "duration_seconds": 2.7,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start_seconds": 55.398,
+      "end_seconds": 59.347,
+      "duration_seconds": 3.949,
+      "speaker": "SPEAKER_00"
+    }
+  ]
+}
