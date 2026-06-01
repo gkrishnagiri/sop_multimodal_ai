@@ -1,0 +1,19 @@
+{
+    "name": "sop-multimodal-ai-frontend",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Frontend for Multimodal SOP CREATION AND UPDATION using Agentic AI",
+    "type": "module",
+    "scripts": {
+        "dev": "vite --host 0.0.0.0 --port 3015",
+        "build": "vite build",
+        "preview": "vite preview --host 0.0.0.0 --port 3015"
+    },
+    "dependencies": {
+        "@vitejs/plugin-react": "latest",
+        "vite": "latest",
+        "react": "latest",
+        "react-dom": "latest"
+    },
+    "devDependencies": {}
+}

@@ -1,10 +1,10 @@
 {
-  "job_id": "aaf60079-e79f-482d-b9cf-d63ce4da674b",
-  "source_audio_path": "/mnt/e/giri/AIProjects/sop_multimodal_ai/data/audio/aaf60079-e79f-482d-b9cf-d63ce4da674b.wav",
-  "diarization_audio_path": "/mnt/e/giri/AIProjects/sop_multimodal_ai/data/tmp/aaf60079-e79f-482d-b9cf-d63ce4da674b_first_60s.wav",
+  "job_id": "f395f208-02b8-4982-a6d1-41f460cecea1",
+  "source_audio_path": "/home/induser1/giri/AIProjects/sop_multimodal_ai/data/audio/f395f208-02b8-4982-a6d1-41f460cecea1.wav",
+  "diarization_audio_path": "/home/induser1/giri/AIProjects/sop_multimodal_ai/data/tmp/f395f208-02b8-4982-a6d1-41f460cecea1_first_60s.wav",
   "model": "pyannote/speaker-diarization-community-1",
   "max_duration_seconds": 60,
-  "elapsed_seconds": 206.439,
+  "elapsed_seconds": 72.638,
   "speaker_count": 1,
   "speakers": [
     "SPEAKER_00"

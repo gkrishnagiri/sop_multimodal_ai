@@ -1,0 +1,1807 @@
+{
+  "job_id": "f395f208-02b8-4982-a6d1-41f460cecea1",
+  "activity_count": 7,
+  "activities": [
+    {
+      "activity_id": "activity_001",
+      "name": "Navigate and Filter Train Search Options",
+      "description": "The user navigates the train search options and applies filters on the platform.",
+      "start_seconds": 0.0,
+      "end_seconds": 166.44,
+      "duration_seconds": 166.44,
+      "source_activity_ids": [
+        "activity_001"
+      ],
+      "confidence": 0.95,
+      "evidence_summary": "User navigates the homepage and explores various options for train searches.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Open the relevant page or navigate to the required section.",
+          "ui_action": "Navigate to the homepage.",
+          "expected_result": "Homepage is displayed with various options.",
+          "start_seconds": 0.0,
+          "end_seconds": 12.24,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User mentions logging into the homepage.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "LOGIN / REGISTER"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_300_ts_5.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Apply filters for train search.",
+          "expected_result": "Filtered results are displayed.",
+          "start_seconds": 12.24,
+          "end_seconds": 18.2,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User mentions logging into the application.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "LOGIN / REGISTER"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_900_ts_15.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Open the relevant page or navigate to the required section.",
+          "ui_action": "Navigate to the profile section.",
+          "expected_result": "Profile options are displayed.",
+          "start_seconds": 30.0,
+          "end_seconds": 44.68,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User describes options available on the homepage.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_2100_ts_35.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Explore account options.",
+          "expected_result": "Account options are displayed for further actions.",
+          "start_seconds": 44.68,
+          "end_seconds": 52.84,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses various account options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_3000_ts_50.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check ticket booking options.",
+          "expected_result": "Available ticket options are displayed.",
+          "start_seconds": 52.84,
+          "end_seconds": 61.28,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User mentions checking ticket booking options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_3300_ts_55.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train availability.",
+          "expected_result": "Train availability options are displayed.",
+          "start_seconds": 61.28,
+          "end_seconds": 69.52,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train availability.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_3900_ts_65.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train availability for specific routes.",
+          "expected_result": "Filtered train availability is displayed.",
+          "start_seconds": 69.52,
+          "end_seconds": 71.76,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User mentions checking for train availability.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_4200_ts_70.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train availability for specific dates.",
+          "expected_result": "Filtered train availability for specific dates is displayed.",
+          "start_seconds": 82.84,
+          "end_seconds": 95.32,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train availability for specific dates.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_5400_ts_90.00.jpg"
+          }
+        },
+        {
+          "step_number": 9,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for specific classes.",
+          "expected_result": "Filtered train options for specific classes are displayed.",
+          "start_seconds": 95.32,
+          "end_seconds": 103.32,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options for specific classes.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_6000_ts_100.00.jpg"
+          }
+        },
+        {
+          "step_number": 10,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for specific categories.",
+          "expected_result": "Filtered train options for specific categories are displayed.",
+          "start_seconds": 103.32,
+          "end_seconds": 110.52,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options for specific categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_6300_ts_105.00.jpg"
+          }
+        },
+        {
+          "step_number": 11,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for specific eligibility categories.",
+          "expected_result": "Filtered train options for specific eligibility categories are displayed.",
+          "start_seconds": 110.52,
+          "end_seconds": 118.76,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options for specific eligibility categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_6900_ts_115.00.jpg"
+          }
+        },
+        {
+          "step_number": 12,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for specific passenger categories.",
+          "expected_result": "Filtered train options for specific passenger categories are displayed.",
+          "start_seconds": 118.76,
+          "end_seconds": 122.48,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options for specific passenger categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_7200_ts_120.00.jpg"
+          }
+        },
+        {
+          "step_number": 13,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for specific senior citizen categories.",
+          "expected_result": "Filtered train options for specific senior citizen categories are displayed.",
+          "start_seconds": 122.48,
+          "end_seconds": 128.68,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options for specific senior citizen categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_7500_ts_125.00.jpg"
+          }
+        },
+        {
+          "step_number": 14,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for specific disability categories.",
+          "expected_result": "Filtered train options for specific disability categories are displayed.",
+          "start_seconds": 128.68,
+          "end_seconds": 135.64,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options for specific disability categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_7800_ts_130.00.jpg"
+          }
+        },
+        {
+          "step_number": 15,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for specific pass categories.",
+          "expected_result": "Filtered train options for specific pass categories are displayed.",
+          "start_seconds": 135.64,
+          "end_seconds": 142.12,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options for specific pass categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_8400_ts_140.00.jpg"
+          }
+        },
+        {
+          "step_number": 16,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for flexible date categories.",
+          "expected_result": "Filtered train options for flexible date categories are displayed.",
+          "start_seconds": 142.12,
+          "end_seconds": 147.24,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options for flexible date categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_8700_ts_145.00.jpg"
+          }
+        },
+        {
+          "step_number": 17,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for specific date categories.",
+          "expected_result": "Filtered train options for specific date categories are displayed.",
+          "start_seconds": 147.24,
+          "end_seconds": 153.08,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options for specific date categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_9000_ts_150.00.jpg"
+          }
+        },
+        {
+          "step_number": 18,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for specific availability categories.",
+          "expected_result": "Filtered train options for specific availability categories are displayed.",
+          "start_seconds": 153.08,
+          "end_seconds": 155.96,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options for specific availability categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_9300_ts_155.00.jpg"
+          }
+        },
+        {
+          "step_number": 19,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check train options for specific search results.",
+          "expected_result": "Filtered train options based on search results are displayed.",
+          "start_seconds": 155.96,
+          "end_seconds": 166.44,
+          "source_step_refs": [
+            "activity_001"
+          ],
+          "evidence": {
+            "speech_summary": "User discusses checking train options based on search results.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_9600_ts_160.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_002",
+      "name": "Review Train Availability and Options",
+      "description": "The user reviews the available train options based on the applied filters.",
+      "start_seconds": 166.44,
+      "end_seconds": 256.2,
+      "duration_seconds": 89.76,
+      "source_activity_ids": [
+        "activity_002"
+      ],
+      "confidence": 0.95,
+      "evidence_summary": "User reviews the available train options for a specific date and route.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train results.",
+          "expected_result": "Available train options are displayed.",
+          "start_seconds": 166.44,
+          "end_seconds": 170.76,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews the available train results.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_10200_ts_170.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train options for specific dates.",
+          "expected_result": "Filtered train options for specific dates are displayed.",
+          "start_seconds": 173.16,
+          "end_seconds": 179.96,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available train options for specific dates.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_10500_ts_175.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train classes.",
+          "expected_result": "Filtered train classes are displayed.",
+          "start_seconds": 180.44,
+          "end_seconds": 186.76,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available train classes.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_11100_ts_185.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train types.",
+          "expected_result": "Filtered train types are displayed.",
+          "start_seconds": 186.76,
+          "end_seconds": 195.16,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available train types.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_11400_ts_190.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review ticket availability options.",
+          "expected_result": "Filtered ticket availability options are displayed.",
+          "start_seconds": 195.16,
+          "end_seconds": 200.68,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews ticket availability options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_12000_ts_200.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review specific train categories.",
+          "expected_result": "Filtered train categories are displayed.",
+          "start_seconds": 201.64,
+          "end_seconds": 208.44,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews specific train categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_12300_ts_205.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Review the displayed results, status, or available records.",
+          "ui_action": "Review specific train availability.",
+          "expected_result": "Filtered train availability is displayed.",
+          "start_seconds": 208.44,
+          "end_seconds": 213.32,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews specific train availability.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_12600_ts_210.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train times.",
+          "expected_result": "Filtered train times are displayed.",
+          "start_seconds": 213.32,
+          "end_seconds": 218.76,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available train times.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_12900_ts_215.00.jpg"
+          }
+        },
+        {
+          "step_number": 9,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train slots.",
+          "expected_result": "Filtered train slots are displayed.",
+          "start_seconds": 218.76,
+          "end_seconds": 225.08,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available train slots.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_13200_ts_220.00.jpg"
+          }
+        },
+        {
+          "step_number": 10,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train options for specific routes.",
+          "expected_result": "Filtered train options for specific routes are displayed.",
+          "start_seconds": 225.08,
+          "end_seconds": 230.68,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available train options for specific routes.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_13800_ts_230.00.jpg"
+          }
+        },
+        {
+          "step_number": 11,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train options for specific classes.",
+          "expected_result": "Filtered train options for specific classes are displayed.",
+          "start_seconds": 230.68,
+          "end_seconds": 238.36,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available train options for specific classes.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_14100_ts_235.00.jpg"
+          }
+        },
+        {
+          "step_number": 12,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train options for specific categories.",
+          "expected_result": "Filtered train options for specific categories are displayed.",
+          "start_seconds": 238.36,
+          "end_seconds": 245.16,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available train options for specific categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_14400_ts_240.00.jpg"
+          }
+        },
+        {
+          "step_number": 13,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train options for specific eligibility categories.",
+          "expected_result": "Filtered train options for specific eligibility categories are displayed.",
+          "start_seconds": 245.16,
+          "end_seconds": 250.92,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available train options for specific eligibility categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_15000_ts_250.00.jpg"
+          }
+        },
+        {
+          "step_number": 14,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Review available train options for specific senior citizen categories.",
+          "expected_result": "Filtered train options for specific senior citizen categories are displayed.",
+          "start_seconds": 250.92,
+          "end_seconds": 256.2,
+          "source_step_refs": [
+            "activity_002"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available train options for specific senior citizen categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_15300_ts_255.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_003",
+      "name": "Check Train Availability and Options",
+      "description": "The user checks the availability of specific train classes and options.",
+      "start_seconds": 256.2,
+      "end_seconds": 404.44,
+      "duration_seconds": 148.24,
+      "source_activity_ids": [
+        "activity_003"
+      ],
+      "confidence": 0.95,
+      "evidence_summary": "User checks the availability of specific train classes and options for a specific date.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific train classes.",
+          "expected_result": "Filtered train availability for specific classes is displayed.",
+          "start_seconds": 256.2,
+          "end_seconds": 262.12,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific train classes.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_15600_ts_260.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific train options.",
+          "expected_result": "Filtered train availability for specific options is displayed.",
+          "start_seconds": 262.68,
+          "end_seconds": 264.84,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific train options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_15900_ts_265.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific journey classes.",
+          "expected_result": "Filtered availability for specific journey classes is displayed.",
+          "start_seconds": 266.52,
+          "end_seconds": 270.52,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific journey classes.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_16200_ts_270.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific train types.",
+          "expected_result": "Filtered availability for specific train types is displayed.",
+          "start_seconds": 270.52,
+          "end_seconds": 276.12,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific train types.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_16500_ts_275.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific train categories.",
+          "expected_result": "Filtered availability for specific train categories is displayed.",
+          "start_seconds": 276.12,
+          "end_seconds": 285.16,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific train categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_16800_ts_280.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific sleeper classes.",
+          "expected_result": "Filtered availability for specific sleeper classes is displayed.",
+          "start_seconds": 285.16,
+          "end_seconds": 289.08,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific sleeper classes.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_17700_ts_295.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Select the appropriate visible option.",
+          "ui_action": "Select available train options.",
+          "expected_result": "Selected train options are displayed.",
+          "start_seconds": 289.8,
+          "end_seconds": 296.92,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User selects available train options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_18000_ts_300.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Select the appropriate visible option.",
+          "ui_action": "Select available train categories.",
+          "expected_result": "Selected train categories are displayed.",
+          "start_seconds": 306.44,
+          "end_seconds": 317.0,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User selects available train categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_18600_ts_310.00.jpg"
+          }
+        },
+        {
+          "step_number": 9,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific booking options.",
+          "expected_result": "Filtered availability for specific booking options is displayed.",
+          "start_seconds": 317.0,
+          "end_seconds": 326.12,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific booking options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_19200_ts_320.00.jpg"
+          }
+        },
+        {
+          "step_number": 10,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific booking categories.",
+          "expected_result": "Filtered availability for specific booking categories is displayed.",
+          "start_seconds": 326.12,
+          "end_seconds": 333.24,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific booking categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_19800_ts_330.00.jpg"
+          }
+        },
+        {
+          "step_number": 11,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific booking options.",
+          "expected_result": "Filtered availability for specific booking options is displayed.",
+          "start_seconds": 333.24,
+          "end_seconds": 338.2,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific booking options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_20100_ts_335.00.jpg"
+          }
+        },
+        {
+          "step_number": 12,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific booking categories.",
+          "expected_result": "Filtered availability for specific booking categories is displayed.",
+          "start_seconds": 339.56,
+          "end_seconds": 345.88,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific booking categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_20700_ts_345.00.jpg"
+          }
+        },
+        {
+          "step_number": 13,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific booking options.",
+          "expected_result": "Filtered availability for specific booking options is displayed.",
+          "start_seconds": 347.4,
+          "end_seconds": 353.4,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific booking options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_21000_ts_350.00.jpg"
+          }
+        },
+        {
+          "step_number": 14,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific booking categories.",
+          "expected_result": "Filtered availability for specific booking categories is displayed.",
+          "start_seconds": 354.12,
+          "end_seconds": 360.68,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific booking categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_21300_ts_355.00.jpg"
+          }
+        },
+        {
+          "step_number": 15,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific booking options.",
+          "expected_result": "Filtered availability for specific booking options is displayed.",
+          "start_seconds": 360.68,
+          "end_seconds": 367.32,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific booking options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_21900_ts_365.00.jpg"
+          }
+        },
+        {
+          "step_number": 16,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific booking categories.",
+          "expected_result": "Filtered availability for specific booking categories is displayed.",
+          "start_seconds": 367.32,
+          "end_seconds": 375.24,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific booking categories.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_22200_ts_370.00.jpg"
+          }
+        },
+        {
+          "step_number": 17,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Check availability for specific booking options.",
+          "expected_result": "Filtered availability for specific booking options is displayed.",
+          "start_seconds": 377.24,
+          "end_seconds": 385.4,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User checks availability for specific booking options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_23400_ts_390.00.jpg"
+          }
+        },
+        {
+          "step_number": 18,
+          "instruction": "Review the confirmation message and choose the appropriate response.",
+          "ui_action": "Review booking confirmation options.",
+          "expected_result": "Booking confirmation options are displayed.",
+          "start_seconds": 385.4,
+          "end_seconds": 391.32,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews booking confirmation options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_23700_ts_395.00.jpg"
+          }
+        },
+        {
+          "step_number": 19,
+          "instruction": "Review the confirmation message and choose the appropriate response.",
+          "ui_action": "Review booking confirmation options.",
+          "expected_result": "Booking confirmation options are displayed.",
+          "start_seconds": 391.96,
+          "end_seconds": 397.96,
+          "source_step_refs": [
+            "activity_003"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews booking confirmation options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_24000_ts_400.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_004",
+      "name": "Input Passenger Information",
+      "description": "The user enters required passenger details for booking.",
+      "start_seconds": 404.44,
+      "end_seconds": 469.64,
+      "duration_seconds": 65.2,
+      "source_activity_ids": [
+        "activity_004"
+      ],
+      "confidence": 0.95,
+      "evidence_summary": "User inputs passenger details for the booking process.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input ticket fare details.",
+          "expected_result": "Ticket fare details are displayed.",
+          "start_seconds": 404.44,
+          "end_seconds": 412.52,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs ticket fare details.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_24600_ts_410.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Select the appropriate visible option.",
+          "ui_action": "Select IRCTC card benefits if applicable.",
+          "expected_result": "IRCTC card benefits options are displayed.",
+          "start_seconds": 414.28,
+          "end_seconds": 421.72,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User selects IRCTC card benefits options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_25200_ts_420.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Skip IRCTC card benefits if not applicable.",
+          "expected_result": "IRCTC card benefits options are skipped.",
+          "start_seconds": 422.36,
+          "end_seconds": 426.76,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User skips IRCTC card benefits options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_25500_ts_425.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input passenger details.",
+          "expected_result": "Passenger details are displayed.",
+          "start_seconds": 427.08,
+          "end_seconds": 431.32,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs passenger details.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_25800_ts_430.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input additional passenger details.",
+          "expected_result": "Additional passenger details are displayed.",
+          "start_seconds": 433.56,
+          "end_seconds": 438.76,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs additional passenger details.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_26100_ts_435.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Select passenger name from the list.",
+          "expected_result": "Selected passenger name is displayed.",
+          "start_seconds": 438.76,
+          "end_seconds": 444.68,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User selects passenger name from the list.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_26400_ts_440.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Select birth preference for the passenger.",
+          "expected_result": "Selected birth preference is displayed.",
+          "start_seconds": 445.96,
+          "end_seconds": 451.24,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User selects birth preference for the passenger.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_27000_ts_450.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Select catering options for the passenger.",
+          "expected_result": "Selected catering options are displayed.",
+          "start_seconds": 451.24,
+          "end_seconds": 455.32,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User selects catering options for the passenger.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_27600_ts_460.00.jpg"
+          }
+        },
+        {
+          "step_number": 9,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Select catering preference for the passenger.",
+          "expected_result": "Selected catering preference is displayed.",
+          "start_seconds": 464.76,
+          "end_seconds": 469.64,
+          "source_step_refs": [
+            "activity_004"
+          ],
+          "evidence": {
+            "speech_summary": "User selects catering preference for the passenger.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_27900_ts_465.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_005",
+      "name": "Input Additional Passenger Information",
+      "description": "The user enters additional details for more passengers.",
+      "start_seconds": 469.64,
+      "end_seconds": 529.72,
+      "duration_seconds": 60.08,
+      "source_activity_ids": [
+        "activity_005"
+      ],
+      "confidence": 0.95,
+      "evidence_summary": "User inputs additional details for more passengers during booking.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select meal preferences for additional passengers.",
+          "expected_result": "Meal preferences options are displayed.",
+          "start_seconds": 469.64,
+          "end_seconds": 478.6,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User selects meal preferences for additional passengers.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_28500_ts_475.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input additional passenger details.",
+          "expected_result": "Additional passenger details are displayed.",
+          "start_seconds": 478.6,
+          "end_seconds": 484.2,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs additional passenger details.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_28800_ts_480.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input passenger gender and nationality.",
+          "expected_result": "Passenger gender and nationality are displayed.",
+          "start_seconds": 487.24,
+          "end_seconds": 497.96,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs passenger gender and nationality.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_29700_ts_495.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input passenger birth preference.",
+          "expected_result": "Passenger birth preference is displayed.",
+          "start_seconds": 497.96,
+          "end_seconds": 502.92,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs passenger birth preference.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_30000_ts_500.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input passenger mobile number.",
+          "expected_result": "Passenger mobile number is displayed.",
+          "start_seconds": 503.88,
+          "end_seconds": 511.64,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs passenger mobile number.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_30600_ts_510.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input passenger email address.",
+          "expected_result": "Passenger email address is displayed.",
+          "start_seconds": 512.84,
+          "end_seconds": 518.68,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs passenger email address.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_30900_ts_515.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input additional passenger details as needed.",
+          "expected_result": "Additional passenger details are displayed.",
+          "start_seconds": 518.68,
+          "end_seconds": 523.72,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs additional passenger details as needed.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_31200_ts_520.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input catering preferences for additional passengers.",
+          "expected_result": "Catering preferences for additional passengers are displayed.",
+          "start_seconds": 523.72,
+          "end_seconds": 529.72,
+          "source_step_refs": [
+            "activity_005"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs catering preferences for additional passengers.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_31500_ts_525.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_006",
+      "name": "Configure Booking Preferences",
+      "description": "The user configures preferences for the booking process.",
+      "start_seconds": 529.8,
+      "end_seconds": 611.24,
+      "duration_seconds": 81.44,
+      "source_activity_ids": [
+        "activity_006"
+      ],
+      "confidence": 0.95,
+      "evidence_summary": "User configures preferences for the booking process.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select food preferences for the booking.",
+          "expected_result": "Food preferences options are displayed.",
+          "start_seconds": 529.8,
+          "end_seconds": 536.76,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects food preferences for the booking.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_32100_ts_535.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Skip food options if not desired.",
+          "expected_result": "Food options are skipped.",
+          "start_seconds": 536.76,
+          "end_seconds": 542.52,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User skips food options if not desired.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_32400_ts_540.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select upgrade options if desired.",
+          "expected_result": "Upgrade options are displayed.",
+          "start_seconds": 542.52,
+          "end_seconds": 546.04,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects upgrade options if desired.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_32700_ts_545.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select booking confirmation options.",
+          "expected_result": "Booking confirmation options are displayed.",
+          "start_seconds": 547.8,
+          "end_seconds": 552.92,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects booking confirmation options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_33000_ts_550.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select additional booking preferences if desired.",
+          "expected_result": "Additional booking preferences are displayed.",
+          "start_seconds": 554.2,
+          "end_seconds": 558.28,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects additional booking preferences if desired.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_33300_ts_555.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select specific coach preferences if desired.",
+          "expected_result": "Specific coach preferences are displayed.",
+          "start_seconds": 559.72,
+          "end_seconds": 571.0,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific coach preferences if desired.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_33900_ts_565.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select specific seat preferences if desired.",
+          "expected_result": "Specific seat preferences are displayed.",
+          "start_seconds": 571.0,
+          "end_seconds": 577.24,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific seat preferences if desired.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_34500_ts_575.00.jpg"
+          }
+        },
+        {
+          "step_number": 8,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select specific berth preferences if desired.",
+          "expected_result": "Specific berth preferences are displayed.",
+          "start_seconds": 578.28,
+          "end_seconds": 583.56,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific berth preferences if desired.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_34800_ts_580.00.jpg"
+          }
+        },
+        {
+          "step_number": 9,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select specific food preferences if desired.",
+          "expected_result": "Specific food preferences are displayed.",
+          "start_seconds": 584.52,
+          "end_seconds": 589.88,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific food preferences if desired.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_35100_ts_585.00.jpg"
+          }
+        },
+        {
+          "step_number": 10,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select specific beverage preferences if desired.",
+          "expected_result": "Specific beverage preferences are displayed.",
+          "start_seconds": 589.88,
+          "end_seconds": 596.52,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific beverage preferences if desired.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_35700_ts_595.00.jpg"
+          }
+        },
+        {
+          "step_number": 11,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select specific insurance options if desired.",
+          "expected_result": "Specific insurance options are displayed.",
+          "start_seconds": 596.52,
+          "end_seconds": 601.4,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific insurance options if desired.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_36000_ts_600.00.jpg"
+          }
+        },
+        {
+          "step_number": 12,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select specific terms and conditions if required.",
+          "expected_result": "Terms and conditions options are displayed.",
+          "start_seconds": 601.4,
+          "end_seconds": 606.92,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific terms and conditions if required.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_36300_ts_605.00.jpg"
+          }
+        },
+        {
+          "step_number": 13,
+          "instruction": "Configure the visible preferences or optional settings.",
+          "ui_action": "Select specific confirmation options if required.",
+          "expected_result": "Confirmation options are displayed.",
+          "start_seconds": 606.92,
+          "end_seconds": 611.24,
+          "source_step_refs": [
+            "activity_006"
+          ],
+          "evidence": {
+            "speech_summary": "User selects specific confirmation options if required.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_36600_ts_610.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "activity_007",
+      "name": "Review Payment Options",
+      "description": "The user reviews payment options for the booking process.",
+      "start_seconds": 611.48,
+      "end_seconds": 651.32,
+      "duration_seconds": 39.84,
+      "source_activity_ids": [
+        "activity_007"
+      ],
+      "confidence": 0.95,
+      "evidence_summary": "User reviews payment options for completing the booking process.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Review available payment options.",
+          "expected_result": "Available payment options are displayed.",
+          "start_seconds": 611.48,
+          "end_seconds": 618.36,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews available payment options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_36900_ts_615.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Select preferred payment method.",
+          "expected_result": "Selected payment method is displayed.",
+          "start_seconds": 618.36,
+          "end_seconds": 624.76,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User selects preferred payment method.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_37200_ts_620.00.jpg"
+          }
+        },
+        {
+          "step_number": 3,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Review convenience fees for selected payment options.",
+          "expected_result": "Convenience fees for selected payment options are displayed.",
+          "start_seconds": 624.76,
+          "end_seconds": 630.6,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews convenience fees for selected payment options.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_37800_ts_630.00.jpg"
+          }
+        },
+        {
+          "step_number": 4,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Proceed with payment details entry.",
+          "expected_result": "Payment details entry options are displayed.",
+          "start_seconds": 630.6,
+          "end_seconds": 636.92,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User proceeds with payment details entry.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_38100_ts_635.00.jpg"
+          }
+        },
+        {
+          "step_number": 5,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Review final payment options before booking.",
+          "expected_result": "Final payment options are displayed for review.",
+          "start_seconds": 636.92,
+          "end_seconds": 642.36,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews final payment options before booking.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_38400_ts_640.00.jpg"
+          }
+        },
+        {
+          "step_number": 6,
+          "instruction": "Review payment, fee, or completion options before proceeding.",
+          "ui_action": "Review booking confirmation options before proceeding.",
+          "expected_result": "Booking confirmation options are displayed for review.",
+          "start_seconds": 642.36,
+          "end_seconds": 648.28,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews booking confirmation options before proceeding.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_38700_ts_645.00.jpg"
+          }
+        },
+        {
+          "step_number": 7,
+          "instruction": "Enter the required information into the visible fields.",
+          "ui_action": "Input payment details for booking.",
+          "expected_result": "Payment details are displayed for review.",
+          "start_seconds": 648.28,
+          "end_seconds": 651.32,
+          "source_step_refs": [
+            "activity_007"
+          ],
+          "evidence": {
+            "speech_summary": "User inputs payment details for booking.",
+            "screen_text": [
+              "Welcome User",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_39000_ts_650.00.jpg"
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "llm_model": "gpt-4o-mini",
+    "generator": "generic_llm_activity_refiner_v1",
+    "source": "activities_json"
+  }
+}

@@ -44,16 +44,35 @@ def _parse_transcript(transcript_path: str) -> list[dict]:
 
 def _load_ocr(ocr_path: str) -> list[dict]:
     with open(ocr_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        payload = json.load(f)
+
+    if isinstance(payload, list):
+        return payload
+
+    if isinstance(payload, dict):
+        results = payload.get("results", [])
+
+        if isinstance(results, list):
+            return results
+
+    return []
 
 
 def _find_nearest_ocr(midpoint: float, ocr_results: list[dict]) -> dict | None:
-    if not ocr_results:
+    valid_results = [
+        item
+        for item in ocr_results
+        if isinstance(item, dict)
+        and item.get("timestamp_seconds") is not None
+        and not item.get("error")
+    ]
+
+    if not valid_results:
         return None
 
     return min(
-        ocr_results,
-        key=lambda item: abs(item["timestamp_seconds"] - midpoint),
+        valid_results,
+        key=lambda item: abs(float(item["timestamp_seconds"]) - midpoint),
     )
 
 
@@ -224,7 +243,7 @@ def build_timeline(job_id: str):
             screen_text = [
                 item["text"]
                 for item in nearest_ocr.get("text", [])
-                if item.get("text")
+                if isinstance(item, dict) and item.get("text")
             ]
 
         speaker_info = _find_best_speaker_for_segment(

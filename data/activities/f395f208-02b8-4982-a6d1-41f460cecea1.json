@@ -1,5 +1,5 @@
 {
-  "job_id": "aaf60079-e79f-482d-b9cf-d63ce4da674b",
+  "job_id": "f395f208-02b8-4982-a6d1-41f460cecea1",
   "activity_count": 7,
   "activities": [
     {
@@ -28,24 +28,24 @@
         ],
         "screen_text_samples": [
           "GENERAL",
-          "Install",
           "irctc.co.in/nget/train-search",
+          "Install",
           "PNR STATUS",
           "From",
           "To",
           "All Classes",
           "A-",
           "BOOK TICKET",
-          "CHARTS / VACANCY",
-          "Flexible With Date",
-          "Welcome Giridhar Krishnagiri (girishubha)"
+          "TRAINS",
+          "MEALS",
+          "CHARTS / VACANCY"
         ],
         "frame_paths": [
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_300_ts_5.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_900_ts_15.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_2100_ts_35.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_3000_ts_50.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_3300_ts_55.00.jpg"
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_300_ts_5.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_900_ts_15.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_2100_ts_35.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_3000_ts_50.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_3300_ts_55.00.jpg"
         ]
       },
       "steps": [
@@ -57,8 +57,9 @@
           "intent": "open_or_navigate",
           "speech": "this is the recording for how to access IRCTC website. So we'll log in to IRCTC homepage",
           "screen_text_sample": [
-            "Install",
+            "o-",
             "irctc.co.in/nget/train-search",
+            "Install",
             "10-May-2026 [20:30:35]",
             "A-",
             "A+",
@@ -67,10 +68,9 @@
             "TRAINS",
             "MEALS",
             "LOYALTY",
-            "E-WALLET",
-            "ALERTS MORE"
+            "E-WALLET"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_300_ts_5.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_300_ts_5.00.jpg",
           "nearest_frame_timestamp_seconds": 5.0
         },
         {
@@ -81,20 +81,20 @@
           "intent": "compare_or_filter",
           "speech": "which is IRCTC.co.n. We'll log in to the application.",
           "screen_text_sample": [
+            "$0$",
             "irctc.co.in/nget/train-search",
             "Install",
-            "10-May-2026 [20:30:45] | A -",
+            "10-May-2026 [20:30:45]",
+            "A-",
             "A+",
             "fa",
             "LOGIN / REGISTER",
             "TRAINS",
             "MEALS",
             "LOYALTY",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US",
-            "IRCTC"
+            "E-WALLET"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_900_ts_15.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_900_ts_15.00.jpg",
           "nearest_frame_timestamp_seconds": 15.0
         },
         {
@@ -106,19 +106,19 @@
           "speech": "As you can see in the homepage there are various options. I can check my profile using the",
           "screen_text_sample": [
             "Install",
-            "$0",
             "irctc.co.in/nget/train-search",
-            "Ca",
+            "CQ",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:31:05]",
+            "| A+",
+            "fa",
             "A-",
             "MY ACCOUNT",
             "TRAINS",
             "MEALS",
-            "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US"
+            "LOYALTY"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_2100_ts_35.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_2100_ts_35.00.jpg",
           "nearest_frame_timestamp_seconds": 35.0
         },
         {
@@ -129,20 +129,20 @@
           "intent": "compare_or_filter",
           "speech": "my account under that there is my profile, my transactions and so on. And in the trained",
           "screen_text_sample": [
+            "o-",
             "irctc.co.in/nget/train-search",
             "Install",
-            "DI",
+            "Cα",
+            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:31:20]",
-            "fa",
             "A-",
+            "| A+",
             "MY ACCOUNT",
             "TRAINS",
-            "MEALS",
-            "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US"
+            "MEALS"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_3000_ts_50.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_3000_ts_50.00.jpg",
           "nearest_frame_timestamp_seconds": 50.0
         },
         {
@@ -155,8 +155,7 @@
           "screen_text_sample": [
             "Install",
             "irctc.co.in/nget/train-search",
-            "DI",
-            "IND",
+            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:31:25]",
             "A-",
@@ -164,9 +163,10 @@
             "fa",
             "MY ACCOUNT",
             "TRAINS",
-            "MEALS"
+            "MEALS",
+            "Upto 10% Cashback"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_3300_ts_55.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_3300_ts_55.00.jpg",
           "nearest_frame_timestamp_seconds": 55.0
         },
         {
@@ -177,20 +177,20 @@
           "intent": "compare_or_filter",
           "speech": "check not do book a ticket, we can check the status of search for the trains. So we'll check",
           "screen_text_sample": [
-            "o-",
             "Install",
             "irctc.co.in/nget/train-search",
-            "INDI",
+            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:31:35]",
             "| A+",
             "fa",
-            "A-",
             "MY ACCOUNT",
-            "TRAINS MEALS",
-            "LOYALTY"
+            "TRAINS",
+            "MEALS",
+            "LOYALTY",
+            "E-WALLET ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_3900_ts_65.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_3900_ts_65.00.jpg",
           "nearest_frame_timestamp_seconds": 65.0
         },
         {
@@ -201,20 +201,20 @@
           "intent": "compare_or_filter",
           "speech": "for a train availability.",
           "screen_text_sample": [
-            "irctc.co.in/nget/train-search",
             "Install",
-            "CQ",
+            "irctc.co.in/nget/train-search",
+            "Ca",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:31:40]",
             "A-",
-            "fa",
+            "A*",
+            "foa",
             "MY ACCOUNT",
             "TRAINS",
             "MEALS",
-            "Upto 10% Cashback",
-            "E-WALLET"
+            "Upto 10% Cashback"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_4200_ts_70.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_4200_ts_70.00.jpg",
           "nearest_frame_timestamp_seconds": 70.0
         },
         {
@@ -228,17 +228,17 @@
             "irctc.co.in/nget/train-search",
             "Install",
             "Ca",
-            "IND",
+            "INDI",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:32:00]",
             "A-",
+            "A+",
+            "fa",
             "MY ACCOUNT",
-            "TRAINS MEALS",
-            "LOYALTY",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US"
+            "TRAINS",
+            "MEALS"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_5400_ts_90.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_5400_ts_90.00.jpg",
           "nearest_frame_timestamp_seconds": 90.0
         },
         {
@@ -249,20 +249,20 @@
           "intent": "compare_or_filter",
           "speech": "for, say, 26th May and I'm checking for all the classes. There are various options such",
           "screen_text_sample": [
-            "Install",
             "irctc.co.in/nget/train-search",
+            "Install",
             "CQ",
+            "IND",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:32:10]",
             "A-",
-            "fa",
             "MY ACCOUNT",
-            "TRAINS MEALS",
+            "TRAINS",
+            "MEALS",
             "Upto 10% Cashback",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US"
+            "E-WALLET"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_6000_ts_100.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_6000_ts_100.00.jpg",
           "nearest_frame_timestamp_seconds": 100.0
         },
         {
@@ -275,18 +275,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/train-search",
             "Install",
-            "CQ",
+            "Ca",
+            "IND",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:32:15]",
             "A-",
-            "foa",
+            "A+",
+            "fea",
             "MY ACCOUNT",
-            "TRAINS MEALS",
-            "LOYALTY",
-            "E-WALLET",
-            "ALERTS"
+            "TRAINS",
+            "MEALS"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_6300_ts_105.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_6300_ts_105.00.jpg",
           "nearest_frame_timestamp_seconds": 105.0
         },
         {
@@ -302,15 +302,15 @@
             "Ca",
             "INDI",
             "Welcome Giridhar Krishnagiri (girishubha)",
-            "A-",
-            "fa",
             "10-May-2026 [20:32:25]",
+            "A-",
+            "A+",
+            "foaa$",
             "MY ACCOUNT",
-            "TRAINS MEALS",
-            "Upto 10% Cashback",
-            "E-WALLET"
+            "TRAINS",
+            "MEALS"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_6900_ts_115.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_6900_ts_115.00.jpg",
           "nearest_frame_timestamp_seconds": 115.0
         },
         {
@@ -321,20 +321,20 @@
           "intent": "compare_or_filter",
           "speech": "mostly eligible for general category. Those who are ladies can book a little ladies category.",
           "screen_text_sample": [
-            "irctc.co.in/nget/train-search",
             "Install",
-            "CQ",
-            "IND",
+            "irctc.co.in/nget/train-search",
+            "Ca",
+            "INDI",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:32:30]",
             "A-",
             "MY ACCOUNT",
-            "TRAINS",
-            "MEALS",
+            "TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET"
+            "E-WALLET",
+            "ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_7200_ts_120.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_7200_ts_120.00.jpg",
           "nearest_frame_timestamp_seconds": 120.0
         },
         {
@@ -347,18 +347,18 @@
           "screen_text_sample": [
             "Install",
             "irctc.co.in/nget/train-search",
+            "IND",
             "Welcome Giridhar Krishnagiri (girishubha)",
-            "| fa",
             "10-May-2026 [20:32:35]",
             "A-",
+            "foa",
             "MY ACCOUNT",
-            "TRAINS MEALS",
+            "TRAINS",
+            "MEALS",
             "LOYALTY",
-            "E-WALLET",
-            "ALERTS",
-            "MORE CONTACT US"
+            "E-WALLET"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_7500_ts_125.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_7500_ts_125.00.jpg",
           "nearest_frame_timestamp_seconds": 125.0
         },
         {
@@ -371,18 +371,18 @@
           "screen_text_sample": [
             "Install",
             "irctc.co.in/nget/train-search",
-            "CQ",
+            "Ca",
+            "IND",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:32:40]",
             "A-",
-            "A+",
-            "foaa$",
+            "A*",
+            "| f",
             "MY ACCOUNT",
             "TRAINS",
-            "MEALS",
-            "Upto 10% Cashback"
+            "MEALS"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_7800_ts_130.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_7800_ts_130.00.jpg",
           "nearest_frame_timestamp_seconds": 130.0
         },
         {
@@ -393,20 +393,20 @@
           "intent": "compare_or_filter",
           "speech": "for IRCTC, they have a pass option as well. So we'll go with the general option. And then I",
           "screen_text_sample": [
-            "Install",
             "irctc.co.in/nget/train-search",
+            "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:32:50]",
-            "A+",
-            "foa",
             "A-",
+            "fa",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
-            "PNR STATUS"
+            "PNR STATUS",
+            "CHARTS / VACANCY"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_8400_ts_140.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_8400_ts_140.00.jpg",
           "nearest_frame_timestamp_seconds": 140.0
         },
         {
@@ -417,20 +417,20 @@
           "intent": "compare_or_filter",
           "speech": "will search for the trains. If I'm flexible with the date, I can even check this flexible",
           "screen_text_sample": [
-            "Install",
             "irctc.co.in/nget/train-search",
+            "Install",
             "CQ",
+            "IND",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:32:55]",
             "A-",
-            "| fa",
+            "A*",
+            "fa",
             "MY ACCOUNT",
-            "TRAINS MEALS",
-            "Upto 10% Cashback",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US"
+            "TRAINS",
+            "MEALS"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_8700_ts_145.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_8700_ts_145.00.jpg",
           "nearest_frame_timestamp_seconds": 145.0
         },
         {
@@ -441,20 +441,20 @@
           "intent": "compare_or_filter",
           "speech": "with date option. Those who have got a pass, you know, they can select those options.",
           "screen_text_sample": [
+            "o-",
             "irctc.co.in/nget/train-search",
             "Install",
-            "CQ",
+            "Ca",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:33:00]",
             "A-",
-            "faa",
+            "A+",
+            "fea",
             "MY ACCOUNT",
-            "TRAINS MEALS",
-            "LOYALTY",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US"
+            "TRAINS",
+            "MEALS"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_9000_ts_150.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_9000_ts_150.00.jpg",
           "nearest_frame_timestamp_seconds": 150.0
         },
         {
@@ -467,18 +467,18 @@
           "screen_text_sample": [
             "Install",
             "irctc.co.in/nget/train-search",
-            "DI",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:33:05]",
             "A-",
+            "| A+",
             "fa",
             "MY ACCOUNT",
-            "TRAINS MEALS",
+            "TRAINS",
+            "MEALS",
             "LOYALTY",
-            "E-WALLET",
-            "ALERTS"
+            "E-WALLET"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_9300_ts_155.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_9300_ts_155.00.jpg",
           "nearest_frame_timestamp_seconds": 155.0
         },
         {
@@ -489,20 +489,20 @@
           "intent": "compare_or_filter",
           "speech": "The search for the trains now. So once we hit the search button, we can see various options.",
           "screen_text_sample": [
-            "Install",
             "irctc.co.in/nget/train-search",
+            "Install",
             "Ca",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:33:10]",
             "A-",
-            "fd",
             "MY ACCOUNT",
-            "TRAINS MEALS",
+            "TRAINS",
+            "MEALS",
             "Upto 10% Cashback",
             "E-WALLET",
             "ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_9600_ts_160.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_9600_ts_160.00.jpg",
           "nearest_frame_timestamp_seconds": 160.0
         }
       ]
@@ -546,11 +546,11 @@
           "OTHER DATES"
         ],
         "frame_paths": [
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_10200_ts_170.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_10500_ts_175.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_11100_ts_185.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_11400_ts_190.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_12000_ts_200.00.jpg"
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_10200_ts_170.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_10500_ts_175.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_11100_ts_185.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_11400_ts_190.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_12000_ts_200.00.jpg"
         ]
       },
       "steps": [
@@ -568,14 +568,14 @@
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:33:20]",
             "A-",
+            "| A+|",
+            "RI",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC",
-            "KSR BENGALURU -"
+            "E-WALLET ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_10200_ts_170.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_10200_ts_170.00.jpg",
           "nearest_frame_timestamp_seconds": 170.0
         },
         {
@@ -586,20 +586,20 @@
           "intent": "compare_or_filter",
           "speech": "to New Delhi on the 26th of May, which is the general filter under the general",
           "screen_text_sample": [
-            "o-",
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "-o",
-            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:33:25]",
             "A-",
             "|A+|",
             "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
-            "E-WALLET"
+            "E-WALLET",
+            "ALERTS MORE CONTACT US",
+            "IRCTC",
+            "KSR BENGALURU -"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_10500_ts_175.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_10500_ts_175.00.jpg",
           "nearest_frame_timestamp_seconds": 175.0
         },
         {
@@ -612,18 +612,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:33:35]",
             "A-",
-            "|A+|",
-            "foa",
-            "RI",
+            "| A+|",
             "MY ACCOUNT",
-            "TRAINS MEALS",
-            "LOYALTY"
+            "TRAINS",
+            "MEALS",
+            "LOYALTY",
+            "E-WALLET ALERTS MORE CONTACT US",
+            "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_11100_ts_185.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_11100_ts_185.00.jpg",
           "nearest_frame_timestamp_seconds": 185.0
         },
         {
@@ -641,13 +641,13 @@
             "10-May-2026 [20:33:40]",
             "A-",
             "|A+|",
-            "MY ACCOUNT TRAINS MEALS",
+            "MY ACCOUNT TRAINS",
+            "MEALS",
             "Upto 10% Cashback",
             "E-WALLET",
-            "ALERTS MORE CONTACT US",
-            "IRCTC"
+            "ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_11400_ts_190.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_11400_ts_190.00.jpg",
           "nearest_frame_timestamp_seconds": 190.0
         },
         {
@@ -660,18 +660,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "INDIA",
+            "INDIAA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:33:50]",
             "A-",
             "| A+|",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US",
-            "IRCTC"
+            "E-WALLET ALERTS MORE CONTACT US",
+            "IRCTC",
+            "KSR BENGALURU -"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_12000_ts_200.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_12000_ts_200.00.jpg",
           "nearest_frame_timestamp_seconds": 200.0
         },
         {
@@ -686,16 +686,16 @@
             "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:33:55]",
+            "| A |A+|",
             "A-",
             "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
             "AC First Class (1A)",
-            "AC 2 Tier (2A)",
-            "Enchanting Europe"
+            "AC 2 Tier (2A)"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_12300_ts_205.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_12300_ts_205.00.jpg",
           "nearest_frame_timestamp_seconds": 205.0
         },
         {
@@ -719,7 +719,7 @@
             "AC 2 Tier (2A)",
             "Enchanting Europe"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_12600_ts_210.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_12600_ts_210.00.jpg",
           "nearest_frame_timestamp_seconds": 210.0
         },
         {
@@ -732,18 +732,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "IAI",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:34:05]",
-            "A-",
+            "| A",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
             "AC First Class (1A)",
-            "AC 2 Tier (2A)"
+            "AC 2 Tier (2A)",
+            "Enchanting Europe"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_12900_ts_215.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_12900_ts_215.00.jpg",
           "nearest_frame_timestamp_seconds": 215.0
         },
         {
@@ -758,16 +758,16 @@
             "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:34:10]",
-            "A-",
             "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
             "E-WALLET",
             "ALERTS MORE CONTACT US",
             "IRCTC",
             "AC First Class (1A)",
-            "AC 2 Tier (2A)"
+            "AC 2 Tier (2A)",
+            "Enchanting Europe"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_13200_ts_220.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_13200_ts_220.00.jpg",
           "nearest_frame_timestamp_seconds": 220.0
         },
         {
@@ -778,8 +778,8 @@
           "intent": "compare_or_filter",
           "speech": "search with departure time or I can filter it with using arrival time. So these two are various",
           "screen_text_sample": [
-            "irctc.co.in/nget/booking/train-list",
             "Install",
+            "irctc.co.in/nget/booking/train-list",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:34:20]",
             "MY ACCOUNT TRAINS MEALS",
@@ -791,7 +791,7 @@
             "AC Chair car (CC)",
             "AC 3 Economy (3E)"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_13800_ts_230.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_13800_ts_230.00.jpg",
           "nearest_frame_timestamp_seconds": 230.0
         },
         {
@@ -804,18 +804,18 @@
           "screen_text_sample": [
             "Install",
             "irctc.co.in/nget/booking/train-list",
-            "↓ A+",
-            "fa}$",
-            "INDIA",
+            "INDIAA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:34:25]",
+            "A-",
             "RI",
             "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
-            "E-WALLET ALERTS MORE CONTACT US",
+            "E-WALLET",
+            "ALERTS MORE CONTACT US",
             "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_14100_ts_235.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_14100_ts_235.00.jpg",
           "nearest_frame_timestamp_seconds": 235.0
         },
         {
@@ -828,18 +828,18 @@
           "screen_text_sample": [
             "Install",
             "irctc.co.in/nget/booking/train-list",
-            "INDI",
-            "Welcome Giridhar Krishnaqiri (girishubha)",
+            "Welcome Giridhar Krishnagiri (girishubha))",
             "10-May-2026 [20:34:30]",
             "RI",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US",
+            "E-WALLET",
+            "ALERTS MORE CONTACT US",
             "IRCTC",
             "ARRIVAL TIME",
             "Select All"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_14400_ts_240.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_14400_ts_240.00.jpg",
           "nearest_frame_timestamp_seconds": 240.0
         },
         {
@@ -854,7 +854,7 @@
             "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:34:40]",
-            "|A+|",
+            "| A{|",
             "MY ACCOUNT TRAINS",
             "MEALS",
             "Upto 10% Cashback",
@@ -863,7 +863,7 @@
             "IRCTC",
             "KSR BENGALURU -"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_15000_ts_250.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_15000_ts_250.00.jpg",
           "nearest_frame_timestamp_seconds": 250.0
         },
         {
@@ -876,18 +876,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "OIQI",
-            "Welcome Giridhar Krishnagiri (girishubha)",
+            "OIAI",
+            "Welcome Giridhar Krishnaqiri (qirishubha)",
             "10-May-2026 [20:34:45]",
-            "A|A |A+",
-            "| f",
+            "RI",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC"
+            "IRCTC",
+            "SAMPARK KRANTI (12629)"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_15300_ts_255.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_15300_ts_255.00.jpg",
           "nearest_frame_timestamp_seconds": 255.0
         }
       ]
@@ -931,11 +931,11 @@
           "Night"
         ],
         "frame_paths": [
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_15600_ts_260.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_15900_ts_265.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_16200_ts_270.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_16500_ts_275.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_16800_ts_280.00.jpg"
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_15600_ts_260.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_15900_ts_265.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_16200_ts_270.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_16500_ts_275.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_16800_ts_280.00.jpg"
         ]
       },
       "steps": [
@@ -949,18 +949,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "INDIA",
+            "INDIAA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:34:50]",
             "A-",
-            "|A+|",
-            "RI",
+            "| A+|",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US"
+            "E-WALLET ALERTS MORE CONTACT US",
+            "IRCTC",
+            "KSR BENGALURU -"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_15600_ts_260.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_15600_ts_260.00.jpg",
           "nearest_frame_timestamp_seconds": 260.0
         },
         {
@@ -975,16 +975,16 @@
             "irctc.co.in/nget/booking/train-list",
             "Install",
             "-o",
-            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:34:55]",
             "A-",
             "|A+|",
             "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
-            "E-WALLET"
+            "E-WALLET",
+            "ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_15900_ts_265.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_15900_ts_265.00.jpg",
           "nearest_frame_timestamp_seconds": 265.0
         },
         {
@@ -997,18 +997,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
+            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:35:00]",
             "A-",
+            "| A |A+|",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC",
-            "KSR BENGALURU -",
-            "NEW DELHI - NDLS (",
-            "26/05/2026"
+            "E-WALLET",
+            "ALERTS MORE CONTACT US",
+            "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_16200_ts_270.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_16200_ts_270.00.jpg",
           "nearest_frame_timestamp_seconds": 270.0
         },
         {
@@ -1021,18 +1021,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:35:05]",
-            "| A+",
-            "fa}$",
             "A-",
+            "| A+",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET"
+            "E-WALLET",
+            "ALERTS MORE CONTACT US",
+            "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_16500_ts_275.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_16500_ts_275.00.jpg",
           "nearest_frame_timestamp_seconds": 275.0
         },
         {
@@ -1056,7 +1056,7 @@
             "IRCTC",
             "KSR BENGALURU -"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_16800_ts_280.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_16800_ts_280.00.jpg",
           "nearest_frame_timestamp_seconds": 280.0
         },
         {
@@ -1067,20 +1067,20 @@
           "intent": "compare_or_filter",
           "speech": "now. So I can see two-tires and also there's no availability for 26th of May.",
           "screen_text_sample": [
-            "-o",
+            "$0$",
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:35:15]",
-            "|A+|",
+            "| A+|",
+            "Welcome Giridhar Krishnagiri (girishubha)",
             "A-",
             "MY ACCOUNT",
-            "T TRAINS MEALS",
+            "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET",
             "ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_17100_ts_285.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_17100_ts_285.00.jpg",
           "nearest_frame_timestamp_seconds": 285.0
         },
         {
@@ -1093,7 +1093,6 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "UI",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:35:25]",
             "A-",
@@ -1102,9 +1101,10 @@
             "MEALS",
             "Upto 10% Cashback",
             "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC"
+            "IRCTC",
+            "Sort By | Departure"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_17700_ts_295.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_17700_ts_295.00.jpg",
           "nearest_frame_timestamp_seconds": 295.0
         },
         {
@@ -1117,18 +1117,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
+            "α|",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:35:30]",
-            "|A+|",
-            "A-",
             "RI",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC"
+            "IRCTC",
+            "00:00 -06:00"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_18000_ts_300.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_18000_ts_300.00.jpg",
           "nearest_frame_timestamp_seconds": 300.0
         },
         {
@@ -1141,18 +1141,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "Welcome Giridhar Krishnagiri (girishubha)",
+            "Welcome Giridhar Krishnaqiri (qirishubha)",
             "10-May-2026 [20:35:40]",
-            "RI",
+            "|A-|A|A+|Q",
             "MY ACCOUNT",
-            "TRAINS MEALS",
+            "TTRAINS MEALS",
             "Upto 10% Cashback",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
-            "HOIVOH",
-            "HOmvoH"
+            "HOIvom",
+            "HOHoUnC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_18600_ts_310.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_18600_ts_310.00.jpg",
           "nearest_frame_timestamp_seconds": 310.0
         },
         {
@@ -1163,20 +1163,20 @@
           "intent": "compare_or_filter",
           "speech": "book. There is an REC as in it's not exactly conformed to it but it could get conformed over",
           "screen_text_sample": [
-            "o-",
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:35:50]",
             "| A+",
-            "foa",
+            "| f",
+            "A-",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET"
+            "E-WALLET",
+            "ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_19200_ts_320.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_19200_ts_320.00.jpg",
           "nearest_frame_timestamp_seconds": 320.0
         },
         {
@@ -1187,44 +1187,44 @@
           "intent": "compare_or_filter",
           "speech": "a period of time. So right now this category is not a conformed availability but so I can either go",
           "screen_text_sample": [
+            "o-",
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "OII",
+            "OIPI",
+            "INDIAN",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:36:00]",
+            "A-",
+            "RI",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC",
-            "0:00 Hrs",
-            "24:00 Hrs",
-            "FROM STATIONS"
+            "E-WALLET ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_19800_ts_330.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_19800_ts_330.00.jpg",
           "nearest_frame_timestamp_seconds": 330.0
         },
         {
           "step_number": 12,
           "start_seconds": 333.24,
           "end_seconds": 338.2,
-          "instruction": "Review the confirmation message and choose the appropriate response.",
-          "intent": "handle_confirmation",
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "intent": "compare_or_filter",
           "speech": "for I can either go for the three-tires which is I can see there is 94 available seats there.",
           "screen_text_sample": [
-            "irctc.co.in/nget/booking/train-list",
             "Install",
+            "irctc.co.in/nget/booking/train-list",
             "INDIAN",
-            "26:",
-            "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:36:05]",
+            "A|A|A+|",
+            "26:",
+            "Welcome Giridhar Krishnaqiri (girishubha)",
             "RI",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC",
-            "HOIOOH"
+            "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_20100_ts_335.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_20100_ts_335.00.jpg",
           "nearest_frame_timestamp_seconds": 335.0
         },
         {
@@ -1237,18 +1237,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "Co",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:36:15]",
-            "MY ACCOUNT TRAINS MEALS",
+            "MY ACCOUNT",
+            "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
-            "Holvom",
-            "HOlvoH",
-            "HOnvOm"
+            "HOmvOm",
+            "HOmvom",
+            "Honvon"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_20700_ts_345.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_20700_ts_345.00.jpg",
           "nearest_frame_timestamp_seconds": 345.0
         },
         {
@@ -1261,18 +1261,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "Welcome Giridhar Krishnaqiri (girishubha)",
+            "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:36:20]",
-            "RI",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
+            "HOIoOH",
+            "HOIvOH",
             "HOIOOH",
-            "Holloom",
-            "HOIvOH"
+            "HOmvon"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_21000_ts_350.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_21000_ts_350.00.jpg",
           "nearest_frame_timestamp_seconds": 350.0
         },
         {
@@ -1283,20 +1283,20 @@
           "intent": "compare_or_filter",
           "speech": "Now if I have to book it, then I would actually select the date for which I need to book it.",
           "screen_text_sample": [
-            "Install",
             "irctc.co.in/nget/booking/train-list",
-            "Welcome Giridhar Krishnagiri (girishubha)",
+            "Install",
+            "Welcome Giridhar Krishnaqiri (girishubha)",
             "10-May-2026 [20:36:25]",
-            "RI",
             "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
+            "HOIVOH",
             "HOIvOH",
-            "HOIOOH",
-            "HOnoH"
+            "ROnvOH",
+            "HOIvOH"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_21300_ts_355.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_21300_ts_355.00.jpg",
           "nearest_frame_timestamp_seconds": 355.0
         },
         {
@@ -1311,16 +1311,16 @@
             "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:36:35]",
-            "RI",
+            "| A·|A | A+",
+            "| f",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
-            "HOIvom",
-            "Holloon",
-            "HOnOOn"
+            "HOIvOI",
+            "HOmvoH"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_21900_ts_365.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_21900_ts_365.00.jpg",
           "nearest_frame_timestamp_seconds": 365.0
         },
         {
@@ -1333,18 +1333,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "Welcome Giridhar Krishnagiri (girishubha)",
+            "Welcome Giridhar Krishnaqiri (qirishubha)",
             "10-May-2026 [20:36:40]",
-            "|A-| A |A+|",
-            "RI",
             "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
-            "Holvom",
-            "HOIvOH"
+            "HOIvOH",
+            "HOIvoH",
+            "Ronoon",
+            "HOIvoH"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_22200_ts_370.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_22200_ts_370.00.jpg",
           "nearest_frame_timestamp_seconds": 370.0
         },
         {
@@ -1358,32 +1358,8 @@
             "irctc.co.in/nget/booking/train-list",
             "Install",
             "INDIA",
-            "Welcome Giridhar Krishnagiri (girishubha)",
-            "RI",
-            "MY ACCOUNT",
-            "TRAINS",
-            "MEALS",
-            "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC",
-            "HOITOOn"
-          ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_22800_ts_380.00.jpg",
-          "nearest_frame_timestamp_seconds": 380.0
-        },
-        {
-          "step_number": 19,
-          "start_seconds": 385.4,
-          "end_seconds": 391.32,
-          "instruction": "Review the confirmation message and choose the appropriate response.",
-          "intent": "handle_confirmation",
-          "speech": "cat, the trains between Bangalore book to New Delhi, booking is from actually Bangalore to Nizamodim.",
-          "screen_text_sample": [
-            "irctc.co.in/nget/booking/train-list",
-            "Install",
-            "INDIAN",
-            "10-May-2026 [20:37:00]",
-            "|A|AIA+|",
+            "10-May-2026 [20:36:50]",
+            "|A-IAIA+|PG",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "RI",
             "MY ACCOUNT",
@@ -1392,7 +1368,31 @@
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_23400_ts_390.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_22800_ts_380.00.jpg",
+          "nearest_frame_timestamp_seconds": 380.0
+        },
+        {
+          "step_number": 19,
+          "start_seconds": 385.4,
+          "end_seconds": 391.32,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "intent": "compare_or_filter",
+          "speech": "cat, the trains between Bangalore book to New Delhi, booking is from actually Bangalore to Nizamodim.",
+          "screen_text_sample": [
+            "irctc.co.in/nget/booking/train-list",
+            "Install",
+            "INDIAN",
+            "|A+|",
+            "Welcome Giridhar Krishnagiri (girishubha)",
+            "10-May-2026 [20:37:00]",
+            "AIA",
+            "RI",
+            "MY ACCOUNT",
+            "TRAINS",
+            "MEALS",
+            "LOYALTY"
+          ],
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_23400_ts_390.00.jpg",
           "nearest_frame_timestamp_seconds": 390.0
         },
         {
@@ -1407,7 +1407,7 @@
             "Install",
             "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
-            "10-May-2026 [20:37:05] | A | A | A+ |",
+            "10-May-2026 [20:37:05]",
             "RI",
             "MY ACCOUNT",
             "TRAINS",
@@ -1416,7 +1416,7 @@
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_23700_ts_395.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_23700_ts_395.00.jpg",
           "nearest_frame_timestamp_seconds": 395.0
         },
         {
@@ -1429,7 +1429,6 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/train-list",
             "Install",
-            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "RI",
             "MY ACCOUNT",
@@ -1438,9 +1437,10 @@
             "Upto 10% Cashback",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
-            "HOIUOn"
+            "HOHO0n",
+            "FOHOOH"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_24000_ts_400.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_24000_ts_400.00.jpg",
           "nearest_frame_timestamp_seconds": 400.0
         }
       ]
@@ -1482,11 +1482,11 @@
           "Making Your"
         ],
         "frame_paths": [
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_24600_ts_410.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_25200_ts_420.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_25500_ts_425.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_25800_ts_430.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_26100_ts_435.00.jpg"
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_24600_ts_410.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_25200_ts_420.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_25500_ts_425.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_25800_ts_430.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_26100_ts_435.00.jpg"
         ]
       },
       "steps": [
@@ -1498,20 +1498,20 @@
           "intent": "enter_information",
           "speech": "continue. So now it shows me the ticket fare as 4,300, 85. As you can see there and then",
           "screen_text_sample": [
+            "o-",
             "irctc.co.in/nget/booking/psgninput",
             "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:37:20]",
+            "A-",
+            "A+",
+            "fa",
             "MY ACCOUNT",
-            "TRAINS MEALS",
-            "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC",
-            "Verified Buses",
-            "Private Operators Discount",
-            "Affordable Prices"
+            "TRAINS",
+            "MEALS",
+            "LOYALTY"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_24600_ts_410.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_24600_ts_410.00.jpg",
           "nearest_frame_timestamp_seconds": 410.0
         },
         {
@@ -1523,19 +1523,19 @@
           "speech": "there are options to select the IRCTC's card benefits. I can pick one of these ones.",
           "screen_text_sample": [
             "Install",
-            "II:",
+            "IAI:",
             "irctc.co.in/nget/booking/psgninput",
-            "INDIAA",
+            "26:",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:37:30]",
-            "A-",
             "RI",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
             "E-WALLET",
-            "ALERTS MORE CONTACT US"
+            "ALERTS MORE CONTACT US",
+            "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_25200_ts_420.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_25200_ts_420.00.jpg",
           "nearest_frame_timestamp_seconds": 420.0
         },
         {
@@ -1547,19 +1547,19 @@
           "speech": "If I have but I don't have an IRCTC card, so I don't want to do that. I'll just skip it for now.",
           "screen_text_sample": [
             "Install",
-            "II",
             "irctc.co.in/nget/booking/psgninput",
             "10-May-2026 [20:37:35]",
             "A-",
-            "| A",
             "| A+",
             "| fd",
             "Welcome Giridhar Krishnagiri (girishubha)",
-            "MY ACCOUNT",
-            "TRAINS MEALS",
-            "LOYALTY"
+            "MY ACCOUNT TRAINS MEALS",
+            "LOYALTY",
+            "E-WALLET ALERTS MORE CONTACT US",
+            "IRCTC",
+            "RAJDHANI EXP (22691)"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_25500_ts_425.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_25500_ts_425.00.jpg",
           "nearest_frame_timestamp_seconds": 425.0
         },
         {
@@ -1576,14 +1576,14 @@
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:37:40]",
             "A-",
-            "| A†",
-            "foa",
-            "MY ACCOUNT",
-            "TRAINS MEALS",
+            "| A+",
+            "fa",
+            "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
-            "E-WALLET"
+            "E-WALLET",
+            "ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_25800_ts_430.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_25800_ts_430.00.jpg",
           "nearest_frame_timestamp_seconds": 430.0
         },
         {
@@ -1598,16 +1598,16 @@
             "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:37:45]",
-            "A-",
-            "| A | A+",
-            "fa",
+            "|A| A+|",
+            "foa",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC"
+            "IRCTC",
+            "ALs ler (MyProfile"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_26100_ts_435.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_26100_ts_435.00.jpg",
           "nearest_frame_timestamp_seconds": 435.0
         },
         {
@@ -1619,19 +1619,19 @@
           "speech": "out there. So I can select my name which is my name is Krishna Gidea so I'll select that",
           "screen_text_sample": [
             "0-0",
-            "Install",
             "irctc.co.in/nget/booking/psgninput",
+            "Install",
             "INDIAN",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:37:50]",
+            "A-",
+            "fa",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC",
-            "Piease cnecK n ies weDsite or n ies app tor actual tme perore poaraing",
-            "RCTC Co-branded Card Benefits"
+            "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_26400_ts_440.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_26400_ts_440.00.jpg",
           "nearest_frame_timestamp_seconds": 440.0
         },
         {
@@ -1642,20 +1642,20 @@
           "intent": "enter_information",
           "speech": "and then I'll select a preference I can either go for a low birth, midi birth or upper birth or",
           "screen_text_sample": [
-            "Install",
             "irctc.co.in/nget/booking/psgninput",
+            "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:38:00]",
-            "| A†",
-            "fo",
+            "A-",
+            "| A+",
+            "foa",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC",
-            "riease cneck n ies weDsite or n ies app tor actual time perore poaraing"
+            "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_27000_ts_450.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_27000_ts_450.00.jpg",
           "nearest_frame_timestamp_seconds": 450.0
         },
         {
@@ -1672,14 +1672,14 @@
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:38:05]",
             "A-",
-            "|A",
-            "| A+",
-            "fa",
+            "|A+|",
             "MY ACCOUNT",
             "TRAINS MEALS",
-            "LOYALTY"
+            "LOYALTY",
+            "E-WALLET ALERTS MORE CONTACT US",
+            "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_27300_ts_455.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_27300_ts_455.00.jpg",
           "nearest_frame_timestamp_seconds": 455.0
         },
         {
@@ -1695,15 +1695,15 @@
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:38:10]",
             "A-",
-            "A | A+|",
-            "MY ACCOUNT TRAINS MEALS",
+            "| A†",
+            "fa",
+            "MY ACCOUNT TRAINS",
+            "MEALS",
             "Upto 10% Cashback",
             "E-WALLET",
-            "ALERTS MORE CONTACT US",
-            "IRCTC",
-            "riease cneck n ies weDsite or n ies app tor actual time perore poaraing"
+            "ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_27600_ts_460.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_27600_ts_460.00.jpg",
           "nearest_frame_timestamp_seconds": 460.0
         },
         {
@@ -1714,20 +1714,20 @@
           "intent": "enter_information",
           "speech": "I don't eat any of these once I just go with the jain meals. So jain meal is without onion garlic",
           "screen_text_sample": [
-            "Install",
             "irctc.co.in/nget/booking/psgninput",
+            "Install",
+            "-o",
+            "INDIAN",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:38:15]",
             "A-",
-            "| A†",
-            "fo",
-            "MY ACCOUNT",
-            "TRAINS MEALS",
+            "foa",
+            "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US"
+            "E-WALLET ALERTS MORE CONTACT US",
+            "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_27900_ts_465.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_27900_ts_465.00.jpg",
           "nearest_frame_timestamp_seconds": 465.0
         }
       ]
@@ -1756,22 +1756,22 @@
           "IRCTC",
           "irctc.co.in/nget/booking/psgninput",
           "Install",
-          "Welcome Giridhar Krishnagiri (girishubha)",
           "+ Add Passenger/ Add Infant With Berth",
-          "+ Add Infant Without Berth",
           "Offer by APSRTC",
+          "+ Add Infant Without Berth",
           "All in one place",
           "*Children under 5 years of age shall be carried free and no purchase of any ticket is required. (If no separate berth is opted.)",
           "www.bus.irctc.co.in",
           "Contact Details",
-          "9008044570"
+          "9008044570",
+          "Welcome Giridhar Krishnagiri (girishubha)"
         ],
         "frame_paths": [
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_28500_ts_475.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_28800_ts_480.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_29700_ts_495.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_30000_ts_500.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_30600_ts_510.00.jpg"
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_28500_ts_475.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_28800_ts_480.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_29700_ts_495.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_30000_ts_500.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_30600_ts_510.00.jpg"
         ]
       },
       "steps": [
@@ -1790,13 +1790,13 @@
             "RI",
             "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US",
+            "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
-            "citizenDiscount",
-            "+ Add Passenger/ Add Infant With Berth"
+            "sr. citizen Discount",
+            "+ Add Passenger/ Add Infant With Berth",
+            "Offer by APSRTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_28500_ts_475.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_28500_ts_475.00.jpg",
           "nearest_frame_timestamp_seconds": 475.0
         },
         {
@@ -1812,15 +1812,15 @@
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:38:30]",
             "A-",
-            "| A+|",
-            "fo",
+            "| A+",
+            "fa",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
             "E-WALLET",
             "ALERTS MORE CONTACT US",
             "IRCTC"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_28800_ts_480.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_28800_ts_480.00.jpg",
           "nearest_frame_timestamp_seconds": 480.0
         },
         {
@@ -1831,20 +1831,20 @@
           "intent": "enter_information",
           "speech": "the gender which country belong to and the choice of the birth itself and the catering options.",
           "screen_text_sample": [
-            "irctc.co.in/nget/booking/psgninput",
             "Install",
-            "-o",
+            "irctc.co.in/nget/booking/psgninput",
             "INDIAN",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:38:45]",
-            "| A†",
-            "2E:IND",
+            "A-",
+            "| A+|",
+            "fa",
+            "TE:IND",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET",
-            "ALERTS MORE CONTACTUS"
+            "E-WALLET"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_29700_ts_495.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_29700_ts_495.00.jpg",
           "nearest_frame_timestamp_seconds": 495.0
         },
         {
@@ -1856,19 +1856,19 @@
           "speech": "So for each passenger I need to enter these 1 2 3 4 5 6 6 6 options.",
           "screen_text_sample": [
             "0-0",
-            "Install",
             "irctc.co.in/nget/booking/psgninput",
+            "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:38:50]",
             "A-",
-            "A |A+|",
-            "foa",
-            "MY ACCOUNT TRAINS MEALS",
-            "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC"
+            "| A†",
+            "fo",
+            "RI",
+            "MY ACCOUNT",
+            "TRAINS MEALS",
+            "LOYALTY"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_30000_ts_500.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_30000_ts_500.00.jpg",
           "nearest_frame_timestamp_seconds": 500.0
         },
         {
@@ -1883,16 +1883,16 @@
             "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:39:00]",
-            "A-",
             "| A+|f",
-            "RI",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC"
+            "IRCTC",
+            "ote. ine iu cara will de requlred qunng joumey",
+            "Making Your"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_30600_ts_510.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_30600_ts_510.00.jpg",
           "nearest_frame_timestamp_seconds": 510.0
         },
         {
@@ -1905,18 +1905,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/psgninput",
             "Install",
-            "Welcome Giridhar Krishnagiri (girishubha)",
+            "Welcome Giridhar Krishnaqiri (girishubha)",
             "10-May-2026 [20:39:05]",
+            "A-",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
-            "note. rne ld cara wll ve requlreu uunng journey",
-            "Making Your",
-            "Passenger Details"
+            "note. rne ld caru wil ve requlreu uunng journey",
+            "Making Your"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_30900_ts_515.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_30900_ts_515.00.jpg",
           "nearest_frame_timestamp_seconds": 515.0
         },
         {
@@ -1931,16 +1931,16 @@
             "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:39:10]",
-            "| A+|",
+            "A-",
+            "|A{|f",
             "RI",
-            "MY ACCOUNT",
-            "T TRAINS MEALS",
+            "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCTC",
-            "note. mne iu cara will be required qunng journey"
+            "note. mne iu card will be requlred qunng joumey"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_31200_ts_520.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_31200_ts_520.00.jpg",
           "nearest_frame_timestamp_seconds": 520.0
         },
         {
@@ -1951,20 +1951,20 @@
           "intent": "enter_information",
           "speech": "change this one. And then it shows that it's it's called a sender email once I book the ticket",
           "screen_text_sample": [
-            "$0$",
+            "0$",
             "irctc.co.in/nget/booking/psgninput",
             "Install",
+            "INDIAN",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:39:15]",
             "A-",
+            "| A+|f",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC",
-            "note. mne id card will de required qunng joumey"
+            "E-WALLET ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_31500_ts_525.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_31500_ts_525.00.jpg",
           "nearest_frame_timestamp_seconds": 525.0
         }
       ]
@@ -1999,20 +1999,20 @@
           "Welcome Giridhar Krishnagiri (girishubha)",
           "I don't want Food/Beverages",
           "Other Preferences",
-          "Reservation Choice",
-          "Yes, and I accept the terms & conditions",
-          "No, I don't want travel insurance",
           "Consider for Auto Upgradation (In higher class you may or may not get lower berth)",
           "Book only if confirm berths are allotted.",
-          "Preferred Coach No.",
-          "E-WALLET ALERTS MORE CONTACT US"
+          "Reservation Choice",
+          "E-WALLET ALERTS MORE CONTACT US",
+          "Yes, and I accept the terms & conditions",
+          "No, I don't want travel insurance",
+          "Preferred Coach No."
         ],
         "frame_paths": [
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_32100_ts_535.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_32400_ts_540.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_32700_ts_545.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_33000_ts_550.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_33300_ts_555.00.jpg"
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_32100_ts_535.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_32400_ts_540.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_32700_ts_545.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_33000_ts_550.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_33300_ts_555.00.jpg"
         ]
       },
       "steps": [
@@ -2028,16 +2028,16 @@
             "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:39:25]",
+            "RI",
             "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
             "E-WALLET",
             "ALERTS MORE CONTACT US",
             "IRCTO",
-            "CitizenDiscount",
-            "+ Add Passenger/ Add Infant With Berth",
-            "+ Add Infant Without Berth"
+            "Cilzen Discount",
+            "+ Add Passenger/ Add Infant With Berth"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_32100_ts_535.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_32100_ts_535.00.jpg",
           "nearest_frame_timestamp_seconds": 535.0
         },
         {
@@ -2053,15 +2053,15 @@
             "INDIAN",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:39:30]",
-            "A-",
-            "| A+",
-            "fo",
+            "|A-",
+            "|A",
+            "|A+",
+            "foa",
             "MY ACCOUNT",
             "TRAINS MEALS",
-            "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US"
+            "LOYALTY"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_32400_ts_540.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_32400_ts_540.00.jpg",
           "nearest_frame_timestamp_seconds": 540.0
         },
         {
@@ -2074,18 +2074,18 @@
           "screen_text_sample": [
             "irctc.co.in/nget/booking/psgninput",
             "Install",
+            "INDIAA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:39:35]",
-            "A-",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "IRCT",
             "Contact Details",
-            "Ticket details will be sent to email- gi******@yahoo.com and registered mobile number 90*****70)",
+            "Ticket details will be sent to email- gi******@yahoo.com and registered mobile number 90******70)",
             "9008044570"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_32700_ts_545.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_32700_ts_545.00.jpg",
           "nearest_frame_timestamp_seconds": 545.0
         },
         {
@@ -2097,10 +2097,10 @@
           "speech": "So there are other options if if if I want to go and upgrade that to a higher class",
           "screen_text_sample": [
             "Install",
+            "O0",
             "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
-            "10-May-2026 [20:39:40] | A |",
-            "| A+|",
+            "10-ay-202 [20:39:40] | A |",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "Upto 10% Cashback",
@@ -2109,7 +2109,7 @@
             "Other Preferences",
             "Consider for Auto Upgradation (In higher class you may or may not get lower berth)"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_33000_ts_550.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_33000_ts_550.00.jpg",
           "nearest_frame_timestamp_seconds": 550.0
         },
         {
@@ -2124,16 +2124,16 @@
             "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:39:45]",
+            "|A-",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "I don't want Food/Beverages",
             "Other Preferences",
             "Consider for Auto Upgradation (In higher class you may or may not get lower berth)",
-            "Book only if confirm berths are allotted.",
-            "Reservation Choice"
+            "Book only if confirm berths are allotted."
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_33300_ts_555.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_33300_ts_555.00.jpg",
           "nearest_frame_timestamp_seconds": 555.0
         },
         {
@@ -2148,16 +2148,16 @@
             "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:39:55]",
-            "MY ACCOUNT",
-            "TRAINS MEALS",
+            "A | A+|",
+            "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US",
+            "E-WALLET ALERTS MORE CONTACT US",
             "I don't want Food/Beverages",
             "Other Preferences",
-            "Consider for Auto Upgradation (In higher class you may or may not get lower berth) Book only if confirm berths are allotted."
+            "Consider for Auto Upgradation (In higher class you may or may not get lower berth)",
+            "Book only if confirm berths are allotted."
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_33900_ts_565.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_33900_ts_565.00.jpg",
           "nearest_frame_timestamp_seconds": 565.0
         },
         {
@@ -2171,17 +2171,17 @@
             "Install",
             "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
-            "10-May-2026 [20:40:05]",
-            "|A|A",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "I don't want Food/Beverages",
             "Other Preferences",
-            "Consider for Auto Upgradation (In higher class you may or may not get lower berth)"
+            "Consider for Auto Upgradation (In higher class you may or may not get lower berth)",
+            "Book only if confirm berths are allotted.",
+            "Reservation Choice"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_34500_ts_575.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_34500_ts_575.00.jpg",
           "nearest_frame_timestamp_seconds": 575.0
         },
         {
@@ -2192,20 +2192,20 @@
           "intent": "configure_preferences",
           "speech": "then it books it only if there is availability of the birth the birth that I've chosen for",
           "screen_text_sample": [
-            "irctc.co.in/nget/booking/psgninput",
             "Install",
-            "-o",
+            "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:40:10]",
-            "A{| A",
-            "| A+| f",
-            "MY ACCOUNT TRAINS MEALS",
+            "| A+|",
+            "MY ACCOUNT",
+            "TRAINS MEALS",
             "Upto 10% Cashback",
             "E-WALLET ALERTS MORE CONTACT US",
             "I don't want Food/Beverages",
-            "Other Preferences"
+            "Other Preferences",
+            "Consider for Auto Upgradation (In higher class you may or may not get lower berth)"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_34800_ts_580.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_34800_ts_580.00.jpg",
           "nearest_frame_timestamp_seconds": 580.0
         },
         {
@@ -2219,17 +2219,17 @@
             "irctc.co.in/nget/booking/psgninput",
             "Install",
             "Welcome Giridhar Krishnagiri (girishubha)",
-            "10-May-2026 [20:40:15]",
-            "|A|A",
-            "| A+|",
+            "10-May-2026 [20:40:15] | A|",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "I don't want Food/Beverages",
-            "Other Preferences"
+            "Other Preferences",
+            "Consider for Auto Upgradation (In higher class you may or may not get lower berth)",
+            "Book only if confirm berths are allotted."
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_35100_ts_585.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_35100_ts_585.00.jpg",
           "nearest_frame_timestamp_seconds": 585.0
         },
         {
@@ -2244,16 +2244,16 @@
             "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:40:25]",
-            "A{| A",
-            "| A+|",
+            "| A+| d",
             "MY ACCOUNT TRAINS MEALS",
             "Upto 10% Cashback",
             "E-WALLET ALERTS MORE CONTACT US",
             "I don't want Food/Beverages",
             "Other Preferences",
-            "Consider for Auto Upgradation (In higher class you may or may not get lower berth)"
+            "Consider for Auto Upgradation (In higher class you may or may not get lower berth)",
+            "Book only if confirm berths are allotted."
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_35700_ts_595.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_35700_ts_595.00.jpg",
           "nearest_frame_timestamp_seconds": 595.0
         },
         {
@@ -2265,19 +2265,19 @@
           "speech": "the lower birth is allocated if there is a choice and so I don't want that I don't do that and I",
           "screen_text_sample": [
             "Install",
+            "-o",
             "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
-            "MY ACCOUNT TRAINS MEALS",
+            "10-May-2026 [20:40:30]",
+            "A-",
+            "|A+|",
+            "MY ACCOUNT",
+            "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
-            "I don't want Food/Beverages",
-            "Other Preferences",
-            "Consider for Auto Upgradation (In higher class you may or may not get lower berth)",
-            "Book only if confirm berths are allotted.",
-            "Reservation Choice",
-            "Preferred Coach No."
+            "I don't want Food/Beverages"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_36000_ts_600.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_36000_ts_600.00.jpg",
           "nearest_frame_timestamp_seconds": 600.0
         },
         {
@@ -2291,17 +2291,17 @@
             "Install",
             "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
-            "10-May-2026 [20:40:35]",
-            "A-",
+            "10-May-2026 [20:40:35] | A | A | A+ |",
             "MY ACCOUNT TRAINS MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "I don't want Food/Beverages",
             "Other Preferences",
             "Consider for Auto Upgradation (In higher class you may or may not get lower berth)",
-            "Book only if confirm berths are allotted."
+            "Book only if confirm berths are allotted.",
+            "Reservation Choice"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_36300_ts_605.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_36300_ts_605.00.jpg",
           "nearest_frame_timestamp_seconds": 605.0
         },
         {
@@ -2315,17 +2315,17 @@
             "Install",
             "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
-            "10-May-2026 [20:40:40]",
-            "| A+|",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "Upto 10% Cashback",
             "E-WALLET ALERTS MORE CONTACT US",
             "I don't want Food/Beverages",
             "Other Preferences",
-            "Consider for Auto Upgradation (In higher class you may or may not get lower berth) Book only if confirm berths are allotted."
+            "Consider for Auto Upgradation (In higher class you may or may not get lower berth)",
+            "Book only if confirm berths are allotted.",
+            "Reservation Choice"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_36600_ts_610.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_36600_ts_610.00.jpg",
           "nearest_frame_timestamp_seconds": 610.0
         }
       ]
@@ -2352,8 +2352,8 @@
         "screen_text_samples": [
           "Install",
           "irctc.co.in/nget/booking/psgninput",
-          "MY ACCOUNT",
           "Welcome Giridhar Krishnagiri (girishubha)",
+          "MY ACCOUNT",
           "LOYALTY",
           "Reservation Choice",
           "Preferred Coach No.",
@@ -2364,11 +2364,11 @@
           "Pay through BHIM/UPI"
         ],
         "frame_paths": [
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_36900_ts_615.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_37200_ts_620.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_37800_ts_630.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_38100_ts_635.00.jpg",
-          "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_38400_ts_640.00.jpg"
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_36900_ts_615.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_37200_ts_620.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_37800_ts_630.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_38100_ts_635.00.jpg",
+          "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_38400_ts_640.00.jpg"
         ]
       },
       "steps": [
@@ -2382,18 +2382,18 @@
           "screen_text_sample": [
             "Install",
             "irctc.co.in/nget/booking/psgninput",
-            "INDIA",
-            "Welcome Giridhar Krishnagiri (girishubha)",
+            "INDIAN",
             "10-May-2026 [20:40:45]",
-            "A|A|A+|Q",
+            "| A | A+|",
+            "Welcome Giridhar Krishnagiri (girishubha)",
+            "A-",
             "MY ACCOUNT",
             "TRAINS MEALS",
             "LOYALTY",
             "E-WALLET",
-            "ALERTS MORE CONTACT US",
-            "Reservation Choice"
+            "ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_36900_ts_615.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_36900_ts_615.00.jpg",
           "nearest_frame_timestamp_seconds": 615.0
         },
         {
@@ -2404,20 +2404,20 @@
           "intent": "payment_or_completion",
           "speech": "I'll select this credit card payment board I can even choose a beam UPI as well and it shows me",
           "screen_text_sample": [
-            "00$",
             "Install",
             "irctc.co.in/nget/booking/psgninput",
             "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:40:50]",
-            "| A| A|A+|",
+            "|A |A+|",
             "MY ACCOUNT",
             "TRAINS",
             "MEALS",
             "LOYALTY",
-            "E-WALLET"
+            "E-WALLET",
+            "ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_37200_ts_620.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_37200_ts_620.00.jpg",
           "nearest_frame_timestamp_seconds": 620.0
         },
         {
@@ -2428,20 +2428,20 @@
           "intent": "payment_or_completion",
           "speech": "what is the convenience fee for for you know for selecting one of these options and then I can hit",
           "screen_text_sample": [
-            "irctc.co.in/nget/booking/psgninput",
             "Install",
-            "INDI",
+            "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:41:00]",
-            "| A+| F",
+            "| A+|f",
             "MY ACCOUNT",
             "TRAINS",
             "MEALS",
             "LOYALTY",
             "E-WALLET",
-            "ALERTS MORE CONTACT US"
+            "ALERTS MORE CONTACT US",
+            "Reservation Choice"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_37800_ts_630.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_37800_ts_630.00.jpg",
           "nearest_frame_timestamp_seconds": 630.0
         },
         {
@@ -2456,16 +2456,16 @@
             "irctc.co.in/nget/booking/psgninput",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:41:05]",
-            "A|A|A+|",
+            "| A |A+|",
             "MY ACCOUNT",
-            "TRAINS MEALS",
+            "TRAINS",
+            "MEALS",
             "LOYALTY",
             "E-WALLET ALERTS MORE CONTACT US",
             "Reservation Choice",
-            "Preferred Coach No.",
-            "ravel Insurance (Incl. of GST) Do you want to take Travel Insurance (0.45/person)?"
+            "Preferred Coach No."
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_38100_ts_635.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_38100_ts_635.00.jpg",
           "nearest_frame_timestamp_seconds": 635.0
         },
         {
@@ -2478,18 +2478,18 @@
           "screen_text_sample": [
             "Install",
             "irctc.co.in/nget/booking/psgninput",
-            "INDI",
+            "INDIA",
             "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:41:10]",
             "A.",
-            "| A | A+|",
+            "A |A|",
             "MY ACCOUNT",
-            "TRAINS MEALS",
+            "TRAINS",
+            "MEALS",
             "Upto 10% Cashback",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US"
+            "E-WALLET"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_38400_ts_640.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_38400_ts_640.00.jpg",
           "nearest_frame_timestamp_seconds": 640.0
         },
         {
@@ -2500,20 +2500,20 @@
           "intent": "payment_or_completion",
           "speech": "the booking itself so I'll stop here for now so this is the options for I will checking",
           "screen_text_sample": [
-            "irctc.co.in/nget/booking/psgninput",
             "Install",
-            "Welcome Giridhar Krishnagiri (girishubha)",
+            "irctc.co.in/nget/booking/psgninput",
+            "INDIAN",
             "10-May-2026 [20:41:15]",
+            "|A+|f",
+            "Welcome Giridhar Krishnagiri (girishubha)",
             "A-",
-            "| A+|",
             "MY ACCOUNT",
             "TRAINS",
             "MEALS",
             "LOYALTY",
-            "E-WALLET",
-            "ALERTS MORE CONTACT US"
+            "E-WALLET"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_38700_ts_645.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_38700_ts_645.00.jpg",
           "nearest_frame_timestamp_seconds": 645.0
         },
         {
@@ -2524,20 +2524,20 @@
           "intent": "enter_information",
           "speech": "up deliberately as well as trying to get the booking director",
           "screen_text_sample": [
-            "o-",
             "irctc.co.in/nget/booking/psgninput",
             "Install",
-            "Welcome Giridhar Krishnaqiri (girishubha)",
+            "INDIA",
+            "Welcome Giridhar Krishnagiri (girishubha)",
             "10-May-2026 [20:41:20]",
-            "| A+",
+            "| A",
+            "fa",
+            "RI",
             "MY ACCOUNT",
-            "TRAINS",
-            "MEALS",
+            "TRAINS MEALS",
             "LOYALTY",
-            "E-WALLET ALERTS MORE CONTACT US",
-            "IRCTC"
+            "E-WALLET ALERTS MORE CONTACT US"
           ],
-          "frame_path": "data/frames/aaf60079-e79f-482d-b9cf-d63ce4da674b/frame_39000_ts_650.00.jpg",
+          "frame_path": "data/frames/f395f208-02b8-4982-a6d1-41f460cecea1/frame_39000_ts_650.00.jpg",
           "nearest_frame_timestamp_seconds": 650.0
         }
       ]
