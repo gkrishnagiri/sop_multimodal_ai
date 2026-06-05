@@ -172,6 +172,15 @@ button {
     background: #d1d5db;
 }
 
+.button.danger {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.button.danger:hover {
+    background: #b91c1c;
+}
+
 .panel-heading {
     display: flex;
     align-items: flex-start;
@@ -212,6 +221,8 @@ button {
 .job-row {
     width: 100%;
     display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
     gap: 7px;
     text-align: left;
     padding: 14px 16px;
@@ -250,6 +261,39 @@ button {
 .job-row:disabled {
     cursor: not-allowed;
     opacity: 0.7;
+}
+
+.job-select-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    min-height: 30px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.job-select-box input {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.job-row-content {
+    display: grid;
+    gap: 7px;
+    min-width: 0;
+    text-align: left;
+    background: transparent;
+    color: inherit;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.job-row-content:disabled,
+.job-select-box input:disabled {
+    cursor: not-allowed;
 }
 
 .job-main {
@@ -340,21 +384,33 @@ button {
     flex-wrap: wrap;
 }
 
-.pipeline-strip {
-    display: flex;
+.pipeline-grid {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(132px, 1fr));
     gap: 10px;
-    align-items: stretch;
+    align-items: start;
     overflow-x: auto;
-    padding: 4px 2px 12px;
+    padding: 4px 2px 14px;
+}
+
+.pipeline-step-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 132px;
+    align-items: stretch;
 }
 
 .pipeline-item-wrap {
-    min-width: 128px;
-    flex: 1;
+    min-width: 0;
+    width: 100%;
 }
 
 .pipeline-item {
-    min-height: 76px;
+    width: 100%;
+    height: 74px;
+    min-height: 74px;
+    max-height: 74px;
     display: flex;
     gap: 10px;
     align-items: center;
@@ -362,6 +418,7 @@ button {
     padding: 10px;
     border: 1px solid #d1d5db;
     background: #f3f4f6;
+    overflow: hidden;
 }
 
 .pipeline-item.completed {
@@ -383,6 +440,12 @@ button {
     background: #f3f4f6;
     border-color: #d1d5db;
     opacity: 0.72;
+}
+
+.pipeline-item.skipped {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+    opacity: 0.95;
 }
 
 .step-dot {
@@ -418,26 +481,52 @@ button {
     color: #ffffff;
 }
 
+.pipeline-item.skipped .step-dot {
+    background: #94a3b8;
+    border-color: #94a3b8;
+    color: #ffffff;
+}
+
 .step-title {
     color: #111827;
     font-weight: 900;
     font-size: 13px;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.2;
 }
 
 .step-status-text {
     margin-top: 3px;
     color: #6b7280;
     font-size: 12px;
-    white-space: nowrap;
+    white-space: normal;
+    line-height: 1.25;
 }
 
-.step-error {
-    margin-top: 6px;
-    color: #b91c1c;
+.pipeline-step-column .step-error {
+    display: none;
+}
+
+.rerun-button {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    padding: 6px 8px;
     font-size: 12px;
-    line-height: 1.35;
-    word-break: break-word;
+    line-height: 1.15;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    overflow: hidden;
+    flex: 0 0 auto;
+}
+
+.rerun-button:disabled {
+    background: #e5e7eb;
+    color: #94a3b8;
+    cursor: not-allowed;
 }
 
 .notice {
@@ -522,86 +611,6 @@ button {
     color: #111827;
 }
 
-@media (max-width: 980px) {
-    .app-shell {
-        padding: 18px;
-    }
-
-    .upload-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-footer {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .form-options {
-        flex-direction: column;
-    }
-
-    .pipeline-header,
-    .sop-header,
-    .panel-heading {
-        flex-direction: column;
-    }
-
-    .pipeline-item-wrap {
-        min-width: 140px;
-    }
-
-    .button {
-        width: 100%;
-    }
-}
-
-.button.danger {
-    background: #dc2626;
-    color: #ffffff;
-}
-
-.button.danger:hover {
-    background: #b91c1c;
-}
-
-.job-row {
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: start;
-}
-
-.job-select-box {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    min-height: 30px;
-    margin-top: 2px;
-    cursor: pointer;
-}
-
-.job-select-box input {
-    width: 17px;
-    height: 17px;
-    cursor: pointer;
-}
-
-.job-row-content {
-    display: grid;
-    gap: 7px;
-    min-width: 0;
-    text-align: left;
-    background: transparent;
-    color: inherit;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-}
-
-.job-row-content:disabled,
-.job-select-box input:disabled {
-    cursor: not-allowed;
-}
-
 .modal-backdrop {
     position: fixed;
     inset: 0;
@@ -677,6 +686,41 @@ button {
 }
 
 @media (max-width: 980px) {
+    .app-shell {
+        padding: 18px;
+    }
+
+    .upload-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-options {
+        flex-direction: column;
+    }
+
+    .pipeline-header,
+    .sop-header,
+    .panel-heading {
+        flex-direction: column;
+    }
+
+    .pipeline-grid {
+        grid-template-columns: repeat(9, minmax(146px, 1fr));
+    }
+
+    .pipeline-step-column {
+        min-width: 146px;
+    }
+
+    .button {
+        width: 100%;
+    }
+
     .modal-actions {
         flex-direction: column-reverse;
     }

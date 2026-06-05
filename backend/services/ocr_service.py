@@ -30,31 +30,34 @@ def _project_root() -> Path:
 
 
 def _get_ocr_frame_stride() -> int:
-    raw_value = os.getenv("OCR_FRAME_STRIDE", str(DEFAULT_OCR_FRAME_STRIDE))
+    """
+    Read OCR frame stride from backend settings.
+
+    Important:
+    Do not read this with os.getenv() because pydantic-settings reads values
+    from .env into the settings object. It does not guarantee that .env values
+    are exported back into os.environ.
+    """
 
     try:
-        value = int(raw_value)
-    except ValueError:
+        value = int(settings.ocr_frame_stride)
+    except (TypeError, ValueError):
         return DEFAULT_OCR_FRAME_STRIDE
 
     return max(value, 1)
 
 
 def _get_ocr_continue_on_frame_error() -> bool:
-    raw_value = os.getenv(
-        "OCR_CONTINUE_ON_FRAME_ERROR",
-        str(DEFAULT_OCR_CONTINUE_ON_FRAME_ERROR),
-    )
-
-    return raw_value.strip().lower() in {"1", "true", "yes", "y"}
+    try:
+        return bool(settings.ocr_continue_on_frame_error)
+    except Exception:
+        return DEFAULT_OCR_CONTINUE_ON_FRAME_ERROR
 
 
 def _get_ocr_min_confidence() -> float:
-    raw_value = os.getenv("OCR_MIN_CONFIDENCE", str(DEFAULT_OCR_MIN_CONFIDENCE))
-
     try:
-        value = float(raw_value)
-    except ValueError:
+        value = float(settings.ocr_min_confidence)
+    except (TypeError, ValueError):
         return DEFAULT_OCR_MIN_CONFIDENCE
 
     if value < 0:
@@ -67,12 +70,10 @@ def _get_ocr_min_confidence() -> float:
 
 
 def _get_ocr_fail_pipeline_if_all_frames_fail() -> bool:
-    raw_value = os.getenv(
-        "OCR_FAIL_PIPELINE_IF_ALL_FRAMES_FAIL",
-        str(DEFAULT_OCR_FAIL_PIPELINE_IF_ALL_FRAMES_FAIL),
-    )
-
-    return raw_value.strip().lower() in {"1", "true", "yes", "y"}
+    try:
+        return bool(settings.ocr_fail_pipeline_if_all_frames_fail)
+    except Exception:
+        return DEFAULT_OCR_FAIL_PIPELINE_IF_ALL_FRAMES_FAIL
 
 
 def _filter_frames(frames: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -232,9 +233,11 @@ def run_ocr_on_frames(job_id: str) -> dict[str, Any]:
     if not frames:
         raise ValueError("Frames not found. Run extract-frames first.")
 
+    frame_stride = _get_ocr_frame_stride()
     selected_frames = _filter_frames(frames)
     continue_on_frame_error = _get_ocr_continue_on_frame_error()
     fail_pipeline_if_all_frames_fail = _get_ocr_fail_pipeline_if_all_frames_fail()
+    min_confidence = _get_ocr_min_confidence()
 
     if not selected_frames:
         raise OcrServiceError("No frames selected for OCR.")
@@ -247,9 +250,11 @@ def run_ocr_on_frames(job_id: str) -> dict[str, Any]:
             "job_id": job_id,
             "total_frames": len(frames),
             "selected_frames": len(selected_frames),
-            "frame_stride": _get_ocr_frame_stride(),
+            "frame_stride": frame_stride,
             "continue_on_frame_error": continue_on_frame_error,
+            "min_confidence": min_confidence,
             "fail_pipeline_if_all_frames_fail": fail_pipeline_if_all_frames_fail,
+            "settings_source": "backend.config.settings",
         },
         flush=True,
     )
@@ -329,6 +334,7 @@ def run_ocr_on_frames(job_id: str) -> dict[str, Any]:
         "status": output_status,
         "total_frames": len(frames),
         "selected_frames": len(selected_frames),
+        "frame_stride": frame_stride,
         "frames_processed": len(ocr_results),
         "successful_frame_count": successful_frame_count,
         "frame_errors": frame_errors,
@@ -348,6 +354,7 @@ def run_ocr_on_frames(job_id: str) -> dict[str, Any]:
             "ocr_path": str(final_ocr_path),
             "ocr_total_frames": len(frames),
             "ocr_selected_frames": len(selected_frames),
+            "ocr_frame_stride": frame_stride,
             "ocr_frames_processed": len(ocr_results),
             "ocr_successful_frame_count": successful_frame_count,
             "ocr_frame_error_count": len(frame_errors),
@@ -364,6 +371,9 @@ def run_ocr_on_frames(job_id: str) -> dict[str, Any]:
             "job_id": job_id,
             "status": output_status,
             "ocr_path": str(final_ocr_path),
+            "total_frames": len(frames),
+            "selected_frames": len(selected_frames),
+            "frame_stride": frame_stride,
             "frames_processed": len(ocr_results),
             "successful_frame_count": successful_frame_count,
             "frame_error_count": len(frame_errors),
@@ -379,6 +389,7 @@ def run_ocr_on_frames(job_id: str) -> dict[str, Any]:
         "ocr_path": str(final_ocr_path),
         "total_frames": len(frames),
         "selected_frames": len(selected_frames),
+        "frame_stride": frame_stride,
         "frames_processed": len(ocr_results),
         "successful_frame_count": successful_frame_count,
         "frame_error_count": len(frame_errors),

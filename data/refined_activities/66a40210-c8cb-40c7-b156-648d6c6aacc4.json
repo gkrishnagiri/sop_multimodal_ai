@@ -1,0 +1,84 @@
+{
+  "job_id": "66a40210-c8cb-40c7-b156-648d6c6aacc4",
+  "activity_count": 1,
+  "activities": [
+    {
+      "activity_id": "refined_activity_001",
+      "name": "Navigate and Filter Options",
+      "description": "The user navigates to the relevant page and filters available options for train searches.",
+      "start_seconds": 0.0,
+      "end_seconds": 155.96,
+      "duration_seconds": 155.96,
+      "source_activity_ids": [
+        "activity_001"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User navigates to the IRCTC homepage and explores various options for train searches.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Open the relevant page or navigate to the required section.",
+          "ui_action": "Navigate to homepage",
+          "expected_result": "User is on the IRCTC homepage.",
+          "start_seconds": 0.0,
+          "end_seconds": 12.24,
+          "source_step_refs": [
+            "activity_001_step_1"
+          ],
+          "evidence": {
+            "speech_summary": "User describes accessing the IRCTC homepage.",
+            "screen_text": [
+              "Install",
+              "irctc.co.in/nget/train-search",
+              "LOGIN / REGISTER",
+              "TRAINS"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_0_ts_0.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Use filters or visible criteria to refine the displayed information.",
+          "ui_action": "Apply filters for train search",
+          "expected_result": "Filtered train options are displayed.",
+          "start_seconds": 12.24,
+          "end_seconds": 69.52,
+          "source_step_refs": [
+            "activity_001_step_2",
+            "activity_001_step_4",
+            "activity_001_step_5",
+            "activity_001_step_6",
+            "activity_001_step_7",
+            "activity_001_step_8",
+            "activity_001_step_9",
+            "activity_001_step_10",
+            "activity_001_step_11",
+            "activity_001_step_12",
+            "activity_001_step_13",
+            "activity_001_step_14",
+            "activity_001_step_15",
+            "activity_001_step_16",
+            "activity_001_step_17",
+            "activity_001_step_18"
+          ],
+          "evidence": {
+            "speech_summary": "User describes filtering options for train availability.",
+            "screen_text": [
+              "irctc.co.in/nget/train-search",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT",
+              "TRAINS"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_3600_ts_60.00.jpg"
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "llm_model": "gpt-4o-mini",
+    "generator": "generic_llm_activity_refiner_v1",
+    "source": "activities_json",
+    "postprocessor": "mvp11_2_activity_step_dedupe_and_loop_compression"
+  }
+}

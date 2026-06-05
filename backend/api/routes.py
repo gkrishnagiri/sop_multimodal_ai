@@ -1,13 +1,20 @@
+import re
 import shutil
 from pathlib import Path
 from typing import Any, Callable
 
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
-from pydantic import BaseModel, Field
 from fastapi.responses import FileResponse
+from pydantic import BaseModel, Field
 
 from backend.config.settings import settings
-from backend.services.job_service import JOBS, create_upload_job, get_job, persist_jobs, update_job
+from backend.services.job_service import (
+    JOBS,
+    create_upload_job,
+    get_job,
+    persist_jobs,
+    update_job,
+)
 from backend.services.audio_service import extract_audio_from_video
 from backend.services.transcription_service import transcribe_audio
 from backend.services.frame_service import extract_frames_from_video
@@ -28,8 +35,68 @@ activity_detection_service = ActivityDetectionService()
 activity_refinement_service = ActivityRefinementService()
 sop_generation_service = SopGenerationService()
 
+
 class DeleteJobsRequest(BaseModel):
     job_ids: list[str] = Field(default_factory=list)
+
+
+def _safe_download_stem(value: Any, fallback: str) -> str:
+    """
+    Build a user-friendly, filesystem-safe download filename stem.
+
+    Internal artifact storage continues to use job_id-based paths to avoid
+    collisions. This helper only controls the filename sent to the browser.
+    """
+
+    raw_value = str(value or "").strip()
+
+    if not raw_value:
+        raw_value = fallback
+
+    # If the user typed a filename with an extension, keep only the stem so
+    # the endpoint can append the correct extension for Markdown or DOCX.
+    raw_value = Path(raw_value).stem
+
+    safe_value = re.sub(r"[^A-Za-z0-9._-]+", "_", raw_value)
+    safe_value = safe_value.strip("._-")
+
+    if not safe_value:
+        safe_value = fallback
+
+    return safe_value[:120]
+
+
+def _download_filename_for_job(
+    *,
+    job_id: str,
+    extension: str,
+    suffix: str = "",
+) -> str:
+    job = get_job(job_id) or {}
+    fallback = f"{job_id}_sop"
+    stem = _safe_download_stem(job.get("output_filename"), fallback=fallback)
+
+    if suffix:
+        suffix_text = _safe_download_stem(suffix, fallback="")
+        if suffix_text and not stem.lower().endswith(suffix_text.lower()):
+            stem = f"{stem}_{suffix_text}"
+
+    normalized_extension = extension if extension.startswith(".") else f".{extension}"
+
+    return f"{stem}{normalized_extension}"
+
+
+PIPELINE_STEPS = [
+    "extract_audio",
+    "transcribe",
+    "extract_frames",
+    "run_ocr",
+    "run_diarization",
+    "build_timeline",
+    "detect_activities",
+    "refine_activities",
+    "generate_sop",
+]
 
 
 def _project_root() -> Path:
@@ -99,7 +166,6 @@ def _dedupe_paths(paths: list[Path]) -> list[Path]:
         seen.add(text)
         result.append(path)
 
-    # Delete deeper paths first so files/directories inside job folders go before parents.
     result.sort(key=lambda item: len(item.parts), reverse=True)
 
     return result
@@ -120,6 +186,9 @@ def _collect_job_artifact_paths(job_id: str, job: dict[str, Any]) -> list[Path]:
         "sop_json_path",
         "sop_markdown_path",
         "sop_docx_path",
+        "agent_sop_json_path",
+        "agent_sop_markdown_path",
+        "agent_sop_docx_path",
         "frames_dir",
     ]
 
@@ -159,6 +228,9 @@ def _collect_job_artifact_paths(job_id: str, job: dict[str, Any]) -> list[Path]:
         data_root / "outputs" / f"{job_id}_sop.json",
         data_root / "outputs" / f"{job_id}_sop.md",
         data_root / "outputs" / f"{job_id}_sop.docx",
+        data_root / "outputs" / f"{job_id}_agent_sop.json",
+        data_root / "outputs" / f"{job_id}_agent_sop.md",
+        data_root / "outputs" / f"{job_id}_agent_sop.docx",
         data_root / "frames" / job_id,
         data_root / "tmp" / f"{job_id}_first_60s.wav",
         data_root / "tmp" / "ocr" / f"{job_id}_ocr_input.json",
@@ -188,19 +260,6 @@ def _delete_path_if_exists(path: Path) -> tuple[bool, str]:
     return True, ""
 
 
-PIPELINE_STEPS = [
-    "extract_audio",
-    "transcribe",
-    "extract_frames",
-    "run_ocr",
-    "run_diarization",
-    "build_timeline",
-    "detect_activities",
-    "refine_activities",
-    "generate_sop",
-]
-
-
 def _default_pipeline_steps() -> dict[str, dict[str, str]]:
     return {
         step: {
@@ -211,24 +270,45 @@ def _default_pipeline_steps() -> dict[str, dict[str, str]]:
     }
 
 
+def _is_diarization_enabled(job: dict[str, Any]) -> bool:
+    return bool(job.get("enable_diarization", False))
+
+
+def _diarization_disabled_step_payload() -> dict[str, str]:
+    return {
+        "status": "skipped",
+        "error": "Diarization disabled for this job.",
+    }
+
+
+def _initial_pipeline_steps_for_job(job: dict[str, Any]) -> dict[str, dict[str, str]]:
+    pipeline_steps = _default_pipeline_steps()
+
+    if not _is_diarization_enabled(job):
+        pipeline_steps["run_diarization"] = _diarization_disabled_step_payload()
+
+    return pipeline_steps
+
+
 def _get_existing_pipeline_steps(job_id: str) -> dict[str, dict[str, str]]:
     job = JOBS.get(job_id) or {}
     existing_steps = job.get("pipeline_steps")
 
-    if not isinstance(existing_steps, dict):
-        return _default_pipeline_steps()
-
     merged_steps = _default_pipeline_steps()
 
-    for step_name, step_payload in existing_steps.items():
-        if step_name not in merged_steps:
-            continue
+    if isinstance(existing_steps, dict):
+        for step_name, step_payload in existing_steps.items():
+            if step_name not in merged_steps:
+                continue
 
-        if isinstance(step_payload, dict):
-            merged_steps[step_name] = {
-                "status": str(step_payload.get("status") or "not_started"),
-                "error": str(step_payload.get("error") or ""),
-            }
+            if isinstance(step_payload, dict):
+                merged_steps[step_name] = {
+                    "status": str(step_payload.get("status") or "not_started"),
+                    "error": str(step_payload.get("error") or ""),
+                }
+
+    if not _is_diarization_enabled(job):
+        merged_steps["run_diarization"] = _diarization_disabled_step_payload()
 
     return merged_steps
 
@@ -386,7 +466,7 @@ def upload_video(
                 "pipeline_current_step": "",
                 "pipeline_failed_step": "",
                 "pipeline_error": "",
-                "pipeline_steps": _default_pipeline_steps(),
+                "pipeline_steps": _initial_pipeline_steps_for_job(result),
             },
         )
 
@@ -549,7 +629,7 @@ def run_job_diarization(job_id: str):
     if not job:
         raise HTTPException(status_code=404, detail="Job not found")
 
-    if not bool(job.get("enable_diarization", False)):
+    if not _is_diarization_enabled(job):
         reason = "Diarization disabled for this job."
         _mark_step_skipped(job_id, "run_diarization", reason)
 
@@ -735,6 +815,91 @@ def get_job_sop_markdown_file(job_id: str, download: bool = False):
     return FileResponse(
         path=sop_markdown_path,
         media_type="text/markdown",
-        filename=f"{job_id}_sop.md",
+        filename=_download_filename_for_job(
+            job_id=job_id,
+            extension=".md",
+            suffix="detailed_sop",
+        ),
+        content_disposition_type=disposition_type,
+    )
+
+
+@router.get("/jobs/{job_id}/sop/docx")
+def get_job_sop_docx_file(job_id: str, download: bool = False):
+    sop_docx_path = Path(settings.data_dir) / "outputs" / f"{job_id}_sop.docx"
+
+    if not sop_docx_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail=(
+                f"SOP DOCX file not found for job_id={job_id}. "
+                "Run Generate SOP first."
+            ),
+        )
+
+    disposition_type = "attachment" if download else "inline"
+
+    return FileResponse(
+        path=sop_docx_path,
+        media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        filename=_download_filename_for_job(
+            job_id=job_id,
+            extension=".docx",
+            suffix="detailed_sop",
+        ),
+        content_disposition_type=disposition_type,
+    )
+
+
+@router.get("/jobs/{job_id}/sop/agent/markdown")
+def get_job_agent_sop_markdown_file(job_id: str, download: bool = False):
+    agent_sop_markdown_path = Path(settings.data_dir) / "outputs" / f"{job_id}_agent_sop.md"
+
+    if not agent_sop_markdown_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail=(
+                f"Agent SOP markdown file not found for job_id={job_id}. "
+                "Run Generate SOP first."
+            ),
+        )
+
+    disposition_type = "attachment" if download else "inline"
+
+    return FileResponse(
+        path=agent_sop_markdown_path,
+        media_type="text/markdown",
+        filename=_download_filename_for_job(
+            job_id=job_id,
+            extension=".md",
+            suffix="agent_sop",
+        ),
+        content_disposition_type=disposition_type,
+    )
+
+
+@router.get("/jobs/{job_id}/sop/agent/docx")
+def get_job_agent_sop_docx_file(job_id: str, download: bool = False):
+    agent_sop_docx_path = Path(settings.data_dir) / "outputs" / f"{job_id}_agent_sop.docx"
+
+    if not agent_sop_docx_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail=(
+                f"Agent SOP DOCX file not found for job_id={job_id}. "
+                "Run Generate SOP first."
+            ),
+        )
+
+    disposition_type = "attachment" if download else "inline"
+
+    return FileResponse(
+        path=agent_sop_docx_path,
+        media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        filename=_download_filename_for_job(
+            job_id=job_id,
+            extension=".docx",
+            suffix="agent_sop",
+        ),
         content_disposition_type=disposition_type,
     )

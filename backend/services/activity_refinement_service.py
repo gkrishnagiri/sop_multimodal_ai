@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -54,6 +55,7 @@ class ActivityRefinementService:
             job_id=job_id,
             activities_data=compact_input,
         )
+        refined_activities = self._postprocess_refined_activities(refined_activities)
 
         output_path = self.refined_activities_dir / f"{job_id}.json"
         self._write_json(output_path, refined_activities)
@@ -153,16 +155,19 @@ Important rules:
 2. Use only the provided activity data as evidence.
 3. Do not invent steps, actions, screens, outcomes, or final completion states that are not supported by evidence.
 4. Improve activity names so they are clear and business-friendly.
-5. Merge repetitive activities only when they represent the same continuous workflow phase.
+5. Merge repetitive activities when they represent the same continuous workflow phase, same page state, or repeated review/check/filter/scroll behavior with no new UI action.
 6. Preserve the overall chronological order.
 7. Preserve source activity IDs so every refined activity is traceable.
 8. Preserve timestamps using the earliest start and latest end from the source activities.
 9. Preserve evidence summaries and frame paths.
 10. Remove noisy OCR phrases when they do not help describe the workflow.
-11. Avoid raw personal data. Use generic terms such as "user account", "selected record", "saved profile", "registered contact details", "selected item", or "configured option".
-12. If the evidence shows only a review or preparation step, do not convert it into a completed submission, payment, approval, booking, save, close, or confirmation.
-13. If speech uses words like "can", "could", "would", "will", "if I", or "then I can", treat that as optional or explanatory future behavior, not an observed completed action.
-14. Return only valid JSON matching the provided schema.
+11. Do not create one step for every timestamp, frame, or scroll if the user is doing the same business action. Summarize repeated behavior into one reusable step.
+12. Convert repeated review/check patterns into loop-style steps such as "Review each visible record", "Check each available option", or "Repeat until all visible options are reviewed".
+13. Keep 3 to 12 meaningful steps per refined activity when possible.
+14. Avoid raw personal data. Use generic terms such as "user account", "selected record", "saved profile", "registered contact details", "selected item", or "configured option".
+15. If the evidence shows only a review or preparation step, do not convert it into a completed submission, payment, approval, booking, save, close, or confirmation.
+16. If speech uses words like "can", "could", "would", "will", "if I", or "then I can", treat that as optional or explanatory future behavior, not an observed completed action.
+17. Return only valid JSON matching the provided schema.
 """.strip()
 
     def _user_prompt(
@@ -185,6 +190,9 @@ Your output should:
 - Preserve timestamps.
 - Preserve traceability through source_activity_ids.
 - Produce cleaner step instructions.
+- Aggressively merge repeated adjacent steps when the instruction, intent, page, or target is essentially the same.
+- Avoid repeating the same step with the same expected result just because many frames/timeline segments were observed.
+- Use loop-style wording for repeated item review, such as "For each visible option..." or "Repeat until all relevant results are reviewed."
 - Keep evidence references.
 - Avoid application-specific hard coding.
 - Avoid unsupported completion claims.
@@ -353,6 +361,181 @@ Return JSON only.
                 "metadata",
             ],
         }
+
+    def _postprocess_refined_activities(self, refined: dict[str, Any]) -> dict[str, Any]:
+        """Deterministic cleanup after LLM refinement.
+
+        This protects downstream SOP quality when the LLM still mirrors repeated
+        OCR/timeline segments as repeated steps.
+        """
+        refined = dict(refined)
+        cleaned_activities = []
+
+        for activity in refined.get("activities", []) or []:
+            if not isinstance(activity, dict):
+                continue
+            cleaned_activity = dict(activity)
+            cleaned_activity["steps"] = self._compress_steps(cleaned_activity.get("steps", []) or [])
+            cleaned_activities.append(cleaned_activity)
+
+        # Merge adjacent activities if they still have effectively the same name and intent.
+        merged_activities: list[dict[str, Any]] = []
+        for activity in cleaned_activities:
+            if merged_activities and self._activity_merge_key(merged_activities[-1]) == self._activity_merge_key(activity):
+                merged_activities[-1] = self._merge_activity_pair(merged_activities[-1], activity)
+            else:
+                merged_activities.append(activity)
+
+        for activity_index, activity in enumerate(merged_activities, start=1):
+            activity["activity_id"] = f"refined_activity_{activity_index:03d}"
+            activity["steps"] = self._compress_steps(activity.get("steps", []) or [])
+
+        refined["activities"] = merged_activities
+        refined["activity_count"] = len(merged_activities)
+        metadata = refined.get("metadata") if isinstance(refined.get("metadata"), dict) else {}
+        metadata["postprocessor"] = "mvp11_2_activity_step_dedupe_and_loop_compression"
+        refined["metadata"] = metadata
+        return refined
+
+    def _compress_steps(self, steps: list[Any]) -> list[dict[str, Any]]:
+        compressed: list[dict[str, Any]] = []
+        seen_low_value_keys: set[str] = set()
+
+        for raw_step in steps:
+            if not isinstance(raw_step, dict):
+                continue
+            step = dict(raw_step)
+            key = self._step_merge_key(step)
+
+            if compressed and self._step_merge_key(compressed[-1]) == key:
+                compressed[-1] = self._merge_step_pair(compressed[-1], step)
+                seen_low_value_keys.add(key)
+                continue
+
+            if key in seen_low_value_keys and self._is_low_value_repeated_step(step):
+                compressed[-1] = self._add_repeat_note(compressed[-1])
+                continue
+
+            compressed.append(step)
+            if self._is_low_value_repeated_step(step):
+                seen_low_value_keys.add(key)
+
+        for index, step in enumerate(compressed, start=1):
+            step["step_number"] = index
+
+        return compressed
+
+    def _merge_step_pair(self, left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
+        merged = dict(left)
+        merged["end_seconds"] = right.get("end_seconds", merged.get("end_seconds", 0))
+
+        source_refs = []
+        source_refs.extend(left.get("source_step_refs", []) or [])
+        source_refs.extend(right.get("source_step_refs", []) or [])
+        merged["source_step_refs"] = self._dedupe_keep_order(source_refs)
+
+        left_evidence = left.get("evidence") if isinstance(left.get("evidence"), dict) else {}
+        right_evidence = right.get("evidence") if isinstance(right.get("evidence"), dict) else {}
+        merged_evidence = dict(left_evidence)
+
+        speech_parts = [
+            self._clean_text(left_evidence.get("speech_summary", "")),
+            self._clean_text(right_evidence.get("speech_summary", "")),
+        ]
+        merged_evidence["speech_summary"] = self._truncate(
+            " ".join(part for part in speech_parts if part),
+            320,
+        )
+
+        screen_text = []
+        screen_text.extend(left_evidence.get("screen_text", []) or [])
+        screen_text.extend(right_evidence.get("screen_text", []) or [])
+        merged_evidence["screen_text"] = self._dedupe_keep_order(screen_text)[:12]
+
+        if not merged_evidence.get("frame_path"):
+            merged_evidence["frame_path"] = right_evidence.get("frame_path", "")
+
+        merged["evidence"] = merged_evidence
+        merged = self._add_repeat_note(merged)
+        return merged
+
+    def _add_repeat_note(self, step: dict[str, Any]) -> dict[str, Any]:
+        step = dict(step)
+        note = "Repeated similar observations were consolidated. Repeat this action for all visible matching items/options when applicable."
+        expected = self._clean_text(step.get("expected_result", ""))
+        if note.lower() not in expected.lower():
+            step["expected_result"] = f"{expected} {note}".strip()
+        return step
+
+    def _step_merge_key(self, step: dict[str, Any]) -> str:
+        """Return a stable key for repeated-step compression.
+
+        Do not include raw OCR screen text in the key. OCR can change slightly
+        from frame to frame even when the user is performing the same business
+        action. The key should represent the reusable action, not the frame.
+        """
+        parts = [
+            step.get("instruction", ""),
+            step.get("ui_action", ""),
+            step.get("expected_result", ""),
+        ]
+        return self._normalize_for_dedupe(" ".join(str(part) for part in parts))
+
+    def _activity_merge_key(self, activity: dict[str, Any]) -> str:
+        return self._normalize_for_dedupe(
+            f"{activity.get('name', '')} {activity.get('description', '')}"
+        )
+
+    def _merge_activity_pair(self, left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
+        merged = dict(left)
+        merged["end_seconds"] = right.get("end_seconds", merged.get("end_seconds", 0))
+        merged["duration_seconds"] = round(
+            max(0.0, float(merged.get("end_seconds", 0) or 0) - float(merged.get("start_seconds", 0) or 0)),
+            2,
+        )
+
+        source_ids = []
+        source_ids.extend(left.get("source_activity_ids", []) or [])
+        source_ids.extend(right.get("source_activity_ids", []) or [])
+        if right.get("activity_id"):
+            source_ids.append(str(right.get("activity_id")))
+        merged["source_activity_ids"] = self._dedupe_keep_order(source_ids)
+
+        merged["steps"] = self._compress_steps((left.get("steps", []) or []) + (right.get("steps", []) or []))
+
+        left_summary = self._clean_text(left.get("evidence_summary", ""))
+        right_summary = self._clean_text(right.get("evidence_summary", ""))
+        merged["evidence_summary"] = self._truncate(
+            " ".join(part for part in [left_summary, right_summary] if part),
+            500,
+        )
+        return merged
+
+    def _is_low_value_repeated_step(self, step: dict[str, Any]) -> bool:
+        text = " ".join(
+            str(step.get(key, ""))
+            for key in ["instruction", "ui_action", "expected_result"]
+        ).lower()
+        repeated_terms = [
+            "review", "check", "visible", "displayed", "results", "options", "availability",
+            "filter", "scroll", "configure", "preference", "payment options",
+            "list", "table", "record", "row", "status", "details", "additional"
+        ]
+        return any(term in text for term in repeated_terms)
+
+    def _normalize_for_dedupe(self, text: str) -> str:
+        text = self._clean_text(text).lower()
+        text = re.sub(r"\bstep\s+\d+\b", "step", text)
+        text = re.sub(r"\b\d+\b", "", text)
+        text = re.sub(r"[^a-z0-9]+", " ", text)
+        text = re.sub(r"\s+", " ", text).strip()
+        return text
+
+    def _truncate(self, text: str, limit: int) -> str:
+        text = self._clean_text(text)
+        if len(text) <= limit:
+            return text
+        return text[: limit - 3].rstrip() + "..."
 
     def _load_json(self, path: Path) -> dict[str, Any]:
         with path.open("r", encoding="utf-8") as f:

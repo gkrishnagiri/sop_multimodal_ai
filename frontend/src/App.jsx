@@ -76,6 +76,49 @@ const PIPELINE_STEPS = [
     },
 ];
 
+const RERUN_OPTIONS_BY_STEP = {
+    transcribe: {
+        label: "Rerun from transcript",
+        shortLabel: "Transcript to SOP",
+        startStepKey: "transcribe",
+    },
+    extract_frames: {
+        label: "Rerun from frames",
+        shortLabel: "Frames to SOP",
+        startStepKey: "extract_frames",
+    },
+    run_ocr: {
+        label: "Rerun from OCR",
+        shortLabel: "OCR to SOP",
+        startStepKey: "run_ocr",
+    },
+    run_diarization: {
+        label: "Rerun from diarization",
+        shortLabel: "Diarization to SOP",
+        startStepKey: "run_diarization",
+    },
+    build_timeline: {
+        label: "Rerun from timeline",
+        shortLabel: "Timeline to SOP",
+        startStepKey: "build_timeline",
+    },
+    detect_activities: {
+        label: "Rerun from activities",
+        shortLabel: "Activities to SOP",
+        startStepKey: "detect_activities",
+    },
+    refine_activities: {
+        label: "Rerun refine + SOP",
+        shortLabel: "Refine + SOP",
+        startStepKey: "refine_activities",
+    },
+    generate_sop: {
+        label: "Rerun SOP only",
+        shortLabel: "SOP only",
+        startStepKey: "generate_sop",
+    },
+};
+
 function emptyStepState() {
     const state = {};
 
@@ -136,12 +179,6 @@ function getStepStatusLabel(status) {
     return "Pending";
 }
 
-function findFirstRunnableStep(stepState) {
-    return PIPELINE_STEPS.find(
-        (step) => !isStepDone(stepState[step.key]?.status),
-    );
-}
-
 function getPipelineStatusLabel(status) {
     if (status === "completed") {
         return "Completed";
@@ -159,122 +196,162 @@ function getPipelineStatusLabel(status) {
         return "Uploaded";
     }
 
-    return "Not Started";
+    return status || "Uploaded";
+}
+
+function getStepIndex(stepKey) {
+    return PIPELINE_STEPS.findIndex((step) => step.key === stepKey);
+}
+
+function findFirstRunnableStep(stepState) {
+    return PIPELINE_STEPS.find(
+        (step) => !isStepDone(stepState[step.key]?.status),
+    );
+}
+
+function markStepsFromIndexPending(currentState, startIndex, selectedJob) {
+    const nextState = { ...currentState };
+    const diarizationDisabled = selectedJob?.enable_diarization === false;
+
+    for (let index = startIndex; index < PIPELINE_STEPS.length; index += 1) {
+        const step = PIPELINE_STEPS[index];
+
+        if (step.key === "run_diarization" && diarizationDisabled) {
+            nextState[step.key] = {
+                status: STEP_STATUS.SKIPPED,
+                error: "Diarization disabled for this job.",
+            };
+            continue;
+        }
+
+        nextState[step.key] = {
+            status: STEP_STATUS.NOT_STARTED,
+            error: "",
+        };
+    }
+
+    return nextState;
 }
 
 function getJobDisplayName(job) {
-    if (!job) {
-        return "Unknown job";
-    }
-
     return (
-        job.output_filename ||
-        job.filename ||
-        job.original_filename ||
-        job.video_filename ||
-        job.job_id ||
+        job?.output_filename ||
+        job?.filename ||
+        job?.video?.filename ||
+        job?.job_id ||
         "Untitled job"
     );
 }
 
 function getJobSubText(job) {
-    const pieces = [];
+    const parts = [];
 
     if (job?.job_id) {
-        pieces.push(job.job_id);
+        parts.push(job.job_id);
     }
 
     if (job?.status) {
-        pieces.push(`Backend status: ${job.status}`);
+        parts.push(`Backend status: ${job.status}`);
+    }
+
+    if (job?.pipeline_current_step) {
+        parts.push(`Current: ${job.pipeline_current_step}`);
     }
 
     if (job?.pipeline_failed_step) {
-        pieces.push(`Failed at: ${job.pipeline_failed_step}`);
+        parts.push(`Failed: ${job.pipeline_failed_step}`);
     }
 
-    return pieces.join(" · ");
-}
-
-function extractSopText(sopResponse) {
-    if (!sopResponse) {
-        return "";
-    }
-
-    if (typeof sopResponse === "string") {
-        return sopResponse;
-    }
-
-    if (sopResponse.markdown) {
-        return sopResponse.markdown;
-    }
-
-    if (sopResponse.sop_markdown) {
-        return sopResponse.sop_markdown;
-    }
-
-    if (sopResponse.content) {
-        return sopResponse.content;
-    }
-
-    if (sopResponse.result?.markdown) {
-        return sopResponse.result.markdown;
-    }
-
-    if (sopResponse.result?.sop_markdown) {
-        return sopResponse.result.sop_markdown;
-    }
-
-    if (sopResponse.sop?.markdown) {
-        return sopResponse.sop.markdown;
-    }
-
-    return "SOP generated. Use Open or Download to view the markdown file.";
+    return parts.join(" · ");
 }
 
 async function requestJson(url, options = {}) {
     const response = await fetch(url, options);
 
-    let payload = null;
-    const contentType = response.headers.get("content-type") || "";
-
-    if (contentType.includes("application/json")) {
-        payload = await response.json();
-    } else {
-        payload = await response.text();
-    }
-
     if (!response.ok) {
-        const message =
-            typeof payload === "object" && payload !== null
-                ? payload.detail || JSON.stringify(payload)
-                : payload;
+        const text = await response.text();
 
-        throw new Error(message || `Request failed with status ${response.status}`);
+        try {
+            const payload = JSON.parse(text);
+            throw new Error(payload.detail || payload.message || text);
+        } catch {
+            throw new Error(text || `Request failed with status ${response.status}`);
+        }
     }
 
-    return payload;
+    if (response.status === 204) {
+        return {};
+    }
+
+    const text = await response.text();
+
+    if (!text) {
+        return {};
+    }
+
+    try {
+        return JSON.parse(text);
+    } catch {
+        return { raw: text };
+    }
 }
 
-function PipelineStatusBar({ stepState }) {
+function PipelineStatusGrid({
+    stepState,
+    selectedJob,
+    canRunJobActions,
+    isBusy,
+    onRerunFromStep,
+}) {
+    const diarizationDisabled = selectedJob?.enable_diarization === false;
+
     return (
-        <div className="pipeline-strip">
+        <div className="pipeline-grid">
             {PIPELINE_STEPS.map((step, index) => {
                 const status = stepState[step.key]?.status || STEP_STATUS.NOT_STARTED;
                 const error = stepState[step.key]?.error || "";
+                const rerunOption = RERUN_OPTIONS_BY_STEP[step.key];
+
+                const isDiarizationRerun = step.key === "run_diarization";
+                const disableRerun =
+                    !canRunJobActions ||
+                    isBusy ||
+                    (isDiarizationRerun && diarizationDisabled);
+
+                const title =
+                    isDiarizationRerun && diarizationDisabled
+                        ? "Diarization is disabled for this job."
+                        : rerunOption?.label || "";
 
                 return (
-                    <div className="pipeline-item-wrap" key={step.key}>
-                        <div className={`pipeline-item ${status}`}>
-                            <div className="step-dot">{index + 1}</div>
-                            <div className="step-text">
-                                <div className="step-title">{step.label}</div>
-                                <div className="step-status-text">
-                                    {getStepStatusLabel(status)}
+                    <div className="pipeline-step-column" key={step.key}>
+                        <div className="pipeline-item-wrap">
+                            <div className={`pipeline-item ${status}`}>
+                                <div className="step-dot">{index + 1}</div>
+                                <div className="step-text">
+                                    <div className="step-title">{step.label}</div>
+                                    <div className="step-status-text">
+                                        {getStepStatusLabel(status)}
+                                    </div>
                                 </div>
                             </div>
+
+                            {error ? <div className="step-error">{error}</div> : null}
                         </div>
 
-                        {error ? <div className="step-error">{error}</div> : null}
+                        {rerunOption ? (
+                            <button
+                                type="button"
+                                className="button ghost rerun-button"
+                                onClick={() => onRerunFromStep(rerunOption.startStepKey)}
+                                disabled={disableRerun}
+                                title={title}
+                            >
+                                {rerunOption.shortLabel}
+                            </button>
+                        ) : (
+                            <div aria-hidden="true" />
+                        )}
                     </div>
                 );
             })}
@@ -284,9 +361,8 @@ function PipelineStatusBar({ stepState }) {
 
 export default function App() {
     const [selectedFile, setSelectedFile] = useState(null);
-    const [outputFilename, setOutputFilename] = useState("generated_sop.md");
+    const [outputFilename, setOutputFilename] = useState("generated_sop");
     const [enableDiarization, setEnableDiarization] = useState(false);
-    const [extractScreenshots, setExtractScreenshots] = useState(true);
 
     const [jobId, setJobId] = useState("");
     const [jobs, setJobs] = useState([]);
@@ -335,6 +411,7 @@ export default function App() {
             const payload = await requestJson(`${API_BASE_URL}/jobs`);
             const nextJobs = payload.jobs || [];
             setJobs(nextJobs);
+
             setSelectedJobIds((currentIds) => {
                 const availableIds = new Set(nextJobs.map((job) => job.job_id));
                 return currentIds.filter((id) => availableIds.has(id));
@@ -380,7 +457,10 @@ export default function App() {
             formData.append("file", selectedFile);
             formData.append("output_filename", outputFilename.trim());
             formData.append("enable_diarization", String(enableDiarization));
-            formData.append("extract_screenshots", String(extractScreenshots));
+
+            // Screenshots/frames are always enabled for SOP generation.
+            // The UI option was removed to avoid confusion.
+            formData.append("extract_screenshots", "true");
 
             const payload = await requestJson(`${API_BASE_URL}/jobs/upload`, {
                 method: "POST",
@@ -398,7 +478,7 @@ export default function App() {
             setJobId(createdJobId);
             setSelectedJob(fullJob);
             setStepState(normalizePipelineSteps(fullJob));
-            setSuccessMessage("Video uploaded. You can now generate the SOP.");
+            setSuccessMessage("Video uploaded. You can now resume or run the full pipeline.");
 
             await loadJobs();
         } catch (error) {
@@ -446,7 +526,9 @@ export default function App() {
         setErrorMessage("");
         setSuccessMessage("");
         setShowDeleteConfirm(false);
-        setLoadingLabel(`Deleting ${jobIdsToDelete.length} job run${jobIdsToDelete.length === 1 ? "" : "s"}`);
+        setLoadingLabel(
+            `Deleting ${jobIdsToDelete.length} job run${jobIdsToDelete.length === 1 ? "" : "s"}`,
+        );
 
         try {
             const payload = await requestJson(`${API_BASE_URL}/jobs`, {
@@ -466,7 +548,9 @@ export default function App() {
 
             setSelectedJobIds([]);
             setSuccessMessage(
-                `Deleted ${payload.deleted_count || jobIdsToDelete.length} job run${(payload.deleted_count || jobIdsToDelete.length) === 1 ? "" : "s"}.`,
+                `Deleted ${payload.deleted_count || jobIdsToDelete.length} job run${
+                    (payload.deleted_count || jobIdsToDelete.length) === 1 ? "" : "s"
+                }.`,
             );
             await loadJobs();
         } catch (error) {
@@ -556,35 +640,37 @@ export default function App() {
         }
     }
 
-    async function generateSopSequentially() {
+    async function runPipelineFrom(startStepKey, modeLabel) {
         if (!jobId.trim()) {
             setErrorMessage("No job_id available. Upload a video or select a job.");
             return;
         }
 
+        const startIndex = getStepIndex(startStepKey);
+
+        if (startIndex < 0) {
+            setErrorMessage(`Unknown pipeline step: ${startStepKey}`);
+            return;
+        }
+
+        const startStep = PIPELINE_STEPS[startIndex];
+
         setErrorMessage("");
         setSuccessMessage("");
         setSopResult(null);
+        setStepState((currentState) =>
+            markStepsFromIndexPending(currentState, startIndex, selectedJob),
+        );
 
         try {
-            const currentJob = await loadJobById(jobId.trim());
-            const currentStepState = normalizePipelineSteps(currentJob);
-            const startIndex = PIPELINE_STEPS.findIndex(
-                (step) => !isStepDone(currentStepState[step.key]?.status),
-            );
-
-            if (startIndex === -1) {
-                setSuccessMessage("All pipeline steps are already completed.");
-                await tryLoadSop(jobId.trim(), true);
-                return;
-            }
-
             for (let index = startIndex; index < PIPELINE_STEPS.length; index += 1) {
                 const step = PIPELINE_STEPS[index];
                 await runSingleStep(step);
             }
 
-            setSuccessMessage("SOP generated successfully.");
+            setSuccessMessage(
+                `${modeLabel || `Pipeline from ${startStep.fullLabel}`} completed successfully.`,
+            );
             await loadJobs();
             await tryLoadSop(jobId.trim(), false);
             await refreshSelectedJob();
@@ -597,8 +683,42 @@ export default function App() {
         }
     }
 
+    async function runFullPipeline() {
+        await runPipelineFrom("extract_audio", "Full pipeline run");
+    }
+
     async function resumePipeline() {
-        await generateSopSequentially();
+        if (!jobId.trim()) {
+            setErrorMessage("No job_id available. Upload a video or select a job.");
+            return;
+        }
+
+        setErrorMessage("");
+        setSuccessMessage("");
+        setSopResult(null);
+
+        try {
+            const currentJob = await loadJobById(jobId.trim());
+            const currentStepState = normalizePipelineSteps(currentJob);
+            const nextStep = findFirstRunnableStep(currentStepState);
+
+            setSelectedJob(currentJob);
+            setStepState(currentStepState);
+
+            if (!nextStep) {
+                setSuccessMessage(
+                    "All pipeline steps are already completed. Use a rerun button to force regeneration.",
+                );
+                await tryLoadSop(jobId.trim(), false);
+                return;
+            }
+
+            await runPipelineFrom(nextStep.key, `Resume from ${nextStep.fullLabel}`);
+        } catch (error) {
+            setErrorMessage(error.message);
+            await loadJobs();
+            await refreshSelectedJob();
+        }
     }
 
     async function tryLoadSop(targetJobId, showError) {
@@ -615,27 +735,27 @@ export default function App() {
         }
     }
 
-    function openSop() {
+    function downloadDetailedSop() {
         if (!jobId.trim()) {
             setErrorMessage("No job selected.");
             return;
         }
 
         window.open(
-            `${API_BASE_URL}/jobs/${jobId.trim()}/sop/markdown`,
+            `${API_BASE_URL}/jobs/${jobId.trim()}/sop/docx?download=true`,
             "_blank",
             "noopener,noreferrer",
         );
     }
 
-    function downloadSop() {
+    function downloadAgentSop() {
         if (!jobId.trim()) {
             setErrorMessage("No job selected.");
             return;
         }
 
         window.open(
-            `${API_BASE_URL}/jobs/${jobId.trim()}/sop/markdown?download=true`,
+            `${API_BASE_URL}/jobs/${jobId.trim()}/sop/agent/docx?download=true`,
             "_blank",
             "noopener,noreferrer",
         );
@@ -648,8 +768,8 @@ export default function App() {
                     <div>
                         <h1>Agent for Multimodal SOP generation</h1>
                         <p>
-                            Upload an audio-video recording, run the full pipeline, and generate
-                            a structured Standard Operating Procedure.
+                            Upload an audio-video recording, run the multimodal pipeline,
+                            and generate both a detailed SOP and an AI agent execution SOP.
                         </p>
                     </div>
                 </header>
@@ -684,7 +804,7 @@ export default function App() {
                                     type="text"
                                     value={outputFilename}
                                     onChange={(event) => setOutputFilename(event.target.value)}
-                                    placeholder="generated_sop.md"
+                                    placeholder="generated_sop"
                                 />
                             </div>
                         </div>
@@ -700,17 +820,6 @@ export default function App() {
                                         }
                                     />
                                     Enable diarization (slow; runs on full recording when enabled)
-                                </label>
-
-                                <label className="checkbox-row">
-                                    <input
-                                        type="checkbox"
-                                        checked={extractScreenshots}
-                                        onChange={(event) =>
-                                            setExtractScreenshots(event.target.checked)
-                                        }
-                                    />
-                                    Extract screenshots
                                 </label>
                             </div>
 
@@ -771,7 +880,10 @@ export default function App() {
                                         key={job.job_id}
                                         className={`job-row ${status} ${job.job_id === jobId ? "selected" : ""}`}
                                     >
-                                        <label className="job-select-box" title="Select job run for deletion">
+                                        <label
+                                            className="job-select-box"
+                                            title="Select job run for deletion"
+                                        >
                                             <input
                                                 type="checkbox"
                                                 checked={selectedJobIdSet.has(job.job_id)}
@@ -787,16 +899,22 @@ export default function App() {
                                             disabled={isBusy}
                                         >
                                             <span className="job-main">
-                                                <span className="job-title">{getJobDisplayName(job)}</span>
+                                                <span className="job-title">
+                                                    {getJobDisplayName(job)}
+                                                </span>
                                                 <span className={`job-status-badge ${status}`}>
                                                     {getPipelineStatusLabel(status)}
                                                 </span>
                                             </span>
 
-                                            <span className="job-subtext">{getJobSubText(job)}</span>
+                                            <span className="job-subtext">
+                                                {getJobSubText(job)}
+                                            </span>
 
                                             {job.pipeline_error ? (
-                                                <span className="job-error">{job.pipeline_error}</span>
+                                                <span className="job-error">
+                                                    {job.pipeline_error}
+                                                </span>
                                             ) : null}
                                         </button>
                                     </div>
@@ -821,31 +939,47 @@ export default function App() {
                             <button
                                 className="button secondary"
                                 type="button"
-                                onClick={generateSopSequentially}
+                                onClick={runFullPipeline}
                                 disabled={!canRunJobActions || isBusy}
                             >
-                                Generate SOP
+                                Run full pipeline
                             </button>
 
-                            {failedStep || nextRunnableStep ? (
-                                <button
-                                    className="button ghost"
-                                    type="button"
-                                    onClick={resumePipeline}
-                                    disabled={!canRunJobActions || isBusy}
-                                >
-                                    Resume
-                                </button>
-                            ) : null}
+                            <button
+                                className="button ghost"
+                                type="button"
+                                onClick={resumePipeline}
+                                disabled={!canRunJobActions || isBusy}
+                                title={
+                                    failedStep
+                                        ? `Resume from failed step: ${failedStep.fullLabel}`
+                                        : nextRunnableStep
+                                          ? `Resume from next pending step: ${nextRunnableStep.fullLabel}`
+                                          : "All steps are complete"
+                                }
+                            >
+                                Resume
+                            </button>
                         </div>
                     </div>
 
-                    <PipelineStatusBar stepState={stepState} />
+                    <PipelineStatusGrid
+                        stepState={stepState}
+                        selectedJob={selectedJob}
+                        canRunJobActions={canRunJobActions}
+                        isBusy={isBusy}
+                        onRerunFromStep={(startStepKey) =>
+                            runPipelineFrom(
+                                startStepKey,
+                                `Rerun from ${PIPELINE_STEPS[getStepIndex(startStepKey)]?.fullLabel || startStepKey}`,
+                            )
+                        }
+                    />
 
                     {loadingLabel ? (
                         <div className="notice amber">
-                            Running: {loadingLabel}. CPU-heavy steps such as diarization may
-                            take several minutes.
+                            Running: {loadingLabel}. CPU-heavy steps such as OCR and diarization
+                            may take several minutes.
                         </div>
                     ) : null}
 
@@ -870,10 +1004,10 @@ export default function App() {
                 <section className="card sop-card">
                     <div className="sop-header">
                         <div>
-                            <h2>Generated SOP</h2>
+                            <h2>Generated SOPs</h2>
                             <p>
-                                The SOP appears here after generation. Use Open to view it in a
-                                browser tab or Download to save the markdown file.
+                                The SOP step generates a detailed human SOP and a concise AI
+                                agent execution SOP.
                             </p>
                         </div>
 
@@ -881,73 +1015,72 @@ export default function App() {
                             <button
                                 className="icon-button"
                                 type="button"
-                                onClick={openSop}
+                                onClick={downloadDetailedSop}
                                 disabled={!hasGeneratedSop || !jobId}
-                                title="Open SOP"
+                                title="Download detailed human/audit SOP"
                             >
-                                ↗ Open
+                                ⬇ Detailed SOP
                             </button>
 
                             <button
                                 className="icon-button"
                                 type="button"
-                                onClick={downloadSop}
+                                onClick={downloadAgentSop}
                                 disabled={!hasGeneratedSop || !jobId}
-                                title="Download SOP"
+                                title="Download AI agent execution SOP"
                             >
-                                ⬇ Download
+                                ⬇ Agent SOP
                             </button>
                         </div>
                     </div>
 
                     <div className="sop-box">
-                        {sopResult
-                            ? extractSopText(sopResult)
+                        {hasGeneratedSop
+                            ? "SOPs are ready. Download Detailed SOP for human review or Agent SOP for RAG/Playwright execution."
                             : "No SOP generated for the selected job yet."}
                     </div>
                 </section>
-            </div>
 
-            {showDeleteConfirm ? (
-                <div className="modal-backdrop" role="presentation">
-                    <div className="modal-card" role="dialog" aria-modal="true" aria-labelledby="delete-jobs-title">
-                        <h2 id="delete-jobs-title">Delete selected job runs?</h2>
-                        <p>
-                            This will permanently delete the selected job run records and all related files,
-                            including uploaded videos, extracted audio, frames, OCR, transcripts, timeline,
-                            activities, refined activities, diarization output, and generated SOP files.
-                        </p>
+                {showDeleteConfirm ? (
+                    <div className="modal-backdrop" role="presentation">
+                        <div className="modal-card" role="dialog" aria-modal="true">
+                            <h2>Delete selected job runs?</h2>
+                            <p>
+                                This will permanently remove the selected job run records and all
+                                related generated files from the local data folders.
+                            </p>
 
-                        <div className="delete-list-box">
-                            {selectedJobsForDelete.map((job) => (
-                                <div className="delete-list-item" key={job.job_id}>
-                                    <strong>{getJobDisplayName(job)}</strong>
-                                    <span>{job.job_id}</span>
-                                </div>
-                            ))}
-                        </div>
+                            <div className="delete-list-box">
+                                {selectedJobsForDelete.map((job) => (
+                                    <div className="delete-list-item" key={job.job_id}>
+                                        <strong>{getJobDisplayName(job)}</strong>
+                                        <span>{job.job_id}</span>
+                                    </div>
+                                ))}
+                            </div>
 
-                        <div className="modal-actions">
-                            <button
-                                className="button ghost"
-                                type="button"
-                                onClick={() => setShowDeleteConfirm(false)}
-                                disabled={isBusy}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                className="button danger"
-                                type="button"
-                                onClick={deleteSelectedJobs}
-                                disabled={isBusy || selectedJobIds.length === 0}
-                            >
-                                Delete Permanently
-                            </button>
+                            <div className="modal-actions">
+                                <button
+                                    className="button ghost"
+                                    type="button"
+                                    onClick={() => setShowDeleteConfirm(false)}
+                                    disabled={isBusy}
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    className="button danger"
+                                    type="button"
+                                    onClick={deleteSelectedJobs}
+                                    disabled={isBusy || selectedJobIds.length === 0}
+                                >
+                                    Delete Permanently
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            ) : null}
+                ) : null}
+            </div>
         </main>
     );
 }

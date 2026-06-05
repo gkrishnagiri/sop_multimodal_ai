@@ -17,6 +17,16 @@ class Settings(BaseSettings):
     # Browser / future UI-agent settings
     browser_mode: str = "headed"
 
+    # OCR settings
+    ocr_frame_stride: int = 1
+    ocr_continue_on_frame_error: bool = True
+    ocr_min_confidence: float = 0.0
+    ocr_fail_pipeline_if_all_frames_fail: bool = False
+
+    # Diarization settings
+    # 0 or None means full-length diarization.
+    diarization_max_duration_seconds: int | None = 0
+
     class Config:
         env_file = ".env"
         extra = "ignore"
