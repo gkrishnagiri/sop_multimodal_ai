@@ -727,7 +727,7 @@
     "timeline_speaker_labeled_segments": 0,
     "diarization_used": false,
     "refined_activities_path": "data/refined_activities/66a40210-c8cb-40c7-b156-648d6c6aacc4.json",
-    "refined_activity_count": 1,
+    "refined_activity_count": 6,
     "sop_json_path": "data/outputs/66a40210-c8cb-40c7-b156-648d6c6aacc4_sop.json",
     "sop_markdown_path": "data/outputs/66a40210-c8cb-40c7-b156-648d6c6aacc4_sop.md",
     "sop_docx_path": "data/outputs/66a40210-c8cb-40c7-b156-648d6c6aacc4_sop.docx",

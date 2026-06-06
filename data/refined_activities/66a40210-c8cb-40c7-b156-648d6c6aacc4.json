@@ -1,11 +1,11 @@
 {
   "job_id": "66a40210-c8cb-40c7-b156-648d6c6aacc4",
-  "activity_count": 1,
+  "activity_count": 6,
   "activities": [
     {
       "activity_id": "refined_activity_001",
       "name": "Navigate and Filter Options",
-      "description": "The user navigates to the relevant page and filters available options for train searches.",
+      "description": "User navigates to the homepage and filters options for train searches.",
       "start_seconds": 0.0,
       "end_seconds": 155.96,
       "duration_seconds": 155.96,
@@ -17,59 +17,386 @@
       "steps": [
         {
           "step_number": 1,
-          "instruction": "Open the relevant page or navigate to the required section.",
+          "instruction": "Open the homepage of the service.",
           "ui_action": "Navigate to homepage",
-          "expected_result": "User is on the IRCTC homepage.",
+          "expected_result": "Homepage is displayed with various options.",
           "start_seconds": 0.0,
           "end_seconds": 12.24,
           "source_step_refs": [
-            "activity_001_step_1"
+            "1"
           ],
           "evidence": {
-            "speech_summary": "User describes accessing the IRCTC homepage.",
+            "speech_summary": "User opens the IRCTC homepage.",
             "screen_text": [
               "Install",
               "irctc.co.in/nget/train-search",
               "LOGIN / REGISTER",
-              "TRAINS"
+              "TRAINS",
+              "MEALS"
             ],
             "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_0_ts_0.00.jpg"
           }
         },
         {
           "step_number": 2,
-          "instruction": "Use filters or visible criteria to refine the displayed information.",
-          "ui_action": "Apply filters for train search",
+          "instruction": "Use filters to refine the displayed train options.",
+          "ui_action": "Apply filters",
           "expected_result": "Filtered train options are displayed.",
           "start_seconds": 12.24,
-          "end_seconds": 69.52,
+          "end_seconds": 155.96,
           "source_step_refs": [
-            "activity_001_step_2",
-            "activity_001_step_4",
-            "activity_001_step_5",
-            "activity_001_step_6",
-            "activity_001_step_7",
-            "activity_001_step_8",
-            "activity_001_step_9",
-            "activity_001_step_10",
-            "activity_001_step_11",
-            "activity_001_step_12",
-            "activity_001_step_13",
-            "activity_001_step_14",
-            "activity_001_step_15",
-            "activity_001_step_16",
-            "activity_001_step_17",
-            "activity_001_step_18"
+            "2",
+            "4",
+            "5",
+            "6",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18"
           ],
           "evidence": {
-            "speech_summary": "User describes filtering options for train availability.",
+            "speech_summary": "User filters options for train searches.",
             "screen_text": [
               "irctc.co.in/nget/train-search",
               "Welcome Giridhar Krishnagiri (girishubha)",
-              "MY ACCOUNT",
-              "TRAINS"
+              "MY ACCOUNT"
             ],
-            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_3600_ts_60.00.jpg"
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_7200_ts_120.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "refined_activity_002",
+      "name": "Review Train Search Results",
+      "description": "User reviews the search results for available trains.",
+      "start_seconds": 155.96,
+      "end_seconds": 345.88,
+      "duration_seconds": 189.92,
+      "source_activity_ids": [
+        "activity_002"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User reviews the available train options after performing a search.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Review the displayed train options after search.",
+          "ui_action": "View search results",
+          "expected_result": "List of available trains is displayed.",
+          "start_seconds": 155.96,
+          "end_seconds": 166.44,
+          "source_step_refs": [
+            "1"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews the search results for trains.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_9900_ts_165.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Use filters to refine the displayed train options.",
+          "ui_action": "Apply filters",
+          "expected_result": "Filtered train options are displayed.",
+          "start_seconds": 166.44,
+          "end_seconds": 345.88,
+          "source_step_refs": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21"
+          ],
+          "evidence": {
+            "speech_summary": "User filters available train options.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_17100_ts_285.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "refined_activity_003",
+      "name": "Select Booking Date",
+      "description": "User selects the date for booking a train ticket.",
+      "start_seconds": 347.4,
+      "end_seconds": 367.32,
+      "duration_seconds": 19.92,
+      "source_activity_ids": [
+        "activity_003"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User selects the date for booking a train ticket after checking availability.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Select the desired booking date.",
+          "ui_action": "Choose booking date",
+          "expected_result": "Selected date is confirmed for booking.",
+          "start_seconds": 347.4,
+          "end_seconds": 353.4,
+          "source_step_refs": [
+            "1"
+          ],
+          "evidence": {
+            "speech_summary": "User selects the date for booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_20700_ts_345.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Confirm the selected date for booking.",
+          "ui_action": "Confirm date selection",
+          "expected_result": "Date is confirmed for booking.",
+          "start_seconds": 354.12,
+          "end_seconds": 367.32,
+          "source_step_refs": [
+            "2"
+          ],
+          "evidence": {
+            "speech_summary": "User confirms the selected booking date.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_21600_ts_360.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "refined_activity_004",
+      "name": "Handle Booking Confirmation",
+      "description": "User reviews the booking confirmation message.",
+      "start_seconds": 367.32,
+      "end_seconds": 397.96,
+      "duration_seconds": 30.64,
+      "source_activity_ids": [
+        "activity_004"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User reviews the confirmation message after attempting to book a train ticket.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Review the booking confirmation message.",
+          "ui_action": "View confirmation",
+          "expected_result": "Confirmation message is displayed.",
+          "start_seconds": 367.32,
+          "end_seconds": 375.24,
+          "source_step_refs": [
+            "1"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews the booking confirmation message.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_22500_ts_375.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Choose to proceed with the booking based on the confirmation.",
+          "ui_action": "Confirm booking",
+          "expected_result": "Booking is confirmed or further actions are prompted.",
+          "start_seconds": 375.24,
+          "end_seconds": 397.96,
+          "source_step_refs": [
+            "2"
+          ],
+          "evidence": {
+            "speech_summary": "User confirms the booking based on the displayed message.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/train-list",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_23400_ts_390.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "refined_activity_005",
+      "name": "Enter Passenger Information",
+      "description": "User enters required passenger details for booking.",
+      "start_seconds": 398.84,
+      "end_seconds": 529.72,
+      "duration_seconds": 130.88,
+      "source_activity_ids": [
+        "activity_005"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User enters passenger details and selects preferences for the booking.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Enter required passenger information into the fields.",
+          "ui_action": "Fill in passenger details",
+          "expected_result": "Passenger information is entered successfully.",
+          "start_seconds": 398.84,
+          "end_seconds": 404.44,
+          "source_step_refs": [
+            "1"
+          ],
+          "evidence": {
+            "speech_summary": "User enters passenger information.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_24300_ts_405.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Select meal preferences for the booking.",
+          "ui_action": "Choose meal options",
+          "expected_result": "Meal preferences are selected successfully.",
+          "start_seconds": 404.44,
+          "end_seconds": 529.72,
+          "source_step_refs": [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "evidence": {
+            "speech_summary": "User selects meal preferences and enters additional details.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_28800_ts_480.00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "activity_id": "refined_activity_006",
+      "name": "Configure Booking Preferences",
+      "description": "User configures additional preferences for the booking.",
+      "start_seconds": 529.8,
+      "end_seconds": 651.32,
+      "duration_seconds": 121.52,
+      "source_activity_ids": [
+        "activity_006"
+      ],
+      "confidence": 0.9,
+      "evidence_summary": "User configures preferences related to the booking before finalizing.",
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Configure additional preferences for the booking.",
+          "ui_action": "Set preferences",
+          "expected_result": "Preferences are configured successfully.",
+          "start_seconds": 529.8,
+          "end_seconds": 536.76,
+          "source_step_refs": [
+            "1"
+          ],
+          "evidence": {
+            "speech_summary": "User configures preferences for the booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_32400_ts_540.00.jpg"
+          }
+        },
+        {
+          "step_number": 2,
+          "instruction": "Review payment options and finalize the booking.",
+          "ui_action": "Select payment method",
+          "expected_result": "Payment options are displayed for final confirmation.",
+          "start_seconds": 536.76,
+          "end_seconds": 651.32,
+          "source_step_refs": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+          ],
+          "evidence": {
+            "speech_summary": "User reviews payment options before finalizing the booking.",
+            "screen_text": [
+              "irctc.co.in/nget/booking/psgninput",
+              "Welcome Giridhar Krishnagiri (girishubha)",
+              "MY ACCOUNT"
+            ],
+            "frame_path": "data/frames/66a40210-c8cb-40c7-b156-648d6c6aacc4/frame_36900_ts_615.00.jpg"
           }
         }
       ]

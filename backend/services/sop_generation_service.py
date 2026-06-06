@@ -294,7 +294,7 @@ class SopGenerationService:
         agent_sop["job_id"] = job_id
         agent_sop["metadata"] = {
             "llm_model": settings.llm_model,
-            "generator": "generic_agent_execution_sop_generator_v2",
+            "generator": "generic_agent_execution_sop_generator_v3",
             "source": activity_source,
             "derived_from": "detailed_sop_and_activity_evidence",
         }
@@ -321,14 +321,15 @@ Important rules:
 7. Avoid vague instructions such as "Use filters", "Navigate to relevant page", "Configure visible settings", or "Select appropriate option" unless the specific target cannot be inferred.
 8. If a field value is not visible or not safely reusable, write "Enter the required value for <field name>".
 9. Avoid raw personal data. Use generic terms such as "saved passenger", "registered contact details", "selected record", "user account", "selected item", or "configured option".
-10. Distinguish observed action from reusable instruction. The reusable instruction should be executable, but it must remain evidence-grounded.
-11. Preserve traceability by including evidence timestamps and frame paths in each step.
-12. Do not include finalization words such as "finalize", "complete", "submit", "approve", "pay", "save", "close", or "confirm" as completed actions unless evidence explicitly shows that completed state.
-13. If recording stops before final payment/submission/approval/completion, the observed_end_state and completion criteria must say that the workflow reached the last observed review/pre-submit/payment-entry screen.
-14. Expected results must describe immediate visible screen results, not downstream business outcomes.
-15. Validation must describe what the agent or human should check on screen before continuing.
-16. Do not create one step per video timestamp, frame, or scroll event. Summarize repeated actions into one reusable step with a loop or repeat note.
-17. Return only valid JSON matching the provided schema.
+10. Never treat welcome banners, logged-in account labels, account menus, profile labels, or user identity text as input fields.
+11. Distinguish observed action from reusable instruction. The reusable instruction should be executable, but it must remain evidence-grounded.
+12. Preserve traceability by including evidence timestamps and frame paths in each step.
+13. Do not include finalization words such as "finalize", "complete", "submit", "approve", "pay", "save", "close", or "confirm" as completed actions unless evidence explicitly shows that completed state.
+14. If recording stops before final payment/submission/approval/completion, the observed_end_state and completion criteria must say that the workflow reached the last observed review/pre-submit/payment-entry screen.
+15. Expected results must describe immediate visible screen results, not downstream business outcomes.
+16. Validation must describe what the agent or human should check on screen before continuing.
+17. Do not create one step per video timestamp, frame, or scroll event. Summarize repeated actions into one reusable step with a loop or repeat note.
+18. Return only valid JSON matching the provided schema.
 """.strip()
 
     def _user_prompt(
@@ -411,7 +412,9 @@ Writing rules:
 13. If a value is task-specific, write "Enter the required value for <field name>".
 14. If a target is not exact but visible context exists, use a practical generic target like "the visible Search button" or "the selected record row".
 15. Do not claim payment, submission, approval, deletion, creation, or final completion unless evidence explicitly proves it.
-16. Return only valid JSON matching the provided schema.
+16. Never treat welcome banners, account labels, logged-in user labels, profile labels, or menu/account text as form fields.
+17. Avoid raw personal identity labels in Agent SOP steps. Prefer generic wording such as "logged-in account indicator" or "account menu".
+18. Return only valid JSON matching the provided schema.
 """.strip()
 
     def _agent_user_prompt(
@@ -456,6 +459,8 @@ Output requirements:
   - observed_form_sections
   - observed_result_sections
 - Do not use vague phrases such as "relevant page", "visible criteria", or "displayed information" when an observed URL, page, field, button, section, or menu label is available.
+- Use observed_input_fields only when the candidate is clearly a form field. Do not use welcome/account/profile/menu/status labels as input fields.
+- Prefer a safe generic target such as "passenger information fields" or "visible required input fields" when exact field labels are not confidently observed.
 - For every step:
   - Write one simple browser/UI action.
   - Include a success_check that tells the agent what to verify before continuing.
@@ -971,7 +976,7 @@ Return JSON only.
         for text in clean_text:
             lower = text.lower()
             if any(keyword in lower for keyword in access_keywords):
-                access_terms.append(text)
+                access_terms.append(self._sanitize_ui_label(text))
 
         entry_point = url_candidates[0] if url_candidates else ""
 
@@ -1003,8 +1008,10 @@ Return JSON only.
             lower = clean.lower()
             if not clean or len(clean) > 60:
                 continue
+            if self._is_account_or_identity_label(clean):
+                continue
             if any(word == lower or word in lower for word in action_words):
-                buttons.append(clean)
+                buttons.append(self._sanitize_ui_label(clean))
 
         return self._dedupe_keep_order(buttons)
 
@@ -1023,8 +1030,16 @@ Return JSON only.
             lower = clean.lower()
             if not clean or len(clean) > 80:
                 continue
+            if self._is_account_or_identity_label(clean):
+                continue
+            if self._looks_like_url(clean):
+                continue
+            if self._looks_like_navigation_or_status_label(clean):
+                continue
+            if not self._looks_like_form_field_label(clean):
+                continue
             if any(keyword == lower or keyword in lower for keyword in field_keywords):
-                fields.append(clean)
+                fields.append(self._sanitize_ui_label(clean))
 
         return self._dedupe_keep_order(fields)
 
@@ -1116,16 +1131,27 @@ Return JSON only.
             cleaned_activity["steps"] = self._compress_detailed_steps(
                 cleaned_activity.get("steps", []) or []
             )
+            cleaned_activity["steps"] = [
+                self._sanitize_detailed_step(step)
+                for step in cleaned_activity.get("steps", []) or []
+                if isinstance(step, dict)
+            ]
             activities.append(cleaned_activity)
 
         sop["activities"] = activities
+        sop["observed_end_state"] = self._rewrite_unsafe_completion_language(
+            sop.get("observed_end_state", "")
+        )
+        sop["business_process_description"] = self._rewrite_unsafe_completion_language(
+            sop.get("business_process_description", "")
+        )
         sop["completion_criteria"] = self._clean_completion_criteria(
             sop.get("completion_criteria", []) or [],
             sop,
         )
 
         metadata = sop.get("metadata") if isinstance(sop.get("metadata"), dict) else {}
-        metadata["postprocessor"] = "mvp11_2_execution_quality_hardening"
+        metadata["postprocessor"] = "mvp11_3_safe_ui_field_extraction_and_completion_wording"
         metadata["observed_entry_point"] = observation_summary.get("observed_entry_point", "")
         sop["metadata"] = metadata
 
@@ -1179,7 +1205,13 @@ Return JSON only.
             if term and term.lower() not in " ".join(access_and_navigation).lower():
                 access_and_navigation.append(f"Observed access/navigation cue: {term}")
 
-        agent_sop["access_and_navigation"] = self._dedupe_keep_order(access_and_navigation)
+        agent_sop["access_and_navigation"] = self._dedupe_keep_order(
+            [self._sanitize_ui_label(item) for item in access_and_navigation]
+        )
+        agent_sop["limitations"] = [
+            self._rewrite_unsafe_completion_language(item)
+            for item in agent_sop.get("limitations", []) or []
+        ]
 
         cleaned_tasks = []
         for task in agent_sop.get("task_catalog", []) or []:
@@ -1205,7 +1237,7 @@ Return JSON only.
         agent_sop["task_catalog"] = cleaned_tasks
 
         metadata = agent_sop.get("metadata") if isinstance(agent_sop.get("metadata"), dict) else {}
-        metadata["postprocessor"] = "mvp11_2_execution_quality_hardening"
+        metadata["postprocessor"] = "mvp11_3_safe_ui_field_extraction_and_completion_wording"
         metadata["observed_entry_point"] = observed_entry_point
         agent_sop["metadata"] = metadata
 
@@ -1347,13 +1379,18 @@ Return JSON only.
         task: dict[str, Any],
         observation_summary: dict[str, Any],
     ) -> list[dict[str, Any]]:
-        """Make agent steps more executable using generic observed UI evidence."""
+        """Make agent steps more executable using safe generic observed UI evidence.
+
+        Important:
+        - Never replace a reasonable generic field target with low-confidence OCR text.
+        - Never use account/welcome/profile identity labels as input fields.
+        """
 
         observed_entry_point = self._clean_text(observation_summary.get("observed_entry_point", ""))
-        observed_buttons = observation_summary.get("observed_buttons", []) or []
-        observed_input_fields = observation_summary.get("observed_input_fields", []) or []
-        observed_result_sections = observation_summary.get("observed_result_sections", []) or []
-        observed_form_sections = observation_summary.get("observed_form_sections", []) or []
+        observed_buttons = self._safe_ui_candidates(observation_summary.get("observed_buttons", []) or [])
+        observed_input_fields = self._safe_field_candidates(observation_summary.get("observed_input_fields", []) or [])
+        observed_result_sections = self._safe_ui_candidates(observation_summary.get("observed_result_sections", []) or [])
+        observed_form_sections = self._safe_ui_candidates(observation_summary.get("observed_form_sections", []) or [])
 
         improved_steps: list[dict[str, Any]] = []
 
@@ -1363,7 +1400,6 @@ Return JSON only.
             target = self._clean_text(step.get("target_ui_element", ""))
             success_check = self._clean_text(step.get("success_check", ""))
             action_type = self._clean_text(step.get("action_type", ""))
-
             instruction_lower = instruction.lower()
 
             if (
@@ -1379,16 +1415,26 @@ Return JSON only.
             ):
                 step["instruction"] = f"Open {observed_entry_point}."
                 step["target_ui_element"] = observed_entry_point
-                step["success_check"] = (
-                    "The observed application entry page is loaded and visible."
-                )
+                step["success_check"] = "The observed application entry page is loaded and visible."
 
-            elif action_type in {"type", "enter"} and self._is_vague_ui_text(instruction):
-                field_hint = self._first_useful_item(observed_input_fields)
-                if field_hint:
-                    step["instruction"] = f"Enter the required value in the {field_hint} field."
-                    step["target_ui_element"] = field_hint
-                    step["success_check"] = f"The {field_hint} field contains the required value."
+            elif action_type in {"type", "enter"}:
+                target_is_usable = self._is_reasonable_generic_field_target(target)
+                instruction_is_vague = self._is_vague_ui_text(instruction)
+
+                if not target_is_usable and instruction_is_vague:
+                    field_hint = self._first_safe_field_item(observed_input_fields)
+                    if field_hint:
+                        step["instruction"] = f"Enter the required value in the {field_hint} field."
+                        step["target_ui_element"] = field_hint
+                        step["success_check"] = f"The {field_hint} field contains the required value."
+                    else:
+                        step["instruction"] = self._safe_enter_instruction(instruction, target)
+                        step["target_ui_element"] = target or "visible required input fields"
+                        step["success_check"] = "All required visible input fields contain the required values."
+
+                elif target_is_usable and self._is_vague_ui_text(instruction):
+                    step["instruction"] = self._safe_enter_instruction(instruction, target)
+                    step["success_check"] = success_check or f"The {target} are filled with the required values."
 
             elif action_type in {"click", "search", "confirm", "choose", "select"} and self._is_vague_ui_text(target):
                 button_hint = self._first_useful_item(observed_buttons)
@@ -1407,6 +1453,8 @@ Return JSON only.
                     step["target_ui_element"] = form_hint
                     step["success_check"] = f"The selected option is visible in the {form_hint} section."
 
+            step = self._sanitize_agent_step(step)
+
             if not self._clean_text(step.get("success_check", "")):
                 step["success_check"] = success_check or "The expected screen update is visible."
 
@@ -1414,6 +1462,205 @@ Return JSON only.
             improved_steps.append(step)
 
         return improved_steps
+
+
+    def _sanitize_agent_step(self, step: dict[str, Any]) -> dict[str, Any]:
+        cleaned = dict(step)
+
+        for key in ["instruction", "success_check", "target_ui_element", "notes"]:
+            cleaned[key] = self._sanitize_ui_label(cleaned.get(key, ""))
+
+        cleaned["instruction"] = self._rewrite_unsafe_completion_language(cleaned.get("instruction", ""))
+        cleaned["success_check"] = self._rewrite_unsafe_completion_language(cleaned.get("success_check", ""))
+        cleaned["notes"] = self._rewrite_unsafe_completion_language(cleaned.get("notes", ""))
+
+        if self._is_account_or_identity_label(cleaned.get("target_ui_element", "")):
+            cleaned["target_ui_element"] = "account or navigation area"
+
+        return cleaned
+
+    def _sanitize_detailed_step(self, step: dict[str, Any]) -> dict[str, Any]:
+        cleaned = dict(step)
+
+        for key in [
+            "instruction",
+            "ui_action",
+            "target_ui_element",
+            "expected_result",
+            "validation",
+            "condition",
+            "fallback_or_note",
+        ]:
+            cleaned[key] = self._sanitize_ui_label(cleaned.get(key, ""))
+            cleaned[key] = self._rewrite_unsafe_completion_language(cleaned[key])
+
+        if self._is_account_or_identity_label(cleaned.get("target_ui_element", "")):
+            cleaned["target_ui_element"] = "account or navigation area"
+
+        return cleaned
+
+    def _safe_enter_instruction(self, instruction: str, target: str) -> str:
+        clean_target = self._clean_text(target)
+        if clean_target:
+            return f"Enter the required information into the {clean_target}."
+        clean_instruction = self._clean_text(instruction)
+        if clean_instruction:
+            return clean_instruction
+        return "Enter the required information into the visible required input fields."
+
+    def _safe_ui_candidates(self, items: list[Any]) -> list[str]:
+        candidates = []
+        for item in items:
+            clean = self._sanitize_ui_label(item)
+            if not clean:
+                continue
+            if self._is_account_or_identity_label(clean):
+                continue
+            candidates.append(clean)
+        return self._dedupe_keep_order(candidates)
+
+    def _safe_field_candidates(self, items: list[Any]) -> list[str]:
+        candidates = []
+        for item in items:
+            clean = self._sanitize_ui_label(item)
+            if not clean:
+                continue
+            if self._is_account_or_identity_label(clean):
+                continue
+            if self._looks_like_navigation_or_status_label(clean):
+                continue
+            if not self._looks_like_form_field_label(clean):
+                continue
+            candidates.append(clean)
+        return self._dedupe_keep_order(candidates)
+
+    def _first_safe_field_item(self, items: list[Any]) -> str:
+        for item in items:
+            clean = self._clean_text(item)
+            if clean and len(clean) <= 80 and self._looks_like_form_field_label(clean):
+                return clean
+        return ""
+
+    def _is_reasonable_generic_field_target(self, text: Any) -> bool:
+        clean = self._clean_text(text).lower()
+        if not clean:
+            return False
+        if self._is_account_or_identity_label(clean):
+            return False
+
+        reasonable_terms = [
+            "field", "fields", "input", "form", "details", "information",
+            "passenger", "contact", "address", "preference", "option", "date",
+            "name", "age", "gender", "email", "mobile", "phone",
+        ]
+
+        return any(term in clean for term in reasonable_terms)
+
+    def _looks_like_form_field_label(self, text: Any) -> bool:
+        clean = self._clean_text(text)
+        lower = clean.lower()
+
+        if not clean:
+            return False
+
+        if self._is_account_or_identity_label(clean):
+            return False
+
+        if self._looks_like_url(clean):
+            return False
+
+        if self._looks_like_navigation_or_status_label(clean):
+            return False
+
+        field_terms = [
+            "field", "input", "enter", "type", "name", "password", "email",
+            "mail", "mobile", "phone", "age", "gender", "date", "time", "from",
+            "to", "source", "destination", "address", "city", "state", "country",
+            "pin", "zip", "amount", "number", "id", "code", "class", "category",
+            "details", "information",
+        ]
+
+        return any(term == lower or term in lower for term in field_terms)
+
+    def _looks_like_navigation_or_status_label(self, text: Any) -> bool:
+        lower = self._clean_text(text).lower()
+        navigation_terms = [
+            "welcome", "my account", "account", "login", "register", "logout",
+            "profile", "dashboard", "menu", "home", "homepage", "install",
+            "help", "terms", "privacy", "copyright",
+        ]
+        return any(term == lower or term in lower for term in navigation_terms)
+
+    def _looks_like_url(self, text: Any) -> bool:
+        clean = self._clean_text(text)
+        return bool(
+            re.search(
+                r"(?:https?://)?(?:www\.)?[A-Za-z0-9.-]+\.(?:com|in|org|net|io)(?:/|$)",
+                clean,
+            )
+        )
+
+    def _is_account_or_identity_label(self, text: Any) -> bool:
+        lower = self._clean_text(text).lower()
+
+        if not lower:
+            return False
+
+        identity_patterns = [
+            r"\bwelcome\b",
+            r"\bmy account\b",
+            r"\baccount\b",
+            r"\blogged\s*in\b",
+            r"\bprofile\b",
+            r"\buser\s*menu\b",
+            r"\bhello\b",
+            r"\bhi,\b",
+        ]
+
+        return any(re.search(pattern, lower) for pattern in identity_patterns)
+
+    def _sanitize_ui_label(self, value: Any) -> str:
+        text = self._clean_text(value)
+
+        if not text:
+            return ""
+
+        lower = text.lower()
+
+        if self._is_account_or_identity_label(text):
+            if "welcome" in lower:
+                return "logged-in account indicator"
+            if "my account" in lower or "account" in lower:
+                return "account menu"
+            if "profile" in lower:
+                return "profile area"
+            return "account or navigation area"
+
+        return text
+
+    def _rewrite_unsafe_completion_language(self, value: Any) -> str:
+        text = self._clean_text(value)
+        if not text:
+            return ""
+
+        replacements = [
+            (r"\bfinalize the booking\b", "review the booking before final submission"),
+            (r"\bfinalise the booking\b", "review the booking before final submission"),
+            (r"\bconfirm the booking\b", "review the booking confirmation prompt"),
+            (r"\bbooking is confirmed\b", "the next booking step is displayed"),
+            (r"\bbooking details are confirmed\b", "booking details are reviewed"),
+            (r"\bconfirmed for booking\b", "selected for booking review"),
+            (r"\bpayment completed\b", "payment options are visible"),
+            (r"\bcomplete payment\b", "review payment options"),
+            (r"\bpay\b", "review payment options"),
+            (r"\bsubmit\b", "proceed only when explicitly required"),
+        ]
+
+        rewritten = text
+        for pattern, replacement in replacements:
+            rewritten = re.sub(pattern, replacement, rewritten, flags=re.IGNORECASE)
+
+        return rewritten
 
     def _is_vague_ui_text(self, text: Any) -> bool:
         clean = self._clean_text(text).lower()
@@ -1571,7 +1818,7 @@ Return JSON only.
                     "Final submission, payment, approval, save, delete, creation, or completion is not claimed unless visibly confirmed."
                 )
 
-            cleaned.append(text)
+            cleaned.append(self._rewrite_unsafe_completion_language(text))
 
         if not cleaned and pre_submit_context:
             cleaned.append(
